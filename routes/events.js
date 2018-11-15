@@ -34,7 +34,7 @@ module.exports = (knex) => {
 
 
   eventRoutes.get("/:id", (req, res) => {
-    res.send("This page should render a specific event's page");
+    res.redirect(req.param.id);
   });
 
   eventRoutes.get("/:id/edit", (req, res) => {
@@ -43,13 +43,8 @@ module.exports = (knex) => {
 
   // delete the event
   eventRoutes.post("/:id/delete", (req, res) => {
-    res.send("This should delete the event and then redirect");
-
-    let user = {
-      name: name,
-      email: email,
-    };
-    knex('users').table('');
+    knex('events').where(`id = ${req.params.id}`).del();
+    res.redirect('/');
   });
 
 
