@@ -1,7 +1,23 @@
 body {
-  background-color: #EEE;
+  background-color: black;
 
-  h1 {
-    color: #244751;
+  .navbar {
+    width: 100%;
+    background-color: red;
+    text-align: center;
+  }
+
+  .createEvent {
+    text-align: center;
+  }
+
+  .h1 {
+    text-align: center;
+    background-color: blue;
+    color: white;
+  }
+
+  .btn {
+    border-radius: 10px;
   }
 }
