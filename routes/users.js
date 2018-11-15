@@ -14,5 +14,9 @@ module.exports = (knex) => {
     });
   });
 
+  router.get("/hello", (req, res) => {
+    res.send("Hello");
+  });
+
   return router;
 }
