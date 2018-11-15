@@ -37,12 +37,18 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+app.use("/api/users", usersRoutes(knex)); // pulls knex results if you visit /api/users
 
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get("/test", (req, res) => {
+  res.send("hi there");
+});
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
