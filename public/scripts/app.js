@@ -14,4 +14,17 @@ $(document).ready(function () {
     $('.start').slideUp();
     $('.createEvent').slideDown();
   });
+
+  $('.btn').on('click', function(event) {
+    event.preventDefault();
+    const $form = $('.createEvent');
+    $.ajax({
+      type: 'POST',
+      url: '/events',
+      data: $form.serialize(),
+      success: function () {
+        $form.slideUp();
+      }
+    });
+  });
 });

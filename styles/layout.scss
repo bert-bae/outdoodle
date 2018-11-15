@@ -10,7 +10,13 @@ body {
   .navbar {
     width: 100%;
     height: 30px;
-    background-color: crimson;
+    /*background-color: red;*/
+    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+    background-position: center;
+    background-blend-mode: color-burn;
+    opacity: 0.9;
+    color: white;
+    font-family: monospace;
     text-align: center;
     font-size: 1.5em;
     text-overflow: auto;
@@ -56,7 +62,7 @@ body {
     cursor: pointer;
   }
   .left {
-    background-color: black;
+    background-color: crimson;
     float: left;
     height: 100%;
     width: 10%;
@@ -65,7 +71,7 @@ body {
   }
 
   .right {
-    background-color: black;
+    background-color: crimson;
     float: right;
     height: 100%;
     width: 10%;
