@@ -43,6 +43,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get('/events', (req, res) => {
+  res.send('hellloo')
+})
+
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
