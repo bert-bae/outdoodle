@@ -1,4 +1,6 @@
-function generateRandomString() {
+
+
+module.exports = function generateRandomString() {
    var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
