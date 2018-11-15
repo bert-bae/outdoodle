@@ -1,26 +1,56 @@
 exports.seed = function(knex, Promise) {
-  return Promise.all([
-    knex('users').del(),
-    knex('ranks').del(),
-    knex('categories').del(),
-    knex('events').del()
-  ])
+  return knex('events_users').del()
+    .then(knex('events').del())
+    .then(knex('users').del())
+    .then(knex('ranks').del())
+    .then(knex('categories').del())
+
+
     .then(function () {
-      return Promise.all([
-        knex('users').insert({id: 1, name: 'Alice', email: 'testone@gmail.com', rank_id: 1}),
-        knex('users').insert({id: 2, name: 'Bob', email: 'testtwo@gmail.com', rank_id: 2}),
-        knex('users').insert({id: 3, name: 'Charlie', email: 'testthree@gmail.com', rank_id: 2}),
+      return knex('ranks').insert([{
+        type: 'admin'
+      }, {
+        type: 'user'
+      }]);
+    })
 
-        knex('ranks').insert({id: 1, type: 'admin'}),
-        knex('ranks').insert({id: 2, type: 'user'}),
+    .then(function () {
+      return knex('categories').insert([{
+        type: 'social'
+      }, {
+        type: 'virtual'
+      }, {
+        type: 'business'
+      }]);
+    })
 
-        knex('categories').insert({id: 1, type: 'social'}),
-        knex('categories').insert({id: 2, type: 'virtual'}),
-        knex('categories').insert({id: 3, type: 'business'}),
+    .then(function () {
+      return knex('users').insert([{
+        name: 'Alice', email: 'testone@gmail.com', rank_id: 1
+      }, {
+        name: 'Bob', email: 'testtwo@gmail.com', rank_id: 2
+      }, {
+        name: 'Charlie', email: 'testthree@gmail.com', rank_id: 2
+      }]);
+    })
 
-        knex('events').insert({id: 1, start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name One'}),
-        knex('events').insert({id: 2, start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Two'}),
-        knex('events').insert({id: 3, start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Three'})
-      ]);
+    .then(function () {
+      return knex('events').insert([{
+        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name One', categories_id: 1
+      }, {
+        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Two', categories_id: 2
+      }, {
+        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Three', categories_id: 3
+      }]);
+    })
+
+    .then(function () {
+      return knex('events_users').insert([{
+        event_id: 1, user_id: 1
+      }, {
+        event_id: 2, user_id: 2
+      }, {
+        event_id: 3, user_id: 3
+      }]);
     });
 };
