@@ -1,0 +1,96 @@
+USER STORIES
+
+As a user,
+I want to
+Create events to see friends
+
+As a user,
+I want
+Friends to be able to see my event
+
+As a user
+I want
+An easy way to plan events
+
+As a user
+I want
+To be able to view my friend's availability for coordinatory purposes
+
+As a user
+I should be able
+To modify my availability
+
+As a user
+I should be able
+To modify/delete my event
+
+As an admin user
+I should be able to
+Limit the number of attendees
+
+As a user
+I should be able to
+Leave comments, edit those comments, delete those comments, or reply to others comments
+
+As an admin user
+I should be able to
+Confirm the time and date of the event and send it out to the attendees by email
+
+SCENARIOS:
+
+Given an event link
+When a user opens it
+Then it direct them to the signup page
+
+Given a list of available timeslots
+When a user clicks the timeslot(s)
+Then the page should clearly display which slots have been selected
+
+If I enter an email/name that has already been attached to the current event
+Then I should be notified that this email/name is already attached to this event
+
+Given an idea to create an event, whe an admin proposes the timeslot options for the event to take place, the
+
+
+TIMELINE PROGRESSION:
+1. Admin enters name and email
+2. Admin will be prompted to enter event details, which include (name, proposed timeslots, template/category, attendee limit)
+3. Admin creates an initial event (event status will be unconfirmed) and recieves their unique link to edit/comment/etc
+4. Link is generated and admin can share via their own communication workflow (slack etc)
+5. Users recieve the link which takes them to the event page where they will be prompted to enter their name and email and availability (this info will enter the database)
+6. Users will be automatically redirected to a secret link which is unique to them (they will use this from now on to access the event, they will also recieve an email with this link)
+7. Admin can confirm the event time based on user availability and upon confirmation, attendees will be notified via email and prompted for addittional confirmation and the event page updated (event status = confirmed)
+
+GET - homepage
+www.redsquare.org/
+
+POST - page to create an event
+www.redsquare.org/
+
+GET
+www.redsquare.org/:id/
+
+PUT
+www.redsquare.org/:id/edit/
+
+DELETE
+www.redsquare.org/:id/delete/
+
+GET
+www.redsquare.org/:id/
+
+
+
+
+
+The user will follow their unique link
+Server uses req.params.id to set session cookie BEFORE automatically redirecting to the event page
+
+
+
+
+
+
+
+
+
