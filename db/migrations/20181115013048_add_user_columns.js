@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       table.integer('rank_id').unsigned();
       table.foreign('rank_id').references('ranks.id');
     })
-  ])
+  ]);
 };
 
 exports.down = function(knex, Promise) {
