@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     knex.schema.table('users', function(table){
       table.text('email').notNullable();
       table.integer('rank_id').unsigned();
-      table.foreign('rank_id').references('ranks.id');
+      table.foreign('rank_id').references('id').inTable('users').onDelete('CASCADE');
     })
   ]);
 };
@@ -12,7 +12,6 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
   return knex.schema.table('users', function(table){
     table.dropColumn('email');
-    table.dropForeign('rank_id', 'ranks.id');
     table.dropColumn('rank_id');
   });
 };

@@ -16,13 +16,13 @@ exports.up = function(knex, Promise) {
       table.text('detail');
       table.text('name').notNullable();
       table.integer('categories_id').unsigned();
-      table.foreign('categories_id').references('categories.id');
+      table.foreign('categories_id').references('id').inTable('categories').onDelete('CASCADE');
     }),
     knex.schema.createTable('events_users', function(table) {
       table.integer('user_id').unsigned();
       table.integer('event_id').unsigned();
-      table.foreign('user_id').references('users.id');
-      table.foreign('event_id').references('events.id');
+      table.foreign('user_id').references('id').inTable('users').onDelete('CASCADE');
+      table.foreign('event_id').references('id').inTable('events').onDelete('CASCADE');
     })
   ]);
 };
