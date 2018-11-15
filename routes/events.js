@@ -9,6 +9,10 @@ module.exports = (knex) => {
     res.send("This is for the AJAX request for the event creation page");
   });
 
+  eventRoutes.post("/", (req, res) => {
+    res.send('Hello');
+  });
+
   eventRoutes.get("/:id", (req, res) => {
     res.send("This page should render a specific event's page");
   });
