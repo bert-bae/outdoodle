@@ -10,12 +10,10 @@ $(() => {
     }
   });
 
-
-
-
-
-
-
-
+// TOAD: determine ajax request to server;
+  $.ajax({
+    method: "GET",
+    url: "/api/users"
+  }).done(alert("DOCUMENT ON READY, THIS HAPPENS ON APP.JS LINE 17"));
 
 });

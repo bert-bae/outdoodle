@@ -44,9 +44,24 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/test", (req, res) => {
-  res.send("hi there");
+app.get("/events", (req, res) => {
+  res.send("This is for the AJAX request for the event creation page");
 });
+
+app.get("/events/:id", (req, res) => {
+  res.send("This page should render a specific event's page");
+});
+
+app.get("/events/:id/edit", (req, res) => {
+  res.send("This page should render an edit page for a specific event's page");
+});
+
+// delete the event
+app.post("/events/:id/delete", (req, res) => {
+  res.send("This should delete the event and then redirect");
+});
+
+
 
 
 
