@@ -5,8 +5,6 @@ const eventRoutes  = express.Router();
 const randomURL = require('../public/scripts/urls.js');
 
 module.exports = (knex) => {
-  let name = req.body.name;
-  let email = req.body.email;
 
   eventRoutes.get("/", (req, res) => {
     res.send("This is for the AJAX request for the event creation page");
@@ -14,8 +12,8 @@ module.exports = (knex) => {
 
   eventRoutes.post("/", (req, res) => {
     knex('users').insert({
-      name: name,
-      email: email,
+      name: req.body.name,
+      email: req.body.email,
       rank_id: 1
     });
     res.send();
