@@ -9,13 +9,21 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/create.js"></script>
   </head>
 
   <body>
+    <div class="left"></div>
+    <div class="right"></div>
     <div class="navbar">Redsquare, the place where plans become reality</div>
     <br>
-    <h1 class="h1">Create an event!</h1>
+    <div class="start">
+      <h1>Why Redsquare?</h1>
+      <p>From time to time, we all need to organize events, but in today's world, it's hard to get everyone in the same place at the same time. No longer. With Redsquare, we make this arduous process easy! Click the button below to get started</p>
+    <button class="startbtn">Let's go!</button>
+    </div>
     <form class="createEvent" method="POST" action="/events">
+      <h1 class="h1">Create an event!</h1>
       <input type="text" name="name" placeholder="enter your name"></input>
       <input type="email" name="email" placeholder="enter your email"></input><br><br>
       <button class="btn">Create Event</button>
