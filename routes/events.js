@@ -38,7 +38,7 @@ module.exports = (knex) => {
       end_date: req.body.end_date,
       detail: req.body.details,
       name: req.body.eventName,
-      categories: req.body.category,
+      categories_id: req.body.category,
       location: req.body.location,
       main_url: eventUrl
     }).then(() => {
