@@ -34,9 +34,27 @@ module.exports = (knex) => {
     knex('users').table('');
   });
 
+  //querying data
+
+// rows.forEach(function (value) {
+
+// })
+  // knex.SELECT('events.name').FROM('events').
+  //     .JOIN('events_users')
+  //     .ON(event_id = event.id)
+  //     .JOIN('users')
+  //     .ON(users.id = user_id)
+  //     .WHERE()
+
+
   eventRoutes.get("/:id", (req, res) => {
+    // let templateVars = {
+    //   eventName:
+
+    // }
     res.render('event');
   });
+
 
 
   eventRoutes.post("/create", (req, res) => {
@@ -49,9 +67,10 @@ module.exports = (knex) => {
       name: req.body.eventName,
       categories: req.body.category,
       main_url: eventUrl
-    }).then(() => {
-      res.redirect('/events/' + eventUrl);
-    });
+    })
+    // .then(() => {
+      // res.redirect('/events/' + eventUrl);
+    // });
   });
 
   eventRoutes.get("/:id", (req, res) => {
