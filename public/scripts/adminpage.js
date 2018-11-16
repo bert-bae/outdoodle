@@ -1,24 +1,52 @@
 
 $(document).ready(function () {
-  $('.infobtn').on('click', function () {
-    $('.specifics').slideDown();
+  $('.setslots').on('click', function () {
+    $('.setslotsdiv').slideToggle();
   });
-$('.addslot').on('click', function(event) {
-  event.preventDefault();
-  alert('Yes...soon');
-  var $slot1 = $('<input>I am timeslot input!</input>');
-  $slot1.addClass('timeslotHR');
-  $slot1.css({
-    'width': '50px'
-  });
-  $('.slotdiv').append($slot);
-    $.ajax({
-      type: 'POST',
-      url: '/:id/timeslots',
-      data: $form.serialize(),
-      success: function () {
-        alert('WHAT YO IM RECEIVIN SHIT YO??!!??');
-      }
+
+
+
+
+  $('.setslotsdiv').on('submit', 'form', function (event) {
+    event.preventDefault(event);
+
+    var $slotdiv = $('<div></div>');
+    var $date = $('<input></input>').attr({
+      type: 'date'
     });
+    var $hr = $('<input></input>').attr({
+      type: 'number',
+      name: 'slothr'
+    }).css('width', '50px');
+    var $min = $('<input></input>').attr({
+      type: 'number',
+      name: 'slotmin'
+    }).css('width', '50px');
+    var $hr2 = $('<input></input>').attr({
+      type: 'number',
+      name: 'slothr2'
+    }).css('width', '50px');
+    var $min2 = $('<input></input>').attr({
+      type: 'number',
+      name: 'slotmin2'
+    }).css('width', '50px');
+    alert($('.slotform').serialize());
+    $('.slotform').remove();
+
+    var $slotform = $('<form></form>').attr({
+      method: 'post',
+      action: '/:id/timeslots',
+      class: 'slotform'
+    });
+    var $slotbtn = $('<button>Submit</button>');
+    $($slotdiv).append('From when to when?', $date, $hr, $min, ' - ', $hr2, $min2);
+    $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
+    $($slotdiv).addClass('slotdiv');
+    $('.setslotsdiv').prepend($slotform);
+
+
+
+
+
   });
 });

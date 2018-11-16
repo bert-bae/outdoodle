@@ -73,7 +73,7 @@ function resetIconsColor(){
       url: '/events/create',
       data: $form.serialize(),
       success: function (result) {
-        window.location = "http://localhost:8080/events/" + result.eventUrl;
+        window.location = "http://localhost:8080/events/" + result.eventUrl + '/edit';
       }
     });
 
