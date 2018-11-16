@@ -36,13 +36,14 @@ $(document).ready(function () {
 
   $('.dtbtn').on('click', function (event) {
     event.preventDefault();
+    alert("hello there");
     const $form = $('.dtform');
     $.ajax({
       type: 'POST',
-      url: '/events/:id',
+      url: '/events/create',
       data: $form.serialize(),
-      success: function () {
-
+      success: function (result) {
+        window.location = "http://localhost:8080/events/" + result.eventUrl;
       }
     });
 
