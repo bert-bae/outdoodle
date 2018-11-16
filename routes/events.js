@@ -11,16 +11,31 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/", (req, res) => {
-    knex('users').insert({
-      name: req.body.name,
-      email: req.body.email,
-      rank_id: 1
+    knex('users').select('email').where('email', req.body.email)
+    .then((result) => {
+      if(result.length) {
+        res.send();
+      } else {
+        knex('users').insert({
+          name: req.body.name,
+          email: req.body.email,
+          rank_id: 1
+        }).then(() => {
+          res.send();
+        });
+      }
     });
-    res.send();
   });
 
   eventRoutes.get("/:id", (req, res) => {
-    res.render('event');
+    knex.raw(`SELECT events.name, users.name, events.location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+      JOIN users ON events_users.user_id = users.id
+      JOIN events ON events_users.event_id = events.id
+      JOIN categories ON events.categories_id = categories.id
+      WHERE events.main_url = ${req.param.id};`)
+    .then((result) => {
+      res.render('event', result);
+    });
   });
 
   eventRoutes.post("/:id/edit", (req, res) => {
@@ -38,6 +53,7 @@ module.exports = (knex) => {
       start_date: req.body.start_date,
       end_date: req.body.end_date,
       img_src: req.body.img,
+      location: req.body.location,
       detail: req.body.details,
       name: req.body.eventName,
       categories_id: req.body.category,
@@ -46,8 +62,6 @@ module.exports = (knex) => {
       res.send({eventUrl: eventUrl});
     });
   });
-
-
 
   return eventRoutes;
 };
