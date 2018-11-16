@@ -35,7 +35,7 @@ module.exports = (knex) => {
       JOIN categories ON events.categories_id = categories.id
       WHERE events.main_url = '${req.params.id}';`)
     .then((result) => {
-      res.render('event', result);
+      res.render('event', { eventData: result.rows[0] });
     });
   });
 
@@ -71,10 +71,9 @@ module.exports = (knex) => {
       categories_id: req.body.category,
       main_url: eventUrl
     }).then(() => {
-      console.log("this is the event url: ", eventUrl);
       res.send({eventUrl: eventUrl});
-    }).catch(() => {
-      console.log("test");
+    }).catch((err) => {
+      console.log("err occurred: ", err);
     });
   });
 
