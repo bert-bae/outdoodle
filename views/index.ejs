@@ -24,6 +24,7 @@
     </div>
     <div class="details"><form class="dtform">
       <h1>Enter your event details!</h1>
+      <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
       <p>What kind of event is this? Business, social or virtual?</p>
       <i class="fas fa-user-tie"></i>
      <i class="fas fa-user-friends"></i>
@@ -33,7 +34,7 @@
      <textarea class="description" placeholder="Describe your event!"></textarea>
      <br>
      <br>
-     <input placeholder="hr" type="number"></input><input placeholder="min" type="number"></input><br><br>
+     <input name="start_date" style="width: 150px;" placeholder="hr" type="date"></input><input name="end_date" style="width: 150px;" placeholder="min" type="date"></input><br><br>
      <button class="dtbtn">Submit</button>
     </form></div>
     <form class="createEvent" method="POST" action="/events">

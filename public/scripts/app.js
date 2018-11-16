@@ -37,13 +37,12 @@ $(document).ready(function () {
   $('.dtbtn').on('click', function (event) {
     event.preventDefault();
     const $form = $('.dtform');
-    alert('wohoh there something must be done!');
     $.ajax({
       type: 'POST',
       url: '/events/:id',
       data: $form.serialize(),
       success: function () {
-        alert('wohoh there something must be done!');
+
       }
     });
 
