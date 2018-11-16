@@ -48,6 +48,10 @@ module.exports = (knex) => {
     });
   });
 
+  eventRoutes.post("/id:timeslots", (req, res) => {
+
+  }
+
   eventRoutes.post("/create", (req, res) => {
     let eventUrl = randomURL();
     knex('events').insert({
