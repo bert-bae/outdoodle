@@ -29,8 +29,18 @@ $(document).ready(function () {
     });
   });
 
-  $('.fas').on('click', function () {
-    $('.fas').css('color', 'white');
+  $('.fa-user-tie').on('click', function () {
+    $('.fa-user-tie').css('color', 'white');
+    $(this).css('color', 'red');
+  });
+
+  $('.fa-user-friends').on('click', function () {
+    $('.fa-user-friends').css('color', 'white');
+    $(this).css('color', 'red');
+  });
+
+  $('.fa-network-wired').on('click', function () {
+    $('.fa-network-wired').css('color', 'white');
     $(this).css('color', 'red');
   });
 
