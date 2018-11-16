@@ -6,10 +6,6 @@ const randomURL = require('../public/scripts/urls.js');
 
 module.exports = (knex) => {
 
-  eventRoutes.get("/", (req, res) => {
-    res.send("This is for the AJAX request for the event creation page");
-  });
-
   eventRoutes.post("/", (req, res) => {
     knex('users').select('email').where('email', req.body.email)
     .then((result) => {
@@ -45,18 +41,11 @@ module.exports = (knex) => {
 
   // delete the event
   eventRoutes.post("/:id/delete", (req, res) => {
-    res.send("This should delete the event and then redirect");
-
-    let user = {
-      name: name,
-      email: email,
-    };
-    knex('users').table('');
-  });
-
-  eventRoutes.get("/:id", (req, res) => {
-
-    res.render('event');
+    knex.raw(`DELETE FROM events
+              WHERE main_url = '${req.params.id}'`)
+    .then(() => {
+      res.redirect('/');
+    });
   });
 
   eventRoutes.post("/create", (req, res) => {
@@ -73,14 +62,11 @@ module.exports = (knex) => {
     }).then(() => {
       res.send({eventUrl: eventUrl});
     }).catch((err) => {
-      console.log("err occurred: ", err);
+      res.send({error: err});
     });
   });
 
 
-  eventRoutes.get("/:id", (req, res) => {
-    res.send("This page should render a specific event's page");
-  });
 
 
   return eventRoutes;
