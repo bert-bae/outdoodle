@@ -36,7 +36,6 @@ $(document).ready(function () {
 
   $('.dtbtn').on('click', function (event) {
     event.preventDefault();
-    alert("hello there");
     const $form = $('.dtform');
     $.ajax({
       type: 'POST',
