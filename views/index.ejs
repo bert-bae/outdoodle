@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -22,10 +22,25 @@
       <p>From time to time, we all need to organize events, but in today's world, it's hard to get everyone in the same place at the same time. No longer. With Redsquare, we make this arduous process easy! Click the button below to get started</p>
     <button class="startbtn">Let's go!</button>
     </div>
+    <div class="details"><form class="dtform">
+      <h1>Enter your event details!</h1>
+      <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
+      <p>What kind of event is this? Business, social or virtual?</p>
+      <i class="fas fa-user-tie"></i>
+     <i class="fas fa-user-friends"></i>
+     <i class="fas fa-network-wired"></i>
+     <br>
+     <br>
+     <textarea class="description" placeholder="Describe your event!"></textarea>
+     <br>
+     <br>
+     <input name="start_date" style="width: 150px;" placeholder="hr" type="date"></input><input name="end_date" style="width: 150px;" placeholder="min" type="date"></input><br><br>
+     <button class="dtbtn">Submit</button>
+    </form></div>
     <form class="createEvent" method="POST" action="/events">
       <h1 class="h1">Create an event!</h1>
-      <input type="text" name="name" placeholder="enter your name"></input>
-      <input type="email" name="email" placeholder="enter your email"></input><br><br>
+      <input type="text" name="name" class="name" placeholder="enter your name"></input>
+      <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
       <button class="btn">Create Event</button>
     </form>
   </body>
