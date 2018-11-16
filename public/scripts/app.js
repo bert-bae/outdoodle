@@ -32,16 +32,20 @@ $(document).ready(function () {
   $('.fa-user-tie').on('click', function () {
     $('.fa-user-tie').css('color', 'white');
     $(this).css('color', 'red');
+    $('input.category').val("3");
   });
 
   $('.fa-user-friends').on('click', function () {
     $('.fa-user-friends').css('color', 'white');
     $(this).css('color', 'red');
+    $('input.category').val("1");
+    console.log($('input.category').val());
   });
 
   $('.fa-network-wired').on('click', function () {
     $('.fa-network-wired').css('color', 'white');
     $(this).css('color', 'red');
+    $('input.category').val("2");
   });
 
   $('.dtbtn').on('click', function (event) {
