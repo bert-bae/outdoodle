@@ -29,9 +29,32 @@ $(document).ready(function () {
     });
   });
 
-  $('.fas').on('click', function () {
-    $('.fas').css('color', 'white');
+function resetIconsColor(){
+    $('.fa-user-friends').css('color', 'white');
+    $('.fa-network-wired').css('color', 'white');
+    $('.fa-user-tie').css('color', 'white');
+    return
+}
+
+
+  $('.fa-user-tie').on('click', function () {
+    resetIconsColor();
     $(this).css('color', 'red');
+    $('input.category').val("3");
+    console.log($('input.category').val());
+  });
+
+  $('.fa-user-friends').on('click', function () {
+    resetIconsColor();
+    $(this).css('color', 'red');
+    $('input.category').val("1");
+  });
+
+  $('.fa-network-wired').on('click', function () {
+    resetIconsColor();
+    $(this).css('color', 'red');
+    $('input.category').val("2");
+    console.log($('input.category').val());
   });
 
   $('.dtbtn').on('click', function (event) {

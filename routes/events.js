@@ -6,10 +6,6 @@ const randomURL = require('../public/scripts/urls.js');
 
 module.exports = (knex) => {
 
-  eventRoutes.get("/", (req, res) => {
-    res.send("This is for the AJAX request for the event creation page");
-  });
-
   eventRoutes.post("/", (req, res) => {
     knex('users').select('email').where('email', req.body.email)
     .then((result) => {
@@ -35,28 +31,31 @@ module.exports = (knex) => {
       JOIN categories ON events.categories_id = categories.id
       WHERE events.main_url = '${req.params.id}';`)
     .then((result) => {
-      res.render('event', result);
+      res.render('event', { eventData: result.rows[0] });
     });
   });
 
+  eventRoutes.get("/:id/edit", (req, res) => {
+    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+      JOIN users ON events_users.user_id = users.id
+      JOIN events ON events_users.event_id = events.id
+      JOIN categories ON events.categories_id = categories.id
+      WHERE events.main_url = '${req.params.id}';`)
+    .then((result) => {
+      res.render('event', { eventData: result.rows[0] });
+    });
+  });
   eventRoutes.post("/:id/edit", (req, res) => {
     res.send("This page should render an edit page for a specific event's page");
   });
 
   // delete the event
   eventRoutes.post("/:id/delete", (req, res) => {
-    res.send("This should delete the event and then redirect");
-
-    let user = {
-      name: name,
-      email: email,
-    };
-    knex('users').table('');
-  });
-
-  eventRoutes.get("/:id", (req, res) => {
-
-    res.render('event');
+    knex.raw(`DELETE FROM events
+              WHERE main_url = '${req.params.id}'`)
+    .then(() => {
+      res.redirect('/');
+    });
   });
 
   eventRoutes.post("/create", (req, res) => {
@@ -71,17 +70,13 @@ module.exports = (knex) => {
       categories_id: req.body.category,
       main_url: eventUrl
     }).then(() => {
-      console.log("this is the event url: ", eventUrl);
       res.send({eventUrl: eventUrl});
-    }).catch(() => {
-      console.log("test");
+    }).catch((err) => {
+      res.send({error: err});
     });
   });
 
 
-  eventRoutes.get("/:id", (req, res) => {
-    res.send("This page should render a specific event's page");
-  });
 
 
   return eventRoutes;

@@ -1,5 +1,11 @@
 exports.seed = function(knex, Promise) {
   return knex('events_users').del()
+    .then(knex('proposed_times').del())
+    .then(knex('events').del())
+    .then(knex('users').del())
+    .then(knex('ranks').del())
+    .then(knex('categories').del())
+
     .then(() => {
       return knex('events').del();
     })
