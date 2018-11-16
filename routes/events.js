@@ -25,27 +25,27 @@ module.exports = (knex) => {
         });
       }
     });
-
-
-
-  });
-
-  eventRoutes.post("/create", (req, res) => {
-    let eventUrl = randomURL();
-    knex('events').insert({
-      start_date: req.body.start_date,
-      end_date: req.body.end_date,
-      img_src: req.body.img,
-      detail: req.body.details,
-      name: req.body.eventName,
-      categories: req.body.category,
-      main_url: eventUrl
-    }).then();
   });
 
   eventRoutes.get("/:id", (req, res) => {
     res.send("This page should render a specific event's page");
   });
+
+  eventRoutes.post("/:id", (req, res) => {
+    let eventUrl = randomURL();
+    knex('events').insert({
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
+      detail: req.body.details,
+      name: req.body.eventName,
+      categories: req.body.category,
+      location: req.body.location,
+      main_url: eventUrl
+    }).then(() => {
+      res.send();
+    });
+  });
+
 
   eventRoutes.get("/:id/edit", (req, res) => {
     res.send("This page should render an edit page for a specific event's page");
