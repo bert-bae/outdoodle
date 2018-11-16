@@ -11,20 +11,12 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/", (req, res) => {
-    knex('users').select('email').where('email', req.body.email)
-    .then((result) => {
-      if(result.length) {
-        res.send();
-      } else {
-        knex('users').insert({
-          name: req.body.name,
-          email: req.body.email,
-          rank_id: 1
-        }).then(() => {
-          res.send();
-        });
-      }
+    knex('users').insert({
+      name: req.body.name,
+      email: req.body.email,
+      rank_id: 1
     });
+    res.send();
   });
 
   eventRoutes.post("/:id/edit", (req, res) => {
@@ -46,24 +38,27 @@ module.exports = (knex) => {
     res.render('event');
   });
 
-  eventRoutes.post("/:id", (req, res) => {
+
+  eventRoutes.post("/create", (req, res) => {
     let eventUrl = randomURL();
     knex('events').insert({
       start_date: req.body.start_date,
       end_date: req.body.end_date,
+      img_src: req.body.img,
       detail: req.body.details,
       name: req.body.eventName,
-      categories_id: req.body.category,
-      location: req.body.location,
+      categories: req.body.category,
       main_url: eventUrl
     }).then(() => {
       res.redirect('/events/' + eventUrl);
     });
   });
 
+  eventRoutes.get("/:id", (req, res) => {
+    res.send("This page should render a specific event's page");
+  });
 
 
 
   return eventRoutes;
 };
-
