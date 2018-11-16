@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       table.date('proposed_start_date');
       table.date('proposed_end_date');
       table.integer('event_id');
-      table.foreign('event_id').references('events.id');
+      table.foreign('event_id').references('events.id').onDelete('cascade');
     })
   ]);
 };
