@@ -42,7 +42,7 @@ module.exports = (knex) => {
       location: req.body.location,
       main_url: eventUrl
     }).then(() => {
-      res.send();
+      res.redirect(`/${eventUrl}`);
     });
   });
 
