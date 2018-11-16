@@ -10,6 +10,12 @@ body {
   }
 
   .setslotsdiv {
-    display: hide;
+    display: none;
+    text-align: center;
+
+    input {
+      text-align: center;
+      border-radius: 10px;
+    }
   }
 }

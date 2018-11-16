@@ -2,10 +2,10 @@
 <head>
   <link rel="stylesheet" href="/styles/event.css" type="text/css" />
 <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
+<script type="text/javascript" src="/scripts/adminpage.js"></script>
 </head>
 <body>
   <h1>Event Name</h1>
-  <button class="setslots">Enter your proposed times</button>
-  <div class="setslotsdiv"></div>
+  <button class="setslots">Enter your proposed times</button><br><br>
+  <div class="setslotsdiv"><form class="slotform" method="post" action="/:id/timeslots"><div class="slotdiv">From when to when?<input name="slotdate" type="date"></input><input name="slothr" type="number" style="width: 50px;"></input><input name="slotmin" type="number" style="width: 50px;"></input> - <input name="slothr2" type="number" style="width: 50px;"></input><input name="slotmin2" type="number" style="width: 50px;"></div></input><br><br><button>Submit</button></form></div>
 </body>
