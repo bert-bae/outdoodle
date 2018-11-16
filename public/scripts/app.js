@@ -31,12 +31,14 @@ $(document).ready(function () {
 
   $('.fa-user-tie').on('click', function () {
     $('.fa-user-tie').css('color', 'white');
+    $('.fa-user-friends .fa-network-wired').css('color', 'white');
     $(this).css('color', 'red');
     $('input.category').val("3");
   });
 
   $('.fa-user-friends').on('click', function () {
     $('.fa-user-friends').css('color', 'white');
+    $('.fa-user-tie .fa-network-wired').css('color', 'white');
     $(this).css('color', 'red');
     $('input.category').val("1");
     console.log($('input.category').val());
@@ -44,6 +46,7 @@ $(document).ready(function () {
 
   $('.fa-network-wired').on('click', function () {
     $('.fa-network-wired').css('color', 'white');
+    $('.fa-user-tie .fa-user-friends').css('color', 'white');
     $(this).css('color', 'red');
     $('input.category').val("2");
   });
