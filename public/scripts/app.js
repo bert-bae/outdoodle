@@ -29,26 +29,34 @@ $(document).ready(function () {
     });
   });
 
-  $('.fa-user-tie').on('click', function () {
+function resetIconsColor(){
+    $('.fa-user-friends').css('color', 'white');
+    $('.fa-network-wired').css('color', 'white');
     $('.fa-user-tie').css('color', 'white');
-    $('.fa-user-friends .fa-network-wired').css('color', 'white');
+    return
+
+}
+
+
+  $('.fa-user-tie').on('click', function () {
+    resetIconsColor();
     $(this).css('color', 'red');
     $('input.category').val("3");
+    console.log($('input.category').val());
   });
 
   $('.fa-user-friends').on('click', function () {
-    $('.fa-user-friends').css('color', 'white');
-    $('.fa-user-tie .fa-network-wired').css('color', 'white');
+    resetIconsColor();
     $(this).css('color', 'red');
     $('input.category').val("1");
     console.log($('input.category').val());
   });
 
   $('.fa-network-wired').on('click', function () {
-    $('.fa-network-wired').css('color', 'white');
-    $('.fa-user-tie .fa-user-friends').css('color', 'white');
+    resetIconsColor();
     $(this).css('color', 'red');
     $('input.category').val("2");
+    console.log($('input.category').val());
   });
 
   $('.dtbtn').on('click', function (event) {
