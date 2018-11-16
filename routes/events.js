@@ -35,6 +35,16 @@ module.exports = (knex) => {
     });
   });
 
+  eventRoutes.get("/:id/edit", (req, res) => {
+    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+      JOIN users ON events_users.user_id = users.id
+      JOIN events ON events_users.event_id = events.id
+      JOIN categories ON events.categories_id = categories.id
+      WHERE events.main_url = '${req.params.id}';`)
+    .then((result) => {
+      res.render('event', { eventData: result.rows[0] });
+    });
+  });
   eventRoutes.post("/:id/edit", (req, res) => {
     res.send("This page should render an edit page for a specific event's page");
   });
