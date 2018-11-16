@@ -49,7 +49,6 @@ function resetIconsColor(){
     resetIconsColor();
     $(this).css('color', 'red');
     $('input.category').val("1");
-    console.log($('input.category').val());
   });
 
   $('.fa-network-wired').on('click', function () {
