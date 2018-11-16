@@ -27,12 +27,13 @@ module.exports = (knex) => {
     });
   });
 
+// convert this to knex query, especially the very last WHERE line
   eventRoutes.get("/:id", (req, res) => {
-    knex.raw(`SELECT events.name, users.name, events.location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
-      JOIN users ON events_users.user_id = users.id
-      JOIN events ON events_users.event_id = events.id
-      JOIN categories ON events.categories_id = categories.id
-      WHERE events.main_url = ${req.param.id};`)
+    // knex.raw(`SELECT events.name, users.name, events.location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+    //   JOIN users ON events_users.user_id = users.id
+    //   JOIN events ON events_users.event_id = events.id
+    //   JOIN categories ON events.categories_id = categories.id
+    //   WHERE events.main_url = ${req.params.id};`)
     .then((result) => {
       res.render('event', result);
     });
@@ -53,14 +54,10 @@ module.exports = (knex) => {
     knex('users').table('');
   });
 
-
-
   eventRoutes.get("/:id", (req, res) => {
 
     res.render('event');
   });
-
-
 
   eventRoutes.post("/create", (req, res) => {
     let eventUrl = randomURL();
@@ -71,10 +68,12 @@ module.exports = (knex) => {
       location: req.body.location,
       detail: req.body.details,
       name: req.body.eventName,
-      categories: req.body.category,
+      categories_id: req.body.category,
       main_url: eventUrl
     }).then(() => {
-      res.redirect('/events/' + eventUrl);
+      res.send({eventUrl: eventUrl});
+    }).catch(() => {
+      console.log("test");
     });
   });
 

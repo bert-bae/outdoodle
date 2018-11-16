@@ -1,10 +1,17 @@
 exports.seed = function(knex, Promise) {
   return knex('events_users').del()
-    .then(knex('events').del())
-    .then(knex('users').del())
-    .then(knex('ranks').del())
-    .then(knex('categories').del())
-
+    .then(() => {
+      return knex('events').del();
+    })
+    .then(() => {
+      return knex('users').del();
+    })
+    .then(() => {
+      return knex('ranks').del();
+    })
+    .then(() => {
+      return knex('categories').del();
+    })
 
     .then(function () {
       return knex('ranks').insert([{
@@ -36,11 +43,11 @@ exports.seed = function(knex, Promise) {
 
     .then(function () {
       return knex('events').insert([{
-        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name One', categories_id: 1
+        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name One', categories_id: 1, location: 'Vancouver'
       }, {
-        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Two', categories_id: 2
+        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Two', categories_id: 2, location: 'Abbotsford'
       }, {
-        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Three', categories_id: 3
+        start_date: new Date(), end_date: new Date(), detail: 'Have fun', name: 'Name Three', categories_id: 3, location: 'Surrey'
       }]);
     })
 
@@ -53,4 +60,4 @@ exports.seed = function(knex, Promise) {
         event_id: 3, user_id: 3
       }]);
     });
-};
+  };
