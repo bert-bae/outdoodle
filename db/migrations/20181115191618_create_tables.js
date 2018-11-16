@@ -75,6 +75,7 @@ exports.down = function(knex, Promise) {
     return knex.schema.dropTable('events_users');
   }
 
+
   return dropEventUserJoinTable()
     .then(dropEventsTable)
     .then(dropUsersTable)
