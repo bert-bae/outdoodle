@@ -27,27 +27,7 @@ module.exports = (knex) => {
     });
   });
 
-  eventRoutes.get("/:id", (req, res) => {
-    res.send("This page should render a specific event's page");
-  });
-
-  eventRoutes.post("/:id", (req, res) => {
-    let eventUrl = randomURL();
-    knex('events').insert({
-      start_date: req.body.start_date,
-      end_date: req.body.end_date,
-      detail: req.body.details,
-      name: req.body.eventName,
-      categories_id: req.body.category,
-      location: req.body.location,
-      main_url: eventUrl
-    }).then(() => {
-      res.redirect(`/${eventUrl}`);
-    });
-  });
-
-
-  eventRoutes.get("/:id/edit", (req, res) => {
+  eventRoutes.post("/:id/edit", (req, res) => {
     res.send("This page should render an edit page for a specific event's page");
   });
 
@@ -61,6 +41,27 @@ module.exports = (knex) => {
     };
     knex('users').table('');
   });
+
+  eventRoutes.get("/:id", (req, res) => {
+    res.render('event');
+  });
+
+  eventRoutes.post("/:id", (req, res) => {
+    let eventUrl = randomURL();
+    knex('events').insert({
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
+      detail: req.body.details,
+      name: req.body.eventName,
+      categories_id: req.body.category,
+      location: req.body.location,
+      main_url: eventUrl
+    }).then(() => {
+      res.redirect('/events/' + eventUrl);
+    });
+  });
+
+
 
 
   return eventRoutes;
