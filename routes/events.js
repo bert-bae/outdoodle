@@ -19,6 +19,10 @@ module.exports = (knex) => {
     res.send();
   });
 
+  eventRoutes.get("/:id", (req, res) => {
+    res.render('event');
+  });
+
   eventRoutes.post("/:id/edit", (req, res) => {
     res.send("This page should render an edit page for a specific event's page");
   });
@@ -26,18 +30,7 @@ module.exports = (knex) => {
   // delete the event
   eventRoutes.post("/:id/delete", (req, res) => {
     res.send("This should delete the event and then redirect");
-
-    let user = {
-      name: name,
-      email: email,
-    };
-    knex('users').table('');
   });
-
-  eventRoutes.get("/:id", (req, res) => {
-    res.render('event');
-  });
-
 
   eventRoutes.post("/create", (req, res) => {
     let eventUrl = randomURL();
@@ -47,15 +40,11 @@ module.exports = (knex) => {
       img_src: req.body.img,
       detail: req.body.details,
       name: req.body.eventName,
-      categories: req.body.category,
+      categories_id: req.body.category,
       main_url: eventUrl
     }).then(() => {
-      res.redirect('/events/' + eventUrl);
+      res.send({eventUrl: eventUrl});
     });
-  });
-
-  eventRoutes.get("/:id", (req, res) => {
-    res.send("This page should render a specific event's page");
   });
 
 
