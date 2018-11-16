@@ -24,7 +24,28 @@ $(document).ready(function () {
       data: $form.serialize(),
       success: function () {
         $form.slideUp();
+        $('.details').slideDown();
       }
     });
+  });
+
+  $('.fas').on('click', function () {
+    $('.fas').css('color', 'white');
+    $(this).css('color', 'red');
+  });
+
+  $('.dtbtn').on('click', function (event) {
+    event.preventDefault();
+    const $form = $('.dtform');
+    alert('wohoh there something must be done!');
+    $.ajax({
+      type: 'POST',
+      url: '/events/:id',
+      data: $form.serialize(),
+      success: function () {
+        alert('wohoh there something must be done!');
+      }
+    });
+
   });
 });
