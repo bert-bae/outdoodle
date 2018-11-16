@@ -11,12 +11,23 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/", (req, res) => {
-    knex('users').insert({
-      name: req.body.name,
-      email: req.body.email,
-      rank_id: 1
+    knex('users').select('email').where('email', req.body.email)
+    .then((result) => {
+      if(result.length) {
+        res.send();
+      } else {
+        knex('users').insert({
+          name: req.body.name,
+          email: req.body.email,
+          rank_id: 1
+        }).then(() => {
+          res.send();
+        });
+      }
     });
-    res.send();
+
+
+
   });
 
   eventRoutes.post("/create", (req, res) => {
@@ -29,7 +40,7 @@ module.exports = (knex) => {
       name: req.body.eventName,
       categories: req.body.category,
       main_url: eventUrl
-    });
+    }).then();
   });
 
   eventRoutes.get("/:id", (req, res) => {
@@ -54,3 +65,4 @@ module.exports = (knex) => {
 
   return eventRoutes;
 };
+
