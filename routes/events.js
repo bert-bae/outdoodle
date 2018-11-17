@@ -16,7 +16,6 @@ eventRoutes.use(session({
 module.exports = (knex) => {
 
   eventRoutes.post("/", (req, res) => {
-
     req.session.temp = req.body.email;
     knex('users').select('email').where('email', req.body.email)
     .then((result) => {
@@ -35,14 +34,14 @@ module.exports = (knex) => {
   });
 
   eventRoutes.get("/:id/edit", (req, res) => {
-    let mainUrl = req.params.id;
+    req.session.temp = req.params.id;
     knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.main_url, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
       WHERE events.main_url = '${req.params.id}';`)
     .then((result) => {
-      res.render('event', { eventData: result.rows[0], url: mainUrl });
+      res.render('event', { eventData: result.rows[0], url: req.session.temp });
     });
   });
 
@@ -51,7 +50,7 @@ module.exports = (knex) => {
     let date = req.body.slotdate;
     let startTime = req.body.slothr;
     let endTime = req.body.slothr2;
-    let mainUrl = req.body.url;
+    let mainUrl = req.session.temp;
     knex('events').select('id').where('main_url', mainUrl)
     .then((result) => {
       return knex('proposed_dates').insert({
