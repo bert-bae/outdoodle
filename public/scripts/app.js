@@ -11,6 +11,7 @@
 
 $(document).ready(function () {
 $('#error').hide();
+$('.error2').hide();
 
   $('.startbtn').on('click', function() {
     $('.start').slideUp();
@@ -68,9 +69,17 @@ function resetIconsColor(){
   $('.dtbtn').on('click', function (event) {
     event.preventDefault();
     const $form = $('.dtform');
-    if($('input.category').val("")){
+    const $errorx1 = $('input.errorx1');
+    const $errorx2 = $('input.errorx2');
+    const $errorx3 = $('textarea.errorx3');
+    const $errorx6 = $('input.errorx6');
+    const $errorx4 = $('input.errorx4');
+    const $errorx5 = $('input.errorx5');
+    if($errorx1.val() ==="" || $errorx2.val() ==="" || $errorx3.val() ==="" || $errorx6.val() ==="" || $errorx4.val() === "" || $errorx5.val() === "") {
       console.log('category needss an input')
-    }
+      $('.error2').slideDown();
+      console.log($('input.end_date').val());
+    } else {
     $.ajax({
       type: 'POST',
       url: '/events/create',
@@ -78,8 +87,8 @@ function resetIconsColor(){
       success: function (result) {
         window.location = "http://localhost:8080/events/" + result.eventUrl + '/edit';
       }
-    });
-
+    })
+    }
   });
 
 
