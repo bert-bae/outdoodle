@@ -36,7 +36,7 @@ module.exports = (knex) => {
 
   eventRoutes.get("/:id/edit", (req, res) => {
     let mainUrl = req.params.id;
-    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.main_url, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
