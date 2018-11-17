@@ -12,6 +12,7 @@ $(document).ready(function () {
     var $slotdata = $('form');
     var $slotdiv = $('<div></div>');
     var $date = $('<input></input>').attr({
+      name: 'slotdate',
       type: 'date'
     });
     var $hr = $('<input></input>').attr({
@@ -38,7 +39,7 @@ $(document).ready(function () {
 
      $.ajax({
       type: 'POST',
-      url: '/:id/edit/timeslots',
+      url: '/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
 
@@ -49,7 +50,7 @@ $(document).ready(function () {
 
     var $slotform = $('<form></form>').attr({
       method: 'post',
-      action: '/:id/timeslots',
+      action: '/:id/edit',
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
