@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+
   $('.setslots').on('click', function () {
     $('.setslotsdiv').slideToggle();
   });
@@ -11,8 +12,7 @@ $(document).ready(function () {
 
 
 
-
-  $('.slotform').on('submit', function (event) {
+  $('.setslotsdiv').on('submit', '.slotform', function (event) {
     event.preventDefault(event);
     var $slotdata = $('form');
     var $slotdiv = $('<div></div>');
@@ -63,10 +63,26 @@ $(document).ready(function () {
     $('.row').append($timeslot);
     var $slotdelform = $('<form></form>').attr({
       method: 'POST',
-      action: '/timeslots/delete'
-    }).addClass('.slotdel');
+      action: '/events/:id/timeslots/delete'
+    }).addClass('slotdel');
     var $slotdelbtn = $('<button>Delete</button>');
     $slotdelform.append($slotdelbtn);
     $timeslot.append($slotdelform);
+
+     $('.purpi').on('submit', function (event) {
+    event.preventDefault(event);
+      $(this).remove();
+
+    // $(this).remove();
+    $.ajax({
+        type: 'POST',
+        url: '/events/:id/edit/timeslots/delete',
+        success: function (result) {
+          alert('holy moly');
+        }
+      });
   });
+
+  });
+
 });
