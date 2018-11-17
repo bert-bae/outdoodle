@@ -23,24 +23,19 @@ $(document).ready(function () {
     var $hr = $('<input></input>').attr({
       type: 'time',
       name: 'slothr',
-      value: '12'
+      value: '12:00',
+      step: '900',
+      min: '0'
     });
-    // var $min = $('<input></input>').attr({
-    //   type: 'number',
-    //   name: 'slotmin',
-    //   placeholder: 'min'
-    // }).css('width', '50px');
+
+
     var $hr2 = $('<input></input>').attr({
-      type: 'time',
-      name: 'slothr2',
-      value: '12'
+        type: 'time',
+        name: 'slothr2',
+        value: '12:00',
+        step: '900',
+        min: '0'
     });
-    // var $min2 = $('<input></input>').attr({
-    //   type: 'number',
-    //   name: 'slotmin2',
-    //   placeholder: 'min'
-    // }).css('width', '50px');
-    // alert($('.slotform').serialize());
 
     $.ajax({
       type: 'POST',
