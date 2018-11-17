@@ -52,7 +52,12 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/:id/edit", (req, res) => {
-    res.send("This page should render an edit page for a specific event's page");
+    console.log(
+      req.body.slotdate,
+      req.body.slothr,
+      req.body.slotmin
+      );
+    res.send();
   });
 
   // delete the event
