@@ -16,26 +16,19 @@ $(document).ready(function () {
       type: 'date'
     });
     var $hr = $('<input></input>').attr({
-      type: 'number',
+      type: 'time',
       name: 'slothr',
-      placeholder: 'hr'
-    }).css('width', '50px');
-    var $min = $('<input></input>').attr({
-      type: 'number',
-      name: 'slotmin',
-      placeholder: 'min'
-    }).css('width', '50px');
+      value: '12:00',
+      step: '900',
+      min: '0'
+    });
     var $hr2 = $('<input></input>').attr({
-      type: 'number',
-      name: 'slothr2',
-      placeholder: 'hr'
-    }).css('width', '50px');
-    var $min2 = $('<input></input>').attr({
-      type: 'number',
-      name: 'slotmin2',
-      placeholder: 'min'
-    }).css('width', '50px');
-    // alert($('.slotform').serialize());
+     type: 'time',
+     name: 'slothr2',
+     value: '12:00',
+     step: '900',
+     min: '0'
+    });
 
      $.ajax({
       type: 'POST',
@@ -54,7 +47,7 @@ $(document).ready(function () {
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
-    $($slotdiv).append('From when to when?', $date, $hr, $min, ' - ', $hr2, $min2);
+    $($slotdiv).append('From when to when?', $date, $hr, ' - ', $hr2);
     $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
     $($slotdiv).addClass('slotdiv');
     $('.setslotsdiv').prepend($slotform);
