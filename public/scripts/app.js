@@ -10,7 +10,7 @@
 // });
 
 $(document).ready(function () {
-$('.error').hide();
+$('#error').hide();
 
   $('.startbtn').on('click', function() {
     $('.start').slideUp();
@@ -24,7 +24,7 @@ $('.error').hide();
     const $email = $('input.email');
     if($name.val() === "" || $email.val() ==="") {
       console.log('eroooorrrr');
-      $('.error').slideDown();
+      $('#error').slideDown();
     } else {
     $.ajax({
       type: 'POST',

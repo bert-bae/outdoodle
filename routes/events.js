@@ -3,10 +3,12 @@
 const express = require('express');
 const eventRoutes  = express.Router();
 const randomURL = require('../public/scripts/urls.js');
+const bodyParser = require("body-parser");
 
 module.exports = (knex) => {
 
   eventRoutes.post("/", (req, res) => {
+
     knex('users').select('email').where('email', req.body.email)
     .then((result) => {
       if(result.length) {
@@ -58,9 +60,6 @@ module.exports = (knex) => {
     });
   });
 
-  eventRoutes.post("/id:timeslots", (req, res) => {
-
-  }
 
   eventRoutes.post("/create", (req, res) => {
     let eventUrl = randomURL();
