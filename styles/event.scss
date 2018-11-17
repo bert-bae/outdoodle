@@ -1,22 +1,97 @@
 body {
-  color: blue;
+  color: black;
+  /*background-color: black;*/
+  background-image: url('https://www.prague-stay.com/images/full_image/1920x1200/prague-old-town-square-jan-tyn-resize~old-town-square-old-town-tourists.jpg');
 
   h1 {
     text-align: center;
+    background-color: red;
   }
 
-  button {
-    margin-left: 43.5%;
+  #submit {
+    border-radius: 10px;
+  }
+
+  b {
+    background-color: red;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 2px;
+  }
+
+  #submit:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .describer {
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    border-radius: 10px;
+    color: red;
+    border: 1px solid red;
+    /*background-color: red;*/
+        background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+background-position: center;
+    background-blend-mode: color-burn;
+    opacity: 0.9;
+  }
+
+  .eventloc {
+     width: 50%;
+     margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    border-radius: 10px;
+    color: red;
+        border: 1px solid red;
+
+    /*background-color: red;*/
+        background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+background-position: center;
+    background-blend-mode: color-burn;
+    opacity: 0.9;
   }
 
   .setslotsdiv {
+    /*border-radius: 10px;
+    border: 5px solid black;*/
     display: none;
     text-align: center;
+    margin: 5px;
 
     input {
       text-align: center;
       border-radius: 10px;
     }
+  }
+
+  .setslots {
+    border-radius: 10px;
+    background-color: purple;
+    width: 100%;
+  }
+
+  .setslots:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .slots {
+    text-align: center;
+  }
+
+ .purpi {
+    background-color: gray;
+    height: 20%;
+    border-radius: 10px;
+    border: 5px solid red;
+    margin: 2px;
+
   }
 }
 
