@@ -68,6 +68,9 @@ function resetIconsColor(){
   $('.dtbtn').on('click', function (event) {
     event.preventDefault();
     const $form = $('.dtform');
+    if($('input.category').val("")){
+      console.log('category needss an input')
+    }
     $.ajax({
       type: 'POST',
       url: '/events/create',
