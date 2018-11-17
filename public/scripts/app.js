@@ -43,7 +43,7 @@ function resetIconsColor(){
     $('.fa-user-friends').css('color', 'white');
     $('.fa-network-wired').css('color', 'white');
     $('.fa-user-tie').css('color', 'white');
-    return
+    return;
 }
   $('.fa-user-tie').on('click', function () {
     resetIconsColor();

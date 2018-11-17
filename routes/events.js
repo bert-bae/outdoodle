@@ -34,7 +34,7 @@ module.exports = (knex) => {
   });
 
   eventRoutes.get("/:id", (req, res) => {
-    return knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
@@ -45,7 +45,7 @@ module.exports = (knex) => {
   });
 
   eventRoutes.get("/:id/edit", (req, res) => {
-    return knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
@@ -56,7 +56,12 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/:id/edit", (req, res) => {
-    res.send("This page should render an edit page for a specific event's page");
+    console.log(
+      req.body.slotdate,
+      req.body.slothr,
+      req.body.slotmin
+      );
+    res.send();
   });
 
   // delete the event
