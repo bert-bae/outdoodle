@@ -7,6 +7,7 @@ const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
+const session     = require('cookie-session');
 const app         = express();
 
 const knexConfig  = require("./knexfile");
@@ -17,6 +18,11 @@ const knexLogger  = require('knex-logger');
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const eventRoutes = require("./routes/events");
+
+app.use(session({
+  name: 'session',
+  keys: ["TEST1", "TEST2"],
+}));
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
