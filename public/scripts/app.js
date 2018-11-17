@@ -10,6 +10,12 @@
 // });
 
 $(document).ready(function () {
+  var $stdt = $('#stdt');
+  $('#stdt').change(function () {
+    alert($stdt.val().toISOString.subString(0, 10));
+    $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));
+  });
+
   $('.startbtn').on('click', function() {
     $('.start').slideUp();
     $('.createEvent').slideDown();
