@@ -39,10 +39,10 @@ $(document).ready(function () {
 
      $.ajax({
       type: 'POST',
-      url: '/:id/edit',
+      url: '/events/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
-
+        console.log("test");
       }
     });
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     var $slotform = $('<form></form>').attr({
       method: 'post',
-      action: '/:id/edit',
+      action: '/events/:id/edit',
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});

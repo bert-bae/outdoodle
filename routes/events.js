@@ -1,9 +1,12 @@
 "use strict";
 
 const express = require('express');
-const eventRoutes  = express.Router();
+const eventRoutes  = express.Router({mergeParams: true});
 const randomURL = require('../public/scripts/urls.js');
+const bodyParser = require("body-parser");
+
 const session     = require('cookie-session');
+
 
 eventRoutes.use(session({
   name: 'session',
@@ -12,6 +15,7 @@ eventRoutes.use(session({
 
 module.exports = (knex) => {
   eventRoutes.post("/", (req, res) => {
+
     req.session.temp = req.body.email;
     knex('users').select('email').where('email', req.body.email)
     .then((result) => {
@@ -29,16 +33,6 @@ module.exports = (knex) => {
     });
   });
 
-  eventRoutes.get("/:id", (req, res) => {
-    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
-      JOIN users ON events_users.user_id = users.id
-      JOIN events ON events_users.event_id = events.id
-      JOIN categories ON events.categories_id = categories.id
-      WHERE events.main_url = '${req.params.id}';`)
-    .then((result) => {
-      res.render('event', { eventData: result.rows[0] });
-    });
-  });
 
   eventRoutes.get("/:id/edit", (req, res) => {
     knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
@@ -51,13 +45,22 @@ module.exports = (knex) => {
     });
   });
 
+//TOAD: need to figure out how to get the specific :id value in the URL
   eventRoutes.post("/:id/edit", (req, res) => {
-    console.log(
-      req.body.slotdate,
-      req.body.slothr,
-      req.body.slotmin
-      );
-    res.send();
+    let date = req.body.slotdate;
+    let startTime = req.body.slothr;
+    let endTime = req.body.slothr2;
+    console.log(req.route);
+    knex('events').select('id').where('main_url', req.params.id)
+    .then((result) => {
+      return knex('proposed_dates').insert({
+        proposed_start_time: startTime,
+        proposed_end_time: endTime,
+        date: date,
+        event_id: result[0].id,
+      }).result('*');
+    });
+
   });
 
   // delete the event
@@ -69,7 +72,16 @@ module.exports = (knex) => {
     });
   });
 
-
+  eventRoutes.get("/:id", (req, res) => {
+    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
+      JOIN users ON events_users.user_id = users.id
+      JOIN events ON events_users.event_id = events.id
+      JOIN categories ON events.categories_id = categories.id
+      WHERE events.main_url = '${req.params.id}';`)
+    .then((result) => {
+      res.render('event', { eventData: result.rows[0] });
+    });
+  });
 
   eventRoutes.post("/create", (req, res) => {
     let eventUrl = randomURL();

@@ -24,25 +24,41 @@
     </div>
     <div class="details"><form class="dtform">
       <h1>Enter your event details!</h1>
+<<<<<<< HEAD
       <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
       <input type="text" class="category" name="category" style="display: none"></input>
+=======
+      <input  style="width: 300px;" class="evtnameinput errorx1" type="text" name="eventName" placeholder="enter your event name"></input>
+
+      <input  style="width: 300px;" class="evtnameinput errorx2" type="text" name="location" placeholder="enter event location"></input>
+      <input type="text" class="category errorx" name="category" style="display: none"></input>
+
+>>>>>>> c4b4871d607a118ab177bf929fb5947e5dc8e77b
       <p>What kind of event is this? Business, social or virtual?</p>
       <i class="fas fa-user-tie"></i>
-      <i class="fas fa-user-friends"></i>
-      <i class="fas fa-network-wired"></i>
+     <i class="fas fa-user-friends"></i>
+     <i class="fas fa-network-wired"></i>
      <br>
      <br>
-     <textarea name="details" class="description" placeholder="Describe your event!"></textarea>
+     <textarea class="description errorx3" placeholder="Describe your event!"></textarea>
      <br>
      <br>
+<<<<<<< HEAD
      <input id="stdt" name="start_date" style="width: 150px;" type="date"></input> <---> <input id="enddt" name="end_date" style="width: 150px;"  type="date"></input><br><br>
+=======
+     <input class="start_date errorx4" name="start_date" style="width: 150px;" type="date"></input><input class="end_date errorx5" name="end_date" style="width: 150px;"  type="date"></input><br><br>
+>>>>>>> c4b4871d607a118ab177bf929fb5947e5dc8e77b
      <button class="dtbtn">Submit</button>
+     <br>
+     <span class='error2'>All options must be filled</span>
     </form></div>
     <form class="createEvent" method="POST" action="/events">
       <h1 class="h1">Create an event!</h1>
       <input type="text" name="name" class="name" placeholder="enter your name"></input>
       <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
       <button class="btn">Create Event</button>
+      <br>
+      <span id='error'>Please enter a name/email</span>
     </form>
   </body>
   <% console.log("dogs are the best people"); %>
