@@ -3,7 +3,10 @@
 const express = require('express');
 const eventRoutes  = express.Router({mergeParams: true});
 const randomURL = require('../public/scripts/urls.js');
+const bodyParser = require("body-parser");
+
 const session     = require('cookie-session');
+
 
 eventRoutes.use(session({
   name: 'session',
@@ -13,6 +16,7 @@ eventRoutes.use(session({
 module.exports = (knex) => {
 
   eventRoutes.post("/", (req, res) => {
+
     req.session.temp = req.body.email;
     knex('users').select('email').where('email', req.body.email)
     .then((result) => {

@@ -10,6 +10,8 @@
 // });
 
 $(document).ready(function () {
+$('#error').hide();
+
   $('.startbtn').on('click', function() {
     $('.start').slideUp();
     $('.createEvent').slideDown();
@@ -18,6 +20,12 @@ $(document).ready(function () {
   $('.btn').on('click', function(event) {
     event.preventDefault();
     const $form = $('.createEvent');
+    const $name = $('input.name');
+    const $email = $('input.email');
+    if($name.val() === "" || $email.val() ==="") {
+      console.log('eroooorrrr');
+      $('#error').slideDown();
+    } else {
     $.ajax({
       type: 'POST',
       url: '/events',
@@ -26,8 +34,10 @@ $(document).ready(function () {
         $form.slideUp();
         $('.details').slideDown();
       }
-    });
-  });
+      });
+    };
+});
+
 
 function resetIconsColor(){
     $('.fa-user-friends').css('color', 'white');
@@ -35,8 +45,6 @@ function resetIconsColor(){
     $('.fa-user-tie').css('color', 'white');
     return;
 }
-
-
   $('.fa-user-tie').on('click', function () {
     resetIconsColor();
     $(this).css('color', 'red');
@@ -60,6 +68,9 @@ function resetIconsColor(){
   $('.dtbtn').on('click', function (event) {
     event.preventDefault();
     const $form = $('.dtform');
+    if($('input.category').val("")){
+      console.log('category needss an input')
+    }
     $.ajax({
       type: 'POST',
       url: '/events/create',
@@ -70,5 +81,7 @@ function resetIconsColor(){
     });
 
   });
+
+
 });
 
