@@ -7,6 +7,9 @@ body {
   background-blend-mode: color-burn;
   background-size: cover;
 
+  input, textarea {
+    text-align: center;
+  }
 
   .navbar {
     width: 100%;
@@ -114,7 +117,8 @@ body {
     cursor: pointer;
   }
   .left {
-    background-color: red;
+    background-image: linear-gradient(red, gray);
+    /*background-color: red;*/
     float: left;
     height: 100%;
     width: 10%;
@@ -123,7 +127,9 @@ body {
   }
 
   .right {
-    background-color: red;
+        background-image: linear-gradient(red, gray);
+
+    /*background-color: red;*/
     float: right;
     height: 100%;
     width: 10%;
