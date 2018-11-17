@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 
 
- $('.setslotsdiv').on('submit', 'form', function (event) {
+ $('.slotform').on('submit', function (event) {
     event.preventDefault(event);
     var $slotdata = $('form');
     var $slotdiv = $('<div></div>');
@@ -49,8 +49,7 @@ $(document).ready(function () {
     var $slotform = $('<form></form>').attr({
       method: 'post',
       action: '/events/:id/edit/',
-      class: 'slotform'
-    });
+    }).addClass('slotform');
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
     $($slotdiv).append('From when to when?', $date, $hr, ' - ', $hr2);
     $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
