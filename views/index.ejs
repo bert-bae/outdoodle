@@ -25,20 +25,17 @@
     <div class="details"><form class="dtform">
       <h1>Enter your event details!</h1>
       <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
-
-      <input  style="width: 300px;" class="evtnameinput" type="text" name="location" placeholder="enter event location"></input>
       <input type="text" class="category" name="category" style="display: none"></input>
-
       <p>What kind of event is this? Business, social or virtual?</p>
       <i class="fas fa-user-tie"></i>
-     <i class="fas fa-user-friends"></i>
-     <i class="fas fa-network-wired"></i>
+      <i class="fas fa-user-friends"></i>
+      <i class="fas fa-network-wired"></i>
      <br>
      <br>
-     <textarea class="description" placeholder="Describe your event!"></textarea>
+     <textarea name="details" class="description" placeholder="Describe your event!"></textarea>
      <br>
      <br>
-     <input class="start_date" name="start_date" style="width: 150px;" type="date"></input><input class="end_date" name="end_date" style="width: 150px;"  type="date"></input><br><br>
+     <input id="stdt" name="start_date" style="width: 150px;" type="date"></input> <---> <input id="enddt" name="end_date" style="width: 150px;"  type="date"></input><br><br>
      <button class="dtbtn">Submit</button>
     </form></div>
     <form class="createEvent" method="POST" action="/events">
@@ -46,8 +43,6 @@
       <input type="text" name="name" class="name" placeholder="enter your name"></input>
       <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
       <button class="btn">Create Event</button>
-      <br>
-      <span id='error'>Please enter a name/email</span>
     </form>
   </body>
   <% console.log("dogs are the best people"); %>
