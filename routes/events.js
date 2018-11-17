@@ -29,9 +29,9 @@ module.exports = (knex) => {
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
-      WHERE events.main_url = '${req.params.id}';`)
+      WHERE events.main_url = 'abcdef';`)
     .then((result) => {
-      res.render('event', { eventData: result.rows[0] });
+      res.render('event_user', { eventData: result.rows[0] });
     });
   });
 

@@ -12,6 +12,10 @@ body {
     border-radius: 10px;
   }
 
+  input {
+    text-align: center;
+  }
+
   b {
     background-color: red;
     border-radius: 10px;
@@ -72,12 +76,15 @@ background-position: center;
 
   .setslots {
     border-radius: 10px;
-    background-color: purple;
-    width: 100%;
+        background-image: linear-gradient(red, gray);
+
+/*    background-color: purple;
+*/    width: 100%;
   }
 
   .setslots:hover {
-    background-color: red;
+    background-image: linear-gradient(white, red);
+    /*background-color: red;*/
     cursor: pointer;
   }
 
@@ -85,13 +92,34 @@ background-position: center;
     text-align: center;
   }
 
+   .uslot:hover {
+    cursor: pointer;
+    background-color: red;
+    color: black;
+    font-weight: bold;
+  }
+
+  div.clicked {
+    background-color: green !important;
+    color: black;
+    border: 2px dotted green;
+  }
+
  .purpi {
-    background-color: gray;
+    background-color: white;
     height: 20%;
     border-radius: 10px;
     border: 5px solid red;
     margin: 2px;
+  }
 
+  .uslot {
+    background-color: black;
+    color: white;
+    height: 20%;
+    border-radius: 10px;
+    border: 5px solid red;
+    margin: 2px;
   }
 }
 
