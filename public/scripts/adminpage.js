@@ -4,10 +4,15 @@ $(document).ready(function () {
     $('.setslotsdiv').slideToggle();
   });
 
+// $('.slotdel').on('submit', function (event) {
+//   event.preventDefault(event);
+// });
 
 
 
-  $('.setslotsdiv').on('submit', 'form', function (event) {
+
+
+  $('.slotform').on('submit', function (event) {
     event.preventDefault(event);
     var $slotdata = $('form');
     var $slotdiv = $('<div></div>');
@@ -16,33 +21,33 @@ $(document).ready(function () {
       type: 'date'
     });
     var $hr = $('<input></input>').attr({
-      type: 'number',
+      type: 'time',
       name: 'slothr',
-      placeholder: 'hr'
-    }).css('width', '50px');
-    var $min = $('<input></input>').attr({
-      type: 'number',
-      name: 'slotmin',
-      placeholder: 'min'
-    }).css('width', '50px');
+      value: '12'
+    });
+    // var $min = $('<input></input>').attr({
+    //   type: 'number',
+    //   name: 'slotmin',
+    //   placeholder: 'min'
+    // }).css('width', '50px');
     var $hr2 = $('<input></input>').attr({
-      type: 'number',
+      type: 'time',
       name: 'slothr2',
-      placeholder: 'hr'
-    }).css('width', '50px');
-    var $min2 = $('<input></input>').attr({
-      type: 'number',
-      name: 'slotmin2',
-      placeholder: 'min'
-    }).css('width', '50px');
+      value: '12'
+    });
+    // var $min2 = $('<input></input>').attr({
+    //   type: 'number',
+    //   name: 'slotmin2',
+    //   placeholder: 'min'
+    // }).css('width', '50px');
     // alert($('.slotform').serialize());
 
-     $.ajax({
+    $.ajax({
       type: 'POST',
-      url: '/events/:id/edit',
+      url: '/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
-        console.log("test");
+
       }
     });
 
@@ -50,21 +55,23 @@ $(document).ready(function () {
 
     var $slotform = $('<form></form>').attr({
       method: 'post',
-      action: '/events/:id/edit',
+      action: '/:id/edit/',
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
-    $($slotdiv).append('From when to when?', $date, $hr, $min, ' - ', $hr2, $min2);
+    $($slotdiv).append('From when to when?', $date, $hr, ' - ', $hr2);
     $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
     $($slotdiv).addClass('slotdiv');
     $('.setslotsdiv').prepend($slotform);
 
     var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').html('4:30 - 7:30');
     $('.row').append($timeslot);
-
-
-
-
-
+    var $slotdelform = $('<form></form>').attr({
+      method: 'POST',
+      action: '/timeslots/delete'
+    }).addClass('.slotdel');
+    var $slotdelbtn = $('<button>Delete</button>');
+    $slotdelform.append($slotdelbtn);
+    $timeslot.append($slotdelform);
   });
 });
