@@ -1,22 +1,76 @@
 body {
-  color: blue;
+  color: black;
+  /*background-color: black;*/
+  background-image: url('https://www.prague-stay.com/images/full_image/1920x1200/prague-old-town-square-jan-tyn-resize~old-town-square-old-town-tourists.jpg');
 
   h1 {
     text-align: center;
+    background-color: red;
   }
 
-  button {
-    margin-left: 43.5%;
+  #submit {
+    border-radius: 10px;
+  }
+
+  #submit:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .describer {
+    width: 90%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: magenta;
+  }
+
+  .eventloc {
+     width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: magenta;
   }
 
   .setslotsdiv {
+    /*border-radius: 10px;
+    border: 5px solid black;*/
     display: none;
     text-align: center;
+    margin: 5px;
 
     input {
       text-align: center;
       border-radius: 10px;
     }
+  }
+
+  .setslots {
+    border-radius: 10px;
+    background-color: purple;
+    width: 100%;
+  }
+
+  .setslots:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .slots {
+    text-align: center;
+  }
+
+ .purpi {
+    background-color: purple;
+    height: 20%;
+    border-radius: 10px;
+    border: 5px solid red;
+    margin: 2px;
+
   }
 }
 
