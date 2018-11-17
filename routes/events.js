@@ -11,6 +11,7 @@ eventRoutes.use(session({
 }));
 
 module.exports = (knex) => {
+
   eventRoutes.post("/", (req, res) => {
     req.session.temp = req.body.email;
     knex('users').select('email').where('email', req.body.email)
@@ -29,15 +30,15 @@ module.exports = (knex) => {
     });
   });
 
-
   eventRoutes.get("/:id/edit", (req, res) => {
+    let mainUrl = req.params.id;
     knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
       WHERE events.main_url = '${req.params.id}';`)
     .then((result) => {
-      res.render('event', { eventData: result.rows[0] });
+      res.render('event', { eventData: result.rows[0], url: mainUrl });
     });
   });
 
@@ -46,19 +47,19 @@ module.exports = (knex) => {
     let date = req.body.slotdate;
     let startTime = req.body.slothr;
     let endTime = req.body.slothr2;
-    console.log(req.route);
-    knex('events').select('id').where('main_url', req.params.id)
+    let mainUrl = req.body.url;
+    knex('events').select('id').where('main_url', mainUrl)
     .then((result) => {
       return knex('proposed_dates').insert({
         proposed_start_time: startTime,
         proposed_end_time: endTime,
         date: date,
         event_id: result[0].id,
-      }).result('*');
+      }).catch((err) => {
+        res.json(err);
+      });
     });
-
   });
-
   // delete the event
   eventRoutes.post("/:id/delete", (req, res) => {
     knex.raw(`DELETE FROM events
@@ -69,13 +70,14 @@ module.exports = (knex) => {
   });
 
   eventRoutes.get("/:id", (req, res) => {
+    let mainUrl = req.params.id;
     knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
       JOIN users ON events_users.user_id = users.id
       JOIN events ON events_users.event_id = events.id
       JOIN categories ON events.categories_id = categories.id
       WHERE events.main_url = '${req.params.id}';`)
     .then((result) => {
-      res.render('event', { eventData: result.rows[0] });
+      res.render('event', { eventData: result.rows[0], url: mainUrl });
     });
   });
 

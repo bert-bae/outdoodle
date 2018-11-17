@@ -18,6 +18,7 @@
   <div class="setslotsdiv">
     <form class="slotform" method="post" action="/events/:id/edit"><div class="slotdiv"><b>From when to when?</b>
       <input name="slotdate" type="date"></input>
+      <input name="url" style="display:none" value="<%= url %>"></input>
       <input value="12:00" name="slothr" step="900" type="time" min="0"></input>
       <!-- /*<input placeholder="min" name="slotmin" type="time" min="0" style="width: 50px;"></input> -*/ -->
       <input value="12:00" name="slothr2" step="900" type="time" min="0"></input>
