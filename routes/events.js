@@ -45,7 +45,7 @@ module.exports = (knex) => {
     });
   });
 
-//TOAD: need to figure out how to get the specific :id value in the URL
+// store event data and any proposed date data
   eventRoutes.post("/:id/edit", (req, res) => {
     let date = req.body.slotdate;
     let startTime = req.body.slothr;
@@ -73,14 +73,11 @@ module.exports = (knex) => {
   });
 
   eventRoutes.get("/:id", (req, res) => {
-    let mainUrl = req.params.id;
-    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
-      JOIN users ON events_users.user_id = users.id
-      JOIN events ON events_users.event_id = events.id
-      JOIN categories ON events.categories_id = categories.id
-      WHERE events.main_url = '${req.params.id}';`)
-    .then((result) => {
-      res.render('event_user', { eventData: result.rows[0], url: mainUrl });
+    knex.raw(`SELECT * FROM proposed_dates
+      JOIN events ON events.id = proposed_dates.event_id
+      WHERE events.main_url = '${req.params.id}'
+    `).then((result) => {
+      res.render('event_user', { data: result.rows } );
     });
   });
 
