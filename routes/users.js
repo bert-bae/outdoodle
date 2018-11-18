@@ -3,9 +3,10 @@
 const express = require('express');
 const router  = express.Router({ mergeParams: true });
 
+
 module.exports = (knex) => {
 
-  router.get("/", (req, res) => {
+  router.get("/users", (req, res) => {
     knex
       .select("*")
       .from("users")
@@ -20,3 +21,5 @@ module.exports = (knex) => {
 
   return router;
 };
+
+

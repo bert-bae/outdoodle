@@ -4,9 +4,6 @@ $(document).ready(function () {
     $('.setslotsdiv').slideToggle();
   });
 
-
-
-
   $('.setslotsdiv').on('submit', 'form', function (event) {
     event.preventDefault(event);
     var $slotdata = $('form');
