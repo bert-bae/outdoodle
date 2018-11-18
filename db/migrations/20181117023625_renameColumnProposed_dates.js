@@ -1,5 +1,6 @@
 
 exports.up = function(knex, Promise) {
+
   return Promise.all([
     knex.schema.table('proposed_dates', function(table) {
       table.renameColumn('proposed_start_date', 'proposed_start_time');
