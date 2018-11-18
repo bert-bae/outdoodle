@@ -4,7 +4,7 @@ $(document).ready(function () {
   $('.user-register-form').on('submit', function (event) {
     event.preventDefault(event);
 
-    $.ajax({
+  $.ajax({
         type: 'POST',
         url: '/events/:id/userinfo',
         data: $('.user-register-form').serialize(),
@@ -12,5 +12,7 @@ $(document).ready(function () {
 
         }
       });
+
   });
+
 });
