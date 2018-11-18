@@ -5,54 +5,23 @@
 <!-- <script type="text/javascript" src="/scripts/adminpage.js"></script> -->
 </head>
 <body>
-  <h1><%= eventData.event_name %></h1>
-  <div class="slots"><div class="container">
-  <div class="row">
- <!-- <div class="col-sm uslot">
-      5:30 - 8:30 Wed 9th
+  <h1> <%= data[0] %> </h1>
+    <div class="slots">
+      <div class="container">
+        <div class="row">
+
+          <% for (let i = 0; i < data.length; i++) { %>
+            <div class="col-sm purpi" data-votes= "" data-triggered= false>
+              <%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %>
+              <form class="upvote-form">
+                <button class="upvote">This</button>
+              </form>
+            </div>
+          <% } %>
+
+        </div>
+      </div>
     </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Tues 8th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Mon 7th
-    </div>
-    <div class="col-sm uslot">
-      5:30 - 8:30 Wed 9th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Tues 8th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Mon 7th
-    </div>
-    <div class="col-sm uslot">
-      5:30 - 8:30 Wed 9th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Tues 8th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Mon 7th
-    </div>
-    <div class="col-sm uslot">
-      5:30 - 8:30 Wed 9th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Tues 8th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Mon 7th
-    </div>
-    <div class="col-sm uslot">
-      5:30 - 8:30 Wed 9th
-    </div>
-    <div class="col-sm uslot">
-      6:30 - 7:30 Tues 8th
-    </div>
- -->
-  </div>
-</div></div>
 <div class="eventloc">Location</div>
 <div class="describer">Event Description</div>
 <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
