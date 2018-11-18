@@ -83,16 +83,18 @@ module.exports = (knex) => {
     });
   });
 
-  eventRoutes.post("/:id/edit/vote", (req, res) => {
+  eventRoutes.post("/:id/vote", (req, res) => {
     console.log("This is from the vote: ", req.body);
     res.send( {result: "This works!"} );
   });
 
 // deletes time slot from proposed_dates based on voteid of the element clicked
   eventRoutes.post("/:id/edit/deletetime", (req, res) => {
-    knex.raw(`DELETE FROM proposed_dates WHERE id = ${req.body.voteid}`)
+    let voteid = req.body.voteid;
+    knex.raw(`DELETE FROM proposed_dates WHERE id = ${voteid}`)
     .then(() => {
-      res.send( {result: `VoteID got deleted, please check in database: ${req.body.voteid}`} );
+      console.log(voteid);
+      res.send( {voteid: voteid} );
     });
   });
 

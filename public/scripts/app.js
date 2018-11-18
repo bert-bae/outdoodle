@@ -16,8 +16,6 @@ $(document).ready(function () {
     console.log($stdt.val().toISOString.subString(0, 10));
     $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));
   });
-  $('#error').hide();
-  $('.error2').hide();
 
   $('.startbtn').on('click', function() {
     $('.start').slideUp();
@@ -29,10 +27,12 @@ $(document).ready(function () {
     const $form = $('.createEvent');
     const $name = $('input.name');
     const $email = $('input.email');
-    if($name.val() === "" || $email.val() ==="") {
+
+    if($name.val() === "" || $email.val() === "") {
       console.log('eroooorrrr');
       $('#error').slideDown();
     } else {
+      $('#error').slideUp();
       // alert($form.serialize());
       $.ajax({
         type: 'POST',
@@ -75,20 +75,21 @@ $(document).ready(function () {
     console.log($('input.category').val());
   });
 
-  $('.dtbtn').on('click', function (event) {
-    event.preventDefault();
+  $('.dtform').on('submit', function (event) {
+    event.preventDefault(event);
     const $form = $('.dtform');
-    const $errorx1 = $('input.errorx1');
-    const $errorx2 = $('input.errorx2');
-    const $errorx3 = $('textarea.errorx3');
-    const $errorx6 = $('input.errorx6');
-    const $errorx4 = $('input.errorx4');
-    const $errorx5 = $('input.errorx5');
-    if($errorx1.val() ==="" || $errorx2.val() ==="" || $errorx3.val() ==="" || $errorx6.val() ==="" || $errorx4.val() === "" || $errorx5.val() === "") {
+    const $errorx1 = $('input.evtnameinput');
+    const $errorx2 = $('input.evtlocationinput');
+    const $errorx3 = $('textarea.description');
+    const $errorx6 = $('#stdt');
+    const $errorx4 = $('#enddt');
+    const $errorx5 = $('input.category');
+    if ($errorx1.val() === "" || $errorx2.val() === "" || $errorx3.val() === "" || $errorx6.val() === "" || $errorx4.val() === "" || $errorx5.val() === "" ) {
       console.log('category needs an input');
       $('.error2').slideDown();
       console.log($('input.end_date').val());
     } else {
+      $('.error2').slideUp();
     $.ajax({
       type: 'POST',
       url: '/events/create',

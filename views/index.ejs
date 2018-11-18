@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
   <% include ./partials/_header.ejs %>
+
 
   <body>
 
@@ -20,6 +22,7 @@
         <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
         <button class="btn">Create Event</button>
       </form>
+       <div class="err" id="error">Please enter your name and email</div>
     </div>
 
     <div class="details" style="display:none">
@@ -34,7 +37,10 @@
         <i class="fas fa-network-wired"></i><br>
         <textarea name="details" class="description" placeholder="Describe your event!"></textarea><br>
         <input id="stdt" name="start_date" style="width: 150px;" type="date" min="minnie" value="<%= (new Date()).toISOString().split('T')[0] %>"></input> <---> <input id="enddt" name="end_date" style="width: 150px;"  type="date" value="<%= (new Date()).toISOString().split('T')[0] %>"></input><br><br>
+
+
         <button class="dtbtn">Submit</button>
+        <div class="error2">Please fill out the entire form</div>
       </form>
     </div>
 
