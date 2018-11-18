@@ -28,7 +28,7 @@
       <div class="row">
 
         <% for (let i = 0; i < data.length; i++) { %>
-          <div class="col-sm purpi" data-votes=<%= data[i].votes %> data-triggered= 'false'>
+          <div class="col-sm purpi" data-votetimeid='<%= data[i].time_id %>' data-votes='<%= data[i].votes %>'   data-triggered= 'false'>
             <p><%= data[i].date %></p><br>
             <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
             <form class="upvote-form"></form>
