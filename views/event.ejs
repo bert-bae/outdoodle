@@ -1,11 +1,21 @@
 <!doctype html>
 <html>
+<head>
+
+</head>
 
   <% include ./partials/_header.ejs %>
 
   <body>
 
     <% include ./partials/_mainheader.ejs %>
+    <br>
+  <div>
+    <div class="event-details">
+      <span>Please send out this url to guests: /events/<%= data[0].main_url %> </span>
+    </div>
+  </div>
+<br>
     <div class="body-container">
 
       <% include ./partials/_eventdetails.ejs %>
