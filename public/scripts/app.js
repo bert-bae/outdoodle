@@ -32,11 +32,13 @@ $('.error2').hide();
       console.log('eroooorrrr');
       $('#error').slideDown();
     } else {
+      alert($form.serialize());
     $.ajax({
       type: 'POST',
       url: '/events',
       data: $form.serialize(),
       success: function () {
+        console.log('form.serialize', $form.serialize());
         $form.slideUp();
         $('.details').slideDown();
       }

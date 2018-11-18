@@ -102,6 +102,7 @@ module.exports = (knex) => {
         knex('users').select('id').where('email', req.session.temp),
       ]);
     })
+
     .then((multiresult) => {
       let event_id = multiresult[0][0].id;
       let user_id = multiresult[1][0].id;

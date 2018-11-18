@@ -13,20 +13,22 @@
   <% console.log('jum jum', eventData.end_date.toISOString().substring(0, 10)) %>
   <button class="setslots">Enter your proposed times</button><br><br>
   <div class="setslotsdiv">
-    <form class="slotform" method="post" action="/events/:id/edit"><div class="slotdiv"><b>From when to when?</b>
-      <input name="slotdate" type="date"></input>
-      <input name="url" style="display:none" value="<%= url %>"></input>
-      <input value="12:00" name="slothr" step="900" type="time" min="0"></input>
-      <!-- /*<input placeholder="min" name="slotmin" type="time" min="0" style="width: 50px;"></input> -*/ -->
-      <input value="12:00" name="slothr2" step="900" type="time" min="0"></input>
-      <!-- /*<input placeholder="min" name="slotmin2" type="number" min="0" style="width: 50px;"></div></input>*/ -->
+
+
+    <form class="slotform" method="post" action="/events/:id/edit/"><div class="slotdiv">
+       <input name="url" style="display:none" value="<%= url %>"></input>
+      <b>From when to when?</b>
+      <input name="slotdate" min="<%= eventData.start_date.toISOString().substring(0, 10) %>" max="<%= eventData.end_date.toISOString().substring(0, 10) %>" type="date"></input>
+      <input value="12:00" step="900" name="slothr" type="time" min="0"></input>
+      <input value="12:00" step="900" name="slothr2" type="time" min="0"></input>
+
       <br><br><button id="submit">Submit</button>
     </form>
   </div>
   <div class="slots"><div class="container">
   <div class="row">
   </div>
-</div></div>
+</div></div></div>
 <div class="eventloc">Location</div>
 <div class="describer">Event Description</div>
 </body>
