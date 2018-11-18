@@ -1,5 +1,6 @@
 
 exports.up = function(knex, Promise) {
+
   return Promise.all([
     knex.schema.createTable('proposed_dates', function(table) {
       table.increments();
@@ -12,6 +13,7 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
+
   return Promise.all([
     knex.schema.dropTable('proposed_dates')
   ]);

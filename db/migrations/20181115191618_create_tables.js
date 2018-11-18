@@ -55,6 +55,7 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
+
   function dropRanksTable() {
     return knex.schema.dropTable('ranks');
   }
@@ -82,3 +83,4 @@ exports.down = function(knex, Promise) {
     .then(dropRanksTable)
     .then(dropCategoriesTable);
 };
+
