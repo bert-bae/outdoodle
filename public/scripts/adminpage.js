@@ -8,9 +8,17 @@ var i = 0;
     $('.setslotsdiv').slideToggle();
   });
 
-// $('.slotdel').on('submit', function (event) {
-//   event.preventDefault(event);
-// });
+  $('.slotdel').on('click', function (event) {
+    event.preventDefault(event);
+    $.ajax({
+      type: 'POST',
+      url: '/events/:id/edit/deletetime',
+      data: $(this).serialize(),
+      success: function (result) {
+        console.log(result);
+      }
+    });
+  });
 
   $('.setslotsdiv').on('submit', '.slotform', function (event) {
     event.preventDefault(event);

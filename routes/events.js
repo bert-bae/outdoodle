@@ -42,7 +42,6 @@ module.exports = (knex) => {
       `)
       .then((result) => {
         if (result.rows.length > 0) {
-          console.log(result.rows[0]);
           let rows = result.rows;
           let startTime = 'proposed_start_time';
           let endTime = 'proposed_end_time';
@@ -85,6 +84,14 @@ module.exports = (knex) => {
   });
 
   // delete the event
+
+  eventRoutes.post("/:id/edit/deletetime", (req, res) => {
+    knex.raw(`DELETE FROM proposed_dates WHERE id = ${req.body.voteid}`)
+    .then(() => {
+      res.send( {result: `VoteID got deleted, please check in database: ${req.body.voteid}`} );
+    });
+  });
+
   eventRoutes.post("/:id/delete", (req, res) => {
     knex.raw(`DELETE FROM events
               WHERE main_url = '${req.params.id}'`)
