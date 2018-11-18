@@ -35,22 +35,30 @@ module.exports = (knex) => {
 
   eventRoutes.get("/:id/edit", (req, res) => {
     req.session.temp = req.params.id;
-    knex.raw(`SELECT * FROM proposed_dates
-      JOIN events ON events.id = proposed_dates.event_id
-      WHERE events.main_url = '${req.params.id}'
-    `)
-    .then((result) => {
-      let rows = result.rows;
-      let startTime = 'proposed_start_time';
-      let endTime = 'proposed_end_time';
-      let sortedByDate = rows.sort((a, b) => {
-        return (a.date.slice(9, 10) - b.date.slice(9, 10));
+    knex.raw(`SELECT * FROM events
+        WHERE events.main_url = '${req.session.temp}'
+      `)
+      .then((result) => {
+        res.render('event', { data: result.rows } );
       });
-      let secondSortByTime = sortedByDate.sort((a, b) => {
-        return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
-      });
-      res.render('event', { data: result.rows } );
-    });
+
+    //IF COMING FROM A SHORTURL...
+      // knex.raw(`SELECT * FROM proposed_dates
+      //   JOIN events ON events.id = proposed_dates.event_id
+      //   WHERE events.main_url = '${req.session.temp}'
+      // `)
+      // .then((result) => {
+      //   let rows = result.rows;
+      //   let startTime = 'proposed_start_time';
+      //   let endTime = 'proposed_end_time';
+      //   let sortedByDate = rows.sort((a, b) => {
+      //     return (a.date.slice(9, 10) - b.date.slice(9, 10));
+      //   });
+      //   let secondSortByTime = sortedByDate.sort((a, b) => {
+      //     return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
+      //   });
+      //   res.render('event', { data: result.rows } );
+      // });
   });
 
 // store event data and any proposed date data
