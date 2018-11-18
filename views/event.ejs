@@ -41,7 +41,7 @@
               <div class="col-sm uslot purpi vote<%= i %> delete" data-votetimeid='<%= data[i].time_id %>' data-votes='<%= data[i].votes %>'   data-triggered= 'false'>
                 <p><%= data[i].date %></p><br>
                 <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
-                <form method="post" action="/events/:id/edit/deletetime" class="slotform slotdel">
+                <form method="post" action="/events/:id/edit/deletetime" class="slotdel">
                   <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
                   <button class="timeslot-del">Delete</button>
                 </form>
