@@ -3,14 +3,35 @@ body {
   /*background-color: black;*/
   background-image: url('https://www.prague-stay.com/images/full_image/1920x1200/prague-old-town-square-jan-tyn-resize~old-town-square-old-town-tourists.jpg');
 
-  h1 {
-    text-align: center;
-    color: red;
-    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+  div.header-container {
+    display: flex;
+    // color: red;
+    // background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
     background-position: center;
     background-blend-mode: color-burn;
+    margin: 20px 50px 20px 50px;
+    flex-direction: column-reverse;
   }
 
+  div h1 {
+    color: red;
+    align-self: flex-end;
+    flex: right;
+    order: 2;
+  }
+
+  div .slogan {
+    flex: right;
+    align-self: flex-end;
+    color: #ggg;
+    order: 1;
+  }
+
+  div .event-name {
+    color: black;
+    order: 3;
+    align-self: flex-start;
+  }
   .user-register {
     display: none;
 
@@ -39,34 +60,44 @@ body {
     cursor: pointer;
   }
 
+  div .event-details {
+    display: flex;
+    padding: 0 50px 0 50px;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    background-color: #eee;
+    border-radius: 15px;
+    // background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+  }
+
+  .event-details h1 {
+    font-weight: bold;
+    font: arial, sans-serif;
+    order: 1;
+    margin: 0;
+  }
+
   .describer {
-    width: 50%;
-    margin-top: 5%;
-    margin-left: 25%;
-    margin-right: 25%;
+    order: 3;
+    width: 40%;
+    margin: 0;
     text-align: center;
-    border-radius: 10px;
     color: red;
-    border: 1px solid red;
-    /*background-color: red;*/
-    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+    // background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
     background-position: center;
     background-blend-mode: color-burn;
     opacity: 0.9;
   }
 
   .eventloc {
-    width: 50%;
-    margin-top: 5%;
-    margin-left: 25%;
-    margin-right: 25%;
+    order: 2;
+    width: 10%;
+    margin: 0;
     text-align: center;
-    border-radius: 10px;
     color: red;
-        border: 1px solid red;
-
     /*background-color: red;*/
-    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+    // background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
     background-position: center;
     background-blend-mode: color-burn;
     opacity: 0.9;
@@ -89,6 +120,7 @@ body {
     border-radius: 10px;
     background-image: linear-gradient(red, gray);
     width: 100%;
+    margin-top: 25px;
   }
 
   .setslots:hover {
@@ -99,6 +131,7 @@ body {
 
   .slots {
     text-align: center;
+    margin: 25px 0 25px 0;
   }
 
    .uslot:hover {

@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/create.js"></script>
-  </head>
+  <% include ./partials/_header.ejs %>
 
   <body>
-    <div class="left"></div>
-    <div class="right"></div>
-    <div class="navbar">Redsquare, the place where plans become reality</div>
-    <br>
+
+  <% include ./partials/_mainheader.ejs %>
+
     <div class="start">
       <h1>Why Redsquare?</h1>
       <p>From time to time, we all need to organize events; but in today's world, it's hard to get everyone in the same place at the same time. No longer. With Redsquare, we make this arduous process easy! Click the button below to get started</p>
-    <button class="startbtn">Let's go!</button>
+      <button class="startbtn">Let's go!</button>
     </div>
-    <div class="details"><form class="dtform">
+
+    <div class="" style="display:none">
+      <form class="createEvent" method="POST" action="/events">
+        <h1 class="h1">Create an event!</h1>
+        <input type="text" name="name" class="name" placeholder="enter your name"></input>
+        <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
+        <button class="btn">Create Event</button>
+      </form>
+    </div>
+
+    <div class="details" style="display:none"><form class="dtform">
       <h1>Enter your event details!</h1>
       <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
       <input style="width: 300px;" class="evtlocationinput" type="text" name="eventLoc" placeholder="enter your event location">
@@ -31,19 +31,12 @@
       <i class="fas fa-user-tie"></i>
       <i class="fas fa-user-friends"></i>
       <i class="fas fa-network-wired"></i>
-     <br>
-     <br>
      <textarea name="details" class="description" placeholder="Describe your event!"></textarea>
-     <br>
-     <br>
      <input id="stdt" name="start_date" style="width: 150px;" type="date" min="minnie"></input> <---> <input id="enddt" name="end_date" style="width: 150px;"  type="date"></input><br><br>
      <button class="dtbtn">Submit</button>
     </form></div>
-    <form class="createEvent" method="POST" action="/events">
-      <h1 class="h1">Create an event!</h1>
-      <input type="text" name="name" class="name" placeholder="enter your name"></input>
-      <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
-      <button class="btn">Create Event</button>
-    </form>
+
+  <% include ./partials/_scripts.ejs %>
+
   </body>
 </html>
