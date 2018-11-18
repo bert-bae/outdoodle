@@ -11,9 +11,9 @@ var i = 0;
 // deletes the time slot (admin access)
 
   $('form.slotdel').on('click', function (event) {
-
+// alert("damn")
     event.preventDefault(event);
-    $(this).parent('.purpi').remove();
+    // $(this).closest('div.col-sm').remove();
     $.ajax({
       type: 'POST',
       url: '/events/:id/edit/deletetime',
@@ -90,7 +90,7 @@ var i = 0;
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
-    var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').addClass('uslot').html('4:30 - 7:30').attr({
+    var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').addClass('uslot').html($('input[name=slotdate]').val() + '<br>' + $("input[name=slothr]").val() + ' - ' + $('input[name=slothr2').val()).attr({
       name: i,
       'data-votes': 0
     });
@@ -105,7 +105,8 @@ var i = 0;
       url: '/events/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
-        alert('result', result);
+        console.log('IM GETTING DATA');
+        // $timeslot.addClass();
       }
     });
 
