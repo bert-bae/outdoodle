@@ -14,8 +14,8 @@
       <div class="setslotsdiv">
         <form class="slotform" method="post" action="/events/:id/edit/"><div class="slotdiv">
           <input name="url" style="display:none" value="<%= data[0].main_url %>"></input>
-          <h2>Pick your potential date and time.</h2>
-          <input id="minmax" name="slotdate" min="<%= data[0].start_date.toISOString().substring(0, 10) %>" max="<%= data[0].end_date.toISOString().substring(0, 10) %>" type="date"></input>
+          <h2>Pick potential event dates and times.</h2>
+          <input id="minmax" name="slotdate" min="<%= data[0].start_date.toISOString().substring(0, 10) %>" value="<%= (new Date()).toISOString().split('T')[0] %>" type="date"></input>
           <input value="12:00" step="900" name="slothr" type="time" min="0"></input> -
           <input value="12:00" step="900" name="slothr2" type="time" min="0"></input>
           <br><br><button id="submit">Submit</button>

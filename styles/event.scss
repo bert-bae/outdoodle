@@ -158,7 +158,7 @@ body {
   }
 
  .purpi {
-    background-color: white;
+    background-color: #E8E8E8;
     height: 20%;
     border-radius: 10px;
     border: 5px solid red;
@@ -167,7 +167,7 @@ body {
 
   .uslot {
     background-color: black;
-    color: white;
+    color: #E8E8E8;
     height: 20%;
     border-radius: 10px;
     border: 5px solid red;
@@ -177,7 +177,7 @@ body {
 }
 
 .toggleWhite {
-  color: white
+  color: #E8E8E8;
 }
 
 .left {
@@ -222,7 +222,7 @@ body {
     background-position: center;
     background-blend-mode: color-burn;
     opacity: 0.9;
-    color: white;
+    color: #E8E8E8;
     font-family: monospace;
     text-align: center;
     font-size: 1.5em;
@@ -232,7 +232,7 @@ body {
   .fas {
     margin-left: 40px;
     margin-right: 40px;
-    color: white;
+    color: #E8E8E8;
   }
 
   .description {
@@ -255,7 +255,7 @@ body {
   }
 
   .details {
-    color: white;
+    color: #E8E8E8;
     text-align: center;
     display: none;
     h1 {
@@ -264,7 +264,7 @@ body {
 
     p {
       margin-right: 10px;
-      color: white;
+      color: #E8E8E8
     }
 
     input {
@@ -307,12 +307,13 @@ body {
   }
 
   .start p {
-    color: white;
+    color: #E8E8E8;
+    font-weight: bold;
   }
 
   .h1 {
     text-align: center;
-    color: white;
+    color: #E8E8E8;
   }
 
   .btn {
