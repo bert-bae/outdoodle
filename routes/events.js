@@ -88,6 +88,10 @@ module.exports = (knex) => {
     });
   });
 
+  eventRoutes.post("/events/:id/userinfo", (req, res) => {
+     knex('')
+  })
+
   eventRoutes.get("/:id", (req, res) => {
     knex.raw(`SELECT * FROM proposed_dates
       JOIN events ON events.id = proposed_dates.event_id
