@@ -32,7 +32,6 @@ $(document).ready(function () {
         url: '/events',
         data: $form.serialize(),
         success: function () {
-          // console.log('form.serialize', $form.serialize());
           $form.slideUp();
           $('.details').slideDown();
         }

@@ -17,7 +17,7 @@ module.exports = (knex) => {
 
   eventRoutes.post("/", (req, res) => {
     req.session.temp = req.body.email;
-    knex('users').select('email').where('email', req.body.email)
+    knex.raw(`SELECT email FROM users WHERE email = '${req.session.temp}'`)
     .then((result) => {
       if(result.length) {
         res.send();
