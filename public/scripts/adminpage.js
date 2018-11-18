@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
 var i = 0;
+
   $('.setslots').on('click', function () {
     $('.setslotsdiv').slideToggle();
   });
@@ -66,6 +67,7 @@ var i = 0;
       'data-votes': 0
     });
     $('.row').append($timeslot);
+
     var $slotdelform = $('<form></form>').attr({
       method: 'POST',
       action: '/events/:id/edit/deletetime'
@@ -78,9 +80,8 @@ var i = 0;
     event.preventDefault(event);
     $(this).attr('data-votes', '1');
     // alert($(this).attr('data-votes'));
-      $(this).remove();
+    $(this).remove();
       // alert($(this).attr('name'));
-
     $(this).remove();
       $.ajax({
         type: 'POST',
@@ -91,9 +92,9 @@ var i = 0;
           alert('holy moly');
         }
       });
-  });
+    });
   });
 
 
 });
-}
+});

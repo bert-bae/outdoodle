@@ -80,7 +80,7 @@ module.exports = (knex) => {
       JOIN categories ON events.categories_id = categories.id
       WHERE events.main_url = '${req.params.id}';`)
     .then((result) => {
-      res.render('event', { eventData: result.rows[0], url: mainUrl });
+      res.render('event_user', { eventData: result.rows[0], url: mainUrl });
     });
   });
 
