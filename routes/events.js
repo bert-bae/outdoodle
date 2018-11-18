@@ -87,8 +87,8 @@ module.exports = (knex) => {
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.params.id}'
     `).then((result) => {
-      res.render('event_user', { data: 10 } );
-      //result.rows
+      console.log(result.rows[0]);
+      res.render('event_user', { data: result.rows } );
     });
   });
 
