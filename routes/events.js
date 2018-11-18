@@ -91,10 +91,8 @@ module.exports = (knex) => {
   eventRoutes.post("/events/:id/userinfo", (req, res) => {
      knex('users').insert({
       email: req.body.uemail,
-      name: req.body.uname
-     })
-     .then(() => {
-
+      name: req.body.uname,
+      rank: 2
      })
   })
 
