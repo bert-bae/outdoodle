@@ -11,8 +11,7 @@
 
 $(document).ready(function () {
   var minnie = Date.now();
-  alert(minnie);
-  alert('why the fuck!');
+
   var $stdt = $('#stdt');
   $('#stdt').change(function () {
     console.log($stdt.val().toISOString.subString(0, 10));
