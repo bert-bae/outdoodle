@@ -76,8 +76,10 @@ var i = 0;
       url: '/events/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
-        const $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').html('4:30 - 7:30').attr({
-          name: i,
+        console.log("This is the result on the ajax end: ", result.data);
+        const $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').attr({
+          'class': `col-sm uslot purpi name${i} vote delete`,
+          'data-votetimeid': result.data.id,
           'data-votes': 0,
           'data-triggered': 'false'
         });
@@ -85,11 +87,18 @@ var i = 0;
           method: 'POST',
           action: '/events/:id/edit/deletetime'
         }).addClass('slotdel');
-        const $slotdelbtn = $('<button>Delete</button>');
+        const $slotdelbtn = $('<button class="timeslot-del">Delete</button>');
+        const $date = $(`<p>${result.data.date}</p>`);
+        const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
+        const $time = $(`<p>${result.data.proposed_start_time} - ${result.data.proposed_end_time}</p>`);
 
         $('.row').append($timeslot);
+        $timeslot.append($date);
+        $timeslot.append($time);
+        $timeslot.append($input);
         $slotdelform.append($slotdelbtn);
         $timeslot.append($slotdelform);
+
       }
     });
 
