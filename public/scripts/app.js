@@ -10,9 +10,12 @@
 // });
 
 $(document).ready(function () {
+  var minnie = Date.now();
+  alert(minnie);
+  alert('why the fuck!');
   var $stdt = $('#stdt');
   $('#stdt').change(function () {
-    alert($stdt.val().toISOString.subString(0, 10));
+    console.log($stdt.val().toISOString.subString(0, 10));
     $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));
   });
 $('#error').hide();
@@ -32,7 +35,7 @@ $('.error2').hide();
       console.log('eroooorrrr');
       $('#error').slideDown();
     } else {
-      alert($form.serialize());
+      // alert($form.serialize());
     $.ajax({
       type: 'POST',
       url: '/events',
@@ -83,7 +86,7 @@ function resetIconsColor(){
     const $errorx4 = $('input.errorx4');
     const $errorx5 = $('input.errorx5');
     if($errorx1.val() ==="" || $errorx2.val() ==="" || $errorx3.val() ==="" || $errorx6.val() ==="" || $errorx4.val() === "" || $errorx5.val() === "") {
-      console.log('category needss an input');
+      console.log('category needs an input');
       $('.error2').slideDown();
       console.log($('input.end_date').val());
     } else {

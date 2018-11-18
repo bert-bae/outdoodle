@@ -156,3 +156,4 @@ module.exports = (knex) => {
 
   return eventRoutes;
 };
+
