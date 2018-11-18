@@ -36,34 +36,34 @@ module.exports = (knex) => {
 // event edit page (add times for voting)
   eventRoutes.get("/:id/edit", (req, res) => {
     req.session.temp = req.params.id;
-      knex.raw(`SELECT *, proposed_dates.id AS time_id FROM proposed_dates
-        JOIN events ON events.id = proposed_dates.event_id
-        WHERE events.main_url = '${req.session.temp}'
-      `)
-      .then((result) => {
-        if (result.rows.length > 0) {
-          let rows = result.rows;
-          let startTime = 'proposed_start_time';
-          let endTime = 'proposed_end_time';
-          let sortedByDate = rows.sort((a, b) => {
-            return (a.date.slice(9, 10) - b.date.slice(9, 10));
-          });
-          let secondSortByTime = sortedByDate.sort((a, b) => {
-            return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
-          });
+    knex.raw(`SELECT *, proposed_dates.id AS time_id FROM proposed_dates
+      JOIN events ON events.id = proposed_dates.event_id
+      WHERE events.main_url = '${req.session.temp}'
+    `)
+    .then((result) => {
+      if (result.rows.length > 0) {
+        let rows = result.rows;
+        let startTime = 'proposed_start_time';
+        let endTime = 'proposed_end_time';
+        let sortedByDate = rows.sort((a, b) => {
+          return (a.date.slice(9, 10) - b.date.slice(9, 10));
+        });
+        let secondSortByTime = sortedByDate.sort((a, b) => {
+          return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
+        });
+        res.render('event', { data: result.rows } );
+      } else {
+        knex.raw(`SELECT * FROM events
+          WHERE events.main_url = '${req.session.temp}'
+        `)
+        .then((result) => {
           res.render('event', { data: result.rows } );
-        } else {
-          knex.raw(`SELECT * FROM events
-            WHERE events.main_url = '${req.session.temp}'
-          `)
-          .then((result) => {
-            res.render('event', { data: result.rows } );
-          });
-        }
-      });
+        });
+      }
+    });
   });
 
-// store event data and any proposed date data
+// store proposed date data
   eventRoutes.post("/:id/edit", (req, res) => {
     let date = req.body.slotdate;
     let startTime = req.body.slothr;
@@ -77,8 +77,10 @@ module.exports = (knex) => {
         date: date,
         event_id: result[0].id,
         votes: 0,
-      }).catch((err) => {
-        res.json(err);
+      }).returning('*')
+      .then((result) => {
+        console.log("This is the result of proposed_dates that was inserted: ", result[0]);
+        res.send( {data: result[0]});
       });
     });
   });
