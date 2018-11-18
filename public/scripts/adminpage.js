@@ -9,24 +9,45 @@ var i = 0;
   });
 
 // deletes the time slot (admin access)
-  $('.slotdel').on('click', function (event) {
+  $('form.slotdel').on('click', function (event) {
     event.preventDefault(event);
     $.ajax({
       type: 'POST',
       url: '/events/:id/edit/deletetime',
       data: $(this).serialize(),
       success: function (result) {
-        console.log(result);
+        $('div.delete').filter(function(){
+            return $(this).attr('data-votetimeid') === result.voteid.toString();
+        }).remove();
       }
     });
   });
 
+
+  // $('form.delete').on('submit', function (event) {
+  //   event.preventDefault(event);
+  //   $(this).attr('data-votes', '1');
+  //   // alert($(this).attr('data-votes'));
+  //   $(this).remove();
+  //   // alert($(this).attr('name'));
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: '/events/:id/edit/deletetime',
+  //     data: $(this).attr('name'),
+  //     success: function (result) {
+  //       i--;
+  //       alert('holy moly');
+  //     }
+  //   });
+  // });
+
+
 // increments the vote
-  $('.slotdel').on('click', function (event) {
+  $('.vote').on('click', function (event) {
     event.preventDefault(event);
     $.ajax({
       type: 'POST',
-      url: '/events/:id/edit/vote',
+      url: '/events/:id/vote',
       data: $(this).serialize(),
       success: function (result) {
         console.log(result);
@@ -93,23 +114,6 @@ var i = 0;
     $('.row').append($timeslot);
     $slotdelform.append($slotdelbtn);
     $timeslot.append($slotdelform);
-  });
-
-  $('.purpi').on('submit', function (event) {
-    event.preventDefault(event);
-    $(this).attr('data-votes', '1');
-    // alert($(this).attr('data-votes'));
-    $(this).remove();
-    // alert($(this).attr('name'));
-    $.ajax({
-      type: 'POST',
-      url: '/events/:id/edit/deletetime',
-      data: $(this).attr('name'),
-      success: function (result) {
-        i--;
-        alert('holy moly');
-      }
-    });
   });
 
 
