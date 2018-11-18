@@ -58,13 +58,13 @@ body div .event-details {
   background-color: #eee;
   border-radius: 15px;
 }
-body .event-details h1 {
+body span.event-details h1 {
   font-weight: bold;
   font: arial, sans-serif;
   order: 1;
   margin: 0;
 }
-body .describer {
+body span.describer {
   order: 3;
   width: 40%;
   margin: 0;
@@ -74,7 +74,7 @@ body .describer {
   background-blend-mode: color-burn;
   opacity: 0.9;
 }
-body .eventloc {
+body span.eventloc {
   order: 2;
   width: 10%;
   margin: 0;
@@ -116,6 +116,15 @@ body .uslot:hover {
   background-color: red;
   color: black;
   font-weight: bold;
+}
+body .slotform h2 {
+  background-color: #e6e6e6;
+  color: red;
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  opacity: 0.8;
 }
 body div.clicked {
   background-color: green !important;
@@ -232,6 +241,9 @@ body .details button {
 body .details button:hover {
   cursor: pointer;
   background-color: red;
+}
+body input.evtlocationinput {
+  margin: 20px;
 }
 body .start {
   color: red;
