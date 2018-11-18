@@ -45,7 +45,7 @@ module.exports = (knex) => {
     });
   });
 
-//TOAD: need to figure out how to get the specific :id value in the URL
+// store event data and any proposed date data
   eventRoutes.post("/:id/edit", (req, res) => {
     let date = req.body.slotdate;
     let startTime = req.body.slothr;
