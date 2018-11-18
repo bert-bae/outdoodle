@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'POST',
-        url: '/events/:id/edit/deletetime',
+        url: '/events/:id/userinfo',
         data: $('.user-register-form').serialize(),
         success: function (result) {
 
