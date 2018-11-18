@@ -1,5 +1,5 @@
 <!doctype html>
-<%= eventData.main_url%>
+<%= data[0].main_url %>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/event.css" type="text/css" />
@@ -9,25 +9,37 @@
 <body>
    <div class="left"></div>
     <div class="right"></div>
-  <h1><%= eventData.event_name %></h1>
+  <h1><%= data[0].name %></h1>
   <button class="setslots">Enter your proposed times</button><br><br>
+
   <div class="setslotsdiv">
-
-
     <form class="slotform" method="post" action="/events/:id/edit/"><div class="slotdiv">
-      <input name="url" style="display:none" value="<%= url %>"></input>
+      <input name="url" style="display:none" value="<%= data[0].main_url %>"></input>
       <b>From when to when?</b>
-      <input id="minmax" name="slotdate" min="<%= eventData.start_date.toISOString().substring(0, 10) %>" max="<%= eventData.end_date.toISOString().substring(0, 10) %>" type="date"></input>
+      <input id="minmax" name="slotdate" min="<%= data[0].start_date.toISOString().substring(0, 10) %>" max="<%= data[0].end_date.toISOString().substring(0, 10) %>" type="date"></input>
       <input value="12:00" step="900" name="slothr" type="time" min="0"></input> -
       <input value="12:00" step="900" name="slothr2" type="time" min="0"></input>
-
       <br><br><button id="submit">Submit</button>
     </form>
   </div>
-  <div class="slots"><div class="container">
-  <div class="row">
+
+  <div class="slots">
+    <div class="container">
+      <div class="row">
+
+        <% for (let i = 0; i < data.length; i++) { %>
+          <div class="col-sm purpi" data-votes=<%= data[i].votes %> data-triggered= 'false'>
+            <p><%= data[i].date %></p><br>
+            <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
+            <form class="upvote-form"></form>
+          </div>
+        <% } %>
+
+      </div>
+    </div>
   </div>
-</div></div></div>
+
+</div>
 <div class="eventloc">Location</div>
 <div class="describer">Event Description</div>
 </body>

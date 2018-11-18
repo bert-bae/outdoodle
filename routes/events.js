@@ -35,13 +35,21 @@ module.exports = (knex) => {
 
   eventRoutes.get("/:id/edit", (req, res) => {
     req.session.temp = req.params.id;
-    knex.raw(`SELECT events.name AS event_name, users.name AS user_name, events.main_url, events.location AS location, events.start_date, events.end_date, events.detail, categories.type FROM events_users
-      JOIN users ON events_users.user_id = users.id
-      JOIN events ON events_users.event_id = events.id
-      JOIN categories ON events.categories_id = categories.id
-      WHERE events.main_url = '${req.params.id}';`)
+    knex.raw(`SELECT * FROM proposed_dates
+      JOIN events ON events.id = proposed_dates.event_id
+      WHERE events.main_url = '${req.params.id}'
+    `)
     .then((result) => {
-      res.render('event', { eventData: result.rows[0], url: req.session.temp });
+      let rows = result.rows;
+      let startTime = 'proposed_start_time';
+      let endTime = 'proposed_end_time';
+      let sortedByDate = rows.sort((a, b) => {
+        return (a.date.slice(9, 10) - b.date.slice(9, 10));
+      });
+      let secondSortByTime = sortedByDate.sort((a, b) => {
+        return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
+      });
+      res.render('event', { data: result.rows } );
     });
   });
 
