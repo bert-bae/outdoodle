@@ -45,13 +45,13 @@ module.exports = (knex) => {
     });
   });
 
-//TOAD: need to figure out how to get the specific :id value in the URL
+// store event data and any proposed date data
   eventRoutes.post("/:id/edit", (req, res) => {
     let date = req.body.slotdate;
     let startTime = req.body.slothr;
     let endTime = req.body.slothr2;
     let mainUrl = req.session.temp;
-    knex('events').select('id').where('main_url', mainUrl)
+    knex('events').select('id').where('main_url', 'abcdef')
     .then((result) => {
       return knex('proposed_dates').insert({
         proposed_start_time: startTime,
@@ -120,3 +120,4 @@ module.exports = (knex) => {
 
   return eventRoutes;
 };
+

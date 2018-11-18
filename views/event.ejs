@@ -27,6 +27,14 @@
   </div>
   <div class="slots"><div class="container">
   <div class="row">
+    <% for (let i = 0; i < data.length; i++) { %>
+            <div class="col-sm purpi" data-votes= "" data-triggered= false>
+              <%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %>
+              <form class="delete-form">
+                <button class="delete">Delete</button>
+              </form>
+            </div>
+    <% } %>
   </div>
 </div></div></div>
 <div class="eventloc">Location</div>
