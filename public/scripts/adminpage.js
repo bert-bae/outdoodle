@@ -9,8 +9,9 @@ var i = 0;
   });
 
 // deletes the time slot (admin access)
-  $('.slotdel').on('click', function (event) {
+  $('.timeslot-del').on('click', function (event) {
     event.preventDefault(event);
+    $(this).parent('.purpi').remove();
     $.ajax({
       type: 'POST',
       url: '/events/:id/edit/deletetime',
@@ -21,7 +22,7 @@ var i = 0;
     });
   });
 
-// increments the vote
+//increments the vote
   $('.slotdel').on('click', function (event) {
     event.preventDefault(event);
     $.ajax({
@@ -65,7 +66,7 @@ var i = 0;
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
-    var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').html('4:30 - 7:30').attr({
+    var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').addClass('uslot').html('4:30 - 7:30').attr({
       name: i,
       'data-votes': 0
     });
@@ -80,7 +81,7 @@ var i = 0;
       url: '/events/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
-
+        alert('result', result);
       }
     });
 
