@@ -89,12 +89,13 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/events/:id/userinfo", (req, res) => {
+     console.log('HELLLLOOOOO');
      knex('users').insert({
       email: req.body.uemail,
       name: req.body.uname,
       rank: 2
      })
-  })
+  });
 
   eventRoutes.get("/:id", (req, res) => {
     knex.raw(`SELECT * FROM proposed_dates
