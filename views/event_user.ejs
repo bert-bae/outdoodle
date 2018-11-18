@@ -1,36 +1,46 @@
 <!doctype html>
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/event.css" type="text/css" />
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+<html>
 
-<script type="text/javascript" src="/scripts/attendee.js"></script>
-</head>
-<body>
-  <h1> <%= data[0].name %> </h1>
+  <% include ./partials/_header.ejs %>
+
+  <body>
+    <% include ./partials/_mainheader.ejs %>
+
+  <div class="body-container">
+
+    <% include ./partials/_eventdetails.ejs %>
+
     <div class="slots">
       <div class="user-register">
-    <form class="user-register-form" method="POST" action="/events/:id/userinfo">
-      <input name="uname" type="text" placeholder="enter your name"></input><input name="uemail" placeholder="enter your email" type="email"></input>
-      <button class="user-register-btn">Submit</button>
-    </form>
-  </div>
-      <div class="container">
-        <div class="row">
-
-          <% for (let i = 0; i < data.length; i++) { %>
-            <div class="col-sm uslot purpi vote<%= i %> vote" data-votes=<%= data[i].votes %> data-triggered= 'false'>
-              <p><%= data[i].date %></p><br>
-              <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
-              <form class="upvote-form"></form>
-            </div>
-          <% } %>
-
-        </div>
+        <form class="user-register-form" method="POST" action="/events/:id/userinfo">
+          <input name="uname" type="text" placeholder="enter your name"></input>
+          <input name="uemail" placeholder="enter your email" type="email"></input>
+          <button class="user-register-btn">Submit</button>
+        </form>
       </div>
     </div>
-<div class="eventloc">Location</div>
-<div class="describer">Event Description</div>
-<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<script type="text/javascript" src="/scripts/attendee.js"></script>
-</body>
+
+    <div class="container">
+      <div class="row">
+
+        <% for (let i = 0; i < data.length; i++) { %>
+          <div class="col-sm uslot purpi vote<%= i %> vote" data-votetimeid='<%= data[i].time_id %>' data-votes='<%= data[i].votes %>'   data-triggered= 'false'>
+            <p><%= data[i].date %></p><br>
+            <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
+            <form class="upvote-form" method="post" action="/events/:id/edit/vote">
+              <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
+              <input type="text" name="votes" value='<%= data[i].votes %>' style="display:none"></input>
+              <button>Vote</button>
+            </form>
+          </div>
+        <% } %>
+
+      </div>
+    </div>
+
+  </div>
+
+  <% include ./partials/_scripts.ejs %>
+
+  </body>
+</html>

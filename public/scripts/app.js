@@ -10,15 +10,14 @@
 // });
 
 $(document).ready(function () {
-  var minnie = Date.now();
 
   var $stdt = $('#stdt');
   $('#stdt').change(function () {
     console.log($stdt.val().toISOString.subString(0, 10));
     $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));
   });
-$('#error').hide();
-$('.error2').hide();
+  $('#error').hide();
+  $('.error2').hide();
 
   $('.startbtn').on('click', function() {
     $('.start').slideUp();
@@ -35,26 +34,27 @@ $('.error2').hide();
       $('#error').slideDown();
     } else {
       // alert($form.serialize());
-    $.ajax({
-      type: 'POST',
-      url: '/events',
-      data: $form.serialize(),
-      success: function () {
-        console.log('form.serialize', $form.serialize());
-        $form.slideUp();
-        $('.details').slideDown();
-      }
+      $.ajax({
+        type: 'POST',
+        url: '/events',
+        data: $form.serialize(),
+        success: function () {
+          console.log('form.serialize', $form.serialize());
+          $form.slideUp();
+          $('.details').slideDown();
+        }
       });
     }
 });
 
 
-function resetIconsColor(){
-    $('.fa-user-friends').css('color', 'white');
-    $('.fa-network-wired').css('color', 'white');
-    $('.fa-user-tie').css('color', 'white');
-    return;
-}
+  function resetIconsColor(){
+      $('.fa-user-friends').css('color', 'white');
+      $('.fa-network-wired').css('color', 'white');
+      $('.fa-user-tie').css('color', 'white');
+      return;
+  }
+
   $('.fa-user-tie').on('click', function () {
     resetIconsColor();
     $(this).css('color', 'red');
