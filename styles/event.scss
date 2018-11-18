@@ -11,6 +11,14 @@ background-position: center;
     background-blend-mode: color-burn;
   }
 
+  .user-register {
+    display: none;
+
+    input {
+      border-radius: 10px;
+    }
+  }
+
   #submit {
     border-radius: 10px;
   }
