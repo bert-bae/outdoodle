@@ -60,34 +60,37 @@ var i = 0;
     $('.setslotsdiv').prepend($slotform);
     i++;
     var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').html('4:30 - 7:30').attr({
-      name: i
+      name: i,
+      'data-votes': 0
     });
     $('.row').append($timeslot);
     var $slotdelform = $('<form></form>').attr({
-      // method: 'POST',
-      // action: '/events/:id/edit/deletetime'
+      method: 'POST',
+      action: '/events/:id/edit/deletetime'
     }).addClass('slotdel');
     var $slotdelbtn = $('<button>Delete</button>');
     $slotdelform.append($slotdelbtn);
     $timeslot.append($slotdelform);
 
-  });
-
   $('.purpi').on('submit', function (event) {
     event.preventDefault(event);
+    $(this).attr('data-votes', '1');
+    // alert($(this).attr('data-votes'));
       $(this).remove();
-      i--;
-      alert($(this).attr('name'));
+      // alert($(this).attr('name'));
 
-    // $(this).remove();
-      // $.ajax({
-      //   type: 'POST',
-      //   url: '/events/:id/edit/deletetime',
-      //   data: $(this).attr('name'),
-      //   success: function (result) {
-      //     alert('holy moly');
-      //   }
-      // });
+    $(this).remove();
+      $.ajax({
+        type: 'POST',
+        url: '/events/:id/edit/deletetime',
+        data: $(this).attr('name'),
+        success: function (result) {
+          i--;
+          alert('holy moly');
+        }
+      });
   });
+  });
+
 
 });
