@@ -7,8 +7,16 @@ body {
     text-align: center;
     color: red;
     background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
-background-position: center;
+    background-position: center;
     background-blend-mode: color-burn;
+  }
+
+  .user-register {
+    display: none;
+
+    input {
+      border-radius: 10px;
+    }
   }
 
   #submit {
@@ -41,15 +49,15 @@ background-position: center;
     color: red;
     border: 1px solid red;
     /*background-color: red;*/
-        background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
     background-position: center;
     background-blend-mode: color-burn;
     opacity: 0.9;
   }
 
   .eventloc {
-     width: 50%;
-     margin-top: 5%;
+    width: 50%;
+    margin-top: 5%;
     margin-left: 25%;
     margin-right: 25%;
     text-align: center;
@@ -58,8 +66,8 @@ background-position: center;
         border: 1px solid red;
 
     /*background-color: red;*/
-        background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
-background-position: center;
+    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+    background-position: center;
     background-blend-mode: color-burn;
     opacity: 0.9;
   }
@@ -79,10 +87,8 @@ background-position: center;
 
   .setslots {
     border-radius: 10px;
-        background-image: linear-gradient(red, gray);
-
-/*    background-color: purple;
-*/    width: 100%;
+    background-image: linear-gradient(red, gray);
+    width: 100%;
   }
 
   .setslots:hover {
@@ -141,7 +147,7 @@ background-position: center;
   }
 
   .right {
-        background-image: linear-gradient(red, gray);
+    background-image: linear-gradient(red, gray);
     float: right;
     height: 100%;
     width: 10%;

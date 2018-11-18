@@ -1,5 +1,6 @@
 
 exports.up = function(knex, Promise) {
+
   return Promise.all([
     knex.schema.table('events_users', function(table) {
       table.text('short_url');
@@ -12,6 +13,7 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
+
   return Promise.all([
     knex.schema.table('events_users', function(table){
       table.dropColumn('short_url');

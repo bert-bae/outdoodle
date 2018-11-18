@@ -1,5 +1,4 @@
 <!doctype html>
-<%= data[0].main_url %>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/event.css" type="text/css" />
@@ -23,9 +22,17 @@
     </form>
   </div>
 
-  <div class="slots">
-    <div class="container">
-      <div class="row">
+  <div class="slots"><div class="container">
+  <div class="row">
+
+<!--     <% for (let i = 0; i < data.length; i++) { %>
+            <div class="col-sm purpi" data-votes= "" data-triggered= false>
+              <%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %>
+              <form class="delete-form">
+                <button class="delete">Delete</button>
+              </form>
+            </div>
+    <% } %> -->
 
         <% for (let i = 0; i < data.length; i++) { %>
           <div class="col-sm purpi" data-votetimeid='<%= data[i].time_id %>' data-votes='<%= data[i].votes %>'   data-triggered= 'false'>
