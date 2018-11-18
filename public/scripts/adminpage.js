@@ -8,11 +8,25 @@ var i = 0;
     $('.setslotsdiv').slideToggle();
   });
 
+// deletes the time slot (admin access)
   $('.slotdel').on('click', function (event) {
     event.preventDefault(event);
     $.ajax({
       type: 'POST',
       url: '/events/:id/edit/deletetime',
+      data: $(this).serialize(),
+      success: function (result) {
+        console.log(result);
+      }
+    });
+  });
+
+// increments the vote
+  $('.slotdel').on('click', function (event) {
+    event.preventDefault(event);
+    $.ajax({
+      type: 'POST',
+      url: '/events/:id/edit/vote',
       data: $(this).serialize(),
       success: function (result) {
         console.log(result);

@@ -27,7 +27,11 @@
           <div class="col-sm uslot purpi vote<%= i %> vote" data-votetimeid='<%= data[i].time_id %>' data-votes='<%= data[i].votes %>'   data-triggered= 'false'>
             <p><%= data[i].date %></p><br>
             <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
-            <form class="upvote-form"></form>
+            <form class="upvote-form" method="post" action="/events/:id/edit/vote">
+              <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
+              <input type="text" name="votes" value='<%= data[i].votes %>' style="display:none"></input>
+              <button>Vote</button>
+            </form>
           </div>
         <% } %>
 

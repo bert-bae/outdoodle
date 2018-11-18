@@ -10,10 +10,8 @@
 // });
 
 $(document).ready(function () {
-  // var minnie = Date.now();
-  // alert(minnie);
-  // alert('why the fuck!');
-  // var $stdt = $('#stdt');
+
+  var $stdt = $('#stdt');
   $('#stdt').change(function () {
     console.log($stdt.val().toISOString.subString(0, 10));
     $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));

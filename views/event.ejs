@@ -32,7 +32,7 @@
                 <p><%= data[i].date %></p><br>
                 <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
                 <form method="post" action="/events/:id/edit/deletetime" class="slotform slotdel">
-                  <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none">></input>
+                  <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
                   <button>Delete</button>
                 </form>
               </div>
