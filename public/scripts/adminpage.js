@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
   var $min = $('#minmax').attr('min');
-    var $max = $('#minmax').attr('max');
+  var $max = $('#minmax').attr('max');
 
 var i = 0;
   $('.setslots').on('click', function () {
@@ -63,7 +63,7 @@ var i = 0;
     $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
     $($slotdiv).addClass('slotdiv');
     $('.setslotsdiv').prepend($slotform);
-    i++;
+    // i++;
     var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').html('4:30 - 7:30').attr({
       name: i,
       'data-votes': 0
@@ -83,8 +83,6 @@ var i = 0;
     // alert($(this).attr('data-votes'));
       $(this).remove();
       // alert($(this).attr('name'));
-
-    $(this).remove();
       $.ajax({
         type: 'POST',
         url: '/events/:id/edit/deletetime',

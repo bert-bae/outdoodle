@@ -51,7 +51,7 @@ module.exports = (knex) => {
     let startTime = req.body.slothr;
     let endTime = req.body.slothr2;
     let mainUrl = req.session.temp;
-    knex('events').select('id').where('main_url', 'abcdef')
+    knex('events').select('id').where('main_url', mainUrl)
     .then((result) => {
       return knex('proposed_dates').insert({
         proposed_start_time: startTime,
