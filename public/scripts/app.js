@@ -1,15 +1,23 @@
-$(document).ready(function () {
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/users"
+//   }).done((users) => {
+//     for(user of users) {
+//       $("<div>").text(user.name).appendTo($("body"));
+//     }
+//   });
+// });
 
+$(document).ready(function () {
   // var minnie = Date.now();
   // alert(minnie);
   // alert('why the fuck!');
-
-  var $stdt = $('#stdt');
+  // var $stdt = $('#stdt');
   $('#stdt').change(function () {
     console.log($stdt.val().toISOString.subString(0, 10));
     $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));
   });
-
   $('#error').hide();
   $('.error2').hide();
 
@@ -27,11 +35,13 @@ $(document).ready(function () {
       console.log('eroooorrrr');
       $('#error').slideDown();
     } else {
+      // alert($form.serialize());
       $.ajax({
         type: 'POST',
         url: '/events',
         data: $form.serialize(),
         success: function () {
+          console.log('form.serialize', $form.serialize());
           $form.slideUp();
           $('.details').slideDown();
         }
@@ -41,10 +51,10 @@ $(document).ready(function () {
 
 
   function resetIconsColor(){
-    $('.fa-user-friends').css('color', 'white');
-    $('.fa-network-wired').css('color', 'white');
-    $('.fa-user-tie').css('color', 'white');
-    return;
+      $('.fa-user-friends').css('color', 'white');
+      $('.fa-network-wired').css('color', 'white');
+      $('.fa-user-tie').css('color', 'white');
+      return;
   }
 
   $('.fa-user-tie').on('click', function () {
@@ -81,15 +91,17 @@ $(document).ready(function () {
       $('.error2').slideDown();
       console.log($('input.end_date').val());
     } else {
-      $.ajax({
-        type: 'POST',
-        url: '/events/create',
-        data: $form.serialize(),
-        success: function (result) {
-          window.location = "http://localhost:8080/events/" + result.eventUrl + '/edit';
-        }
-      });
+    $.ajax({
+      type: 'POST',
+      url: '/events/create',
+      data: $form.serialize(),
+      success: function (result) {
+        window.location = "http://localhost:8080/events/" + result.eventUrl + '/edit';
+      }
+    });
     }
   });
+
+
 });
 

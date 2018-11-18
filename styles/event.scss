@@ -71,14 +71,14 @@ body {
     // background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
   }
 
-  .event-details h1 {
+  span.event-details h1 {
     font-weight: bold;
     font: arial, sans-serif;
     order: 1;
     margin: 0;
   }
 
-  .describer {
+  span.describer {
     order: 3;
     width: 40%;
     margin: 0;
@@ -90,7 +90,7 @@ body {
     opacity: 0.9;
   }
 
-  .eventloc {
+  span.eventloc {
     order: 2;
     width: 10%;
     margin: 0;
@@ -139,6 +139,16 @@ body {
     background-color: red;
     color: black;
     font-weight: bold;
+  }
+
+  .slotform h2 {
+    background-color: #e6e6e6;
+    color: red;
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    opacity: 0.8;
   }
 
   div.clicked {
@@ -273,6 +283,10 @@ body {
       cursor: pointer;
       background-color: red;
     }
+  }
+
+  input.evtlocationinput {
+    margin: 20px;
   }
 
   .start {
