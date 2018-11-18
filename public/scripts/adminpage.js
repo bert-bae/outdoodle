@@ -23,7 +23,8 @@ var i = 0;
       name: 'slotdate',
       type: 'date',
       min: $min,
-      max: $max
+      max: $max,
+      value: $min
     });
     var $hr = $('<input></input>').attr({
       type: 'time',
@@ -63,7 +64,7 @@ var i = 0;
     $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
     $($slotdiv).addClass('slotdiv');
     $('.setslotsdiv').prepend($slotform);
-    // i++;
+    i++;
     var $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').html('4:30 - 7:30').attr({
       name: i,
       'data-votes': 0
