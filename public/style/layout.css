@@ -1,0 +1,120 @@
+body {
+  background-color: rgba(55, 0, 0, 0.5);
+  background-image: url("https://ridderalvarez.com/wp-content/uploads/2018/06/Red-Square-Moscow-1024x683.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: color-burn;
+  background-size: cover;
+}
+body input, body textarea {
+  text-align: center;
+}
+body .navbar {
+  width: 100%;
+  height: 30px;
+  /*background-color: red;*/
+  background-image: url("http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif");
+  background-position: center;
+  background-blend-mode: color-burn;
+  opacity: 0.9;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  font-size: 1.5em;
+  text-overflow: auto;
+}
+body .fas {
+  margin-left: 40px;
+  margin-right: 40px;
+  color: white;
+}
+body .description {
+  width: 40%;
+  border-radius: 10px;
+}
+body .fas:hover {
+  cursor: pointer;
+  color: red;
+}
+body .createEvent {
+  text-align: center;
+  display: none;
+}
+body .createEvent input {
+  border-radius: 10px;
+}
+body .details {
+  color: white;
+  text-align: center;
+  display: none;
+}
+body .details h1 {
+  color: red;
+}
+body .details p {
+  margin-right: 10px;
+  color: white;
+}
+body .details input {
+  width: 50px;
+  margin-left: 2em;
+  margin-right: 2em;
+  border-radius: 10px;
+}
+body .details button {
+  border-radius: 10px;
+  text-align: center;
+}
+body .details button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+body .start {
+  justify-content: center;
+  color: red;
+  text-align: center;
+  text-overflow: auto;
+  width: 70%;
+  margin-left: 15%;
+}
+body .start button {
+  border-radius: 10px;
+}
+body .start button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+body .start p {
+  color: white;
+}
+body .h1 {
+  text-align: center;
+  color: white;
+}
+body .btn {
+  border-radius: 10px;
+}
+body .btn:hover {
+  background-color: crimson;
+  cursor: pointer;
+}
+body .left {
+  background-image: linear-gradient(red, gray);
+  float: left;
+  height: 100%;
+  width: 10%;
+  z-index: 1;
+  position: absolute;
+}
+body .right {
+  background-image: linear-gradient(red, gray);
+  float: right;
+  height: 100%;
+  width: 10%;
+  z-index: 1;
+  margin-left: 90%;
+  position: absolute;
+}
+
+/*# sourceMappingURL=layout.css.map */

@@ -188,3 +188,143 @@ body {
     margin-left: 90%;
     position: absolute;
   }
+
+
+
+body {
+  background-color: rgba(55, 0, 0, 0.5);
+  background-image: url('https://ridderalvarez.com/wp-content/uploads/2018/06/Red-Square-Moscow-1024x683.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: color-burn;
+  background-size: cover;
+
+  input, textarea {
+    text-align: center;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 30px;
+    /*background-color: red;*/
+    background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
+    background-position: center;
+    background-blend-mode: color-burn;
+    opacity: 0.9;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    font-size: 1.5em;
+    text-overflow: auto;
+  }
+
+  .fas {
+    margin-left: 40px;
+    margin-right: 40px;
+    color: white;
+  }
+
+  .description {
+    width: 40%;
+    border-radius: 10px;
+  }
+
+  .fas:hover {
+    cursor: pointer;
+    color: red;
+  }
+
+  .createEvent {
+    text-align: center;
+    display: none;
+
+    input {
+      border-radius: 10px;
+    }
+  }
+
+  .details {
+    color: white;
+    text-align: center;
+    display: none;
+    h1 {
+      color: red;
+    }
+
+    p {
+      margin-right: 10px;
+      color: white;
+    }
+
+    input {
+      width: 50px;
+      margin-left: 2em;
+      margin-right: 2em;
+      border-radius: 10px;
+    }
+
+    button {
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: red;
+    }
+  }
+
+  .start {
+    color: red;
+    text-align: center;
+    text-overflow: auto;
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .start button {
+    border-radius: 10px;
+  }
+
+  .start button:hover {
+    cursor: pointer;
+    background-color: red;
+  }
+
+  .start p {
+    color: white;
+  }
+
+  .h1 {
+    text-align: center;
+    color: white;
+  }
+
+  .btn {
+    border-radius: 10px;
+  }
+
+  .btn:hover {
+    background-color: crimson;
+    cursor: pointer;
+  }
+  .left {
+    background-image: linear-gradient(red, gray);
+    float: left;
+    height: 100%;
+    width: 10%;
+    z-index: 1;
+    position: absolute;
+  }
+
+  .right {
+    background-image: linear-gradient(red, gray);
+    float: right;
+    height: 100%;
+    width: 10%;
+    z-index: 1;
+    margin-left: 90%;
+    position: absolute;
+  }
+}

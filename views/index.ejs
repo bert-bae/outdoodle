@@ -13,8 +13,8 @@
       <button class="startbtn">Let's go!</button>
     </div>
 
-    <div class="" style="display:none">
-      <form class="createEvent" method="POST" action="/events">
+    <div class="createEvent" style="display:none">
+      <form method="POST" action="/events">
         <h1 class="h1">Create an event!</h1>
         <input type="text" name="name" class="name" placeholder="enter your name"></input>
         <input type="email" name="email" class="email" placeholder="enter your email"></input><br><br>
@@ -22,19 +22,21 @@
       </form>
     </div>
 
-    <div class="details" style="display:none"><form class="dtform">
-      <h1>Enter your event details!</h1>
-      <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
-      <input style="width: 300px;" class="evtlocationinput" type="text" name="eventLoc" placeholder="enter your event location">
-      <input type="text" class="category" name="category" style="display: none"></input>
-      <p>What kind of event is this? Business, social or virtual?</p>
-      <i class="fas fa-user-tie"></i>
-      <i class="fas fa-user-friends"></i>
-      <i class="fas fa-network-wired"></i>
-     <textarea name="details" class="description" placeholder="Describe your event!"></textarea>
-     <input id="stdt" name="start_date" style="width: 150px;" type="date" min="minnie"></input> <---> <input id="enddt" name="end_date" style="width: 150px;"  type="date"></input><br><br>
-     <button class="dtbtn">Submit</button>
-    </form></div>
+    <div class="details" style="display:none">
+      <form class="dtform">
+        <h1>Enter your event details!</h1>
+        <input  style="width: 300px;" class="evtnameinput" type="text" name="eventName" placeholder="enter your event name"></input>
+        <input style="width: 300px;" class="evtlocationinput" type="text" name="eventLoc" placeholder="enter your event location">
+        <input type="text" class="category" name="category" style="display: none"></input>
+        <p>What kind of event is this? Business, social or virtual?</p>
+        <i class="fas fa-user-tie"></i>
+        <i class="fas fa-user-friends"></i>
+        <i class="fas fa-network-wired"></i>
+        <textarea name="details" class="description" placeholder="Describe your event!"></textarea>
+        <input id="stdt" name="start_date" style="width: 150px;" type="date" min="minnie"></input> <---> <input id="enddt" name="end_date" style="width: 150px;"  type="date"></input><br><br>
+        <button class="dtbtn">Submit</button>
+      </form>
+    </div>
 
   <% include ./partials/_scripts.ejs %>
 

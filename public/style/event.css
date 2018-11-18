@@ -3,19 +3,29 @@ body {
   /*background-color: black;*/
   background-image: url("https://www.prague-stay.com/images/full_image/1920x1200/prague-old-town-square-jan-tyn-resize~old-town-square-old-town-tourists.jpg");
 }
-body div .header-container {
+body div.header-container {
   display: flex;
   background-position: center;
   background-blend-mode: color-burn;
-  padding: 20px 50px 20px 50px;
+  margin: 20px 50px 20px 50px;
+  flex-direction: column-reverse;
 }
 body div h1 {
   color: red;
+  align-self: flex-end;
   flex: right;
+  order: 2;
 }
 body div .slogan {
   flex: right;
-  color: white;
+  align-self: flex-end;
+  color: #ggg;
+  order: 1;
+}
+body div .event-name {
+  color: black;
+  order: 3;
+  align-self: flex-start;
 }
 body .user-register {
   display: none;
@@ -39,32 +49,38 @@ body #submit:hover {
   background-color: red;
   cursor: pointer;
 }
+body div .event-details {
+  display: flex;
+  padding: 0 50px 0 50px;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+  background-color: #eee;
+  border-radius: 15px;
+}
+body .event-details h1 {
+  font-weight: bold;
+  font: arial, sans-serif;
+  order: 1;
+  margin: 0;
+}
 body .describer {
-  width: 50%;
-  margin-top: 5%;
-  margin-left: 25%;
-  margin-right: 25%;
+  order: 3;
+  width: 40%;
+  margin: 0;
   text-align: center;
-  border-radius: 10px;
   color: red;
-  border: 1px solid red;
-  /*background-color: red;*/
-  background-image: url("http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif");
   background-position: center;
   background-blend-mode: color-burn;
   opacity: 0.9;
 }
 body .eventloc {
-  width: 50%;
-  margin-top: 5%;
-  margin-left: 25%;
-  margin-right: 25%;
+  order: 2;
+  width: 10%;
+  margin: 0;
   text-align: center;
-  border-radius: 10px;
   color: red;
-  border: 1px solid red;
   /*background-color: red;*/
-  background-image: url("http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif");
   background-position: center;
   background-blend-mode: color-burn;
   opacity: 0.9;
@@ -84,6 +100,7 @@ body .setslots {
   border-radius: 10px;
   background-image: linear-gradient(red, gray);
   width: 100%;
+  margin-top: 25px;
 }
 body .setslots:hover {
   background-image: linear-gradient(white, red);
@@ -92,6 +109,7 @@ body .setslots:hover {
 }
 body .slots {
   text-align: center;
+  margin: 25px 0 25px 0;
 }
 body .uslot:hover {
   cursor: pointer;
@@ -134,6 +152,124 @@ body .uslot {
 }
 
 .right {
+  background-image: linear-gradient(red, gray);
+  float: right;
+  height: 100%;
+  width: 10%;
+  z-index: 1;
+  margin-left: 90%;
+  position: absolute;
+}
+
+body {
+  background-color: rgba(55, 0, 0, 0.5);
+  background-image: url("https://ridderalvarez.com/wp-content/uploads/2018/06/Red-Square-Moscow-1024x683.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: color-burn;
+  background-size: cover;
+}
+body input, body textarea {
+  text-align: center;
+}
+body .navbar {
+  width: 100%;
+  height: 30px;
+  /*background-color: red;*/
+  background-image: url("http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif");
+  background-position: center;
+  background-blend-mode: color-burn;
+  opacity: 0.9;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  font-size: 1.5em;
+  text-overflow: auto;
+}
+body .fas {
+  margin-left: 40px;
+  margin-right: 40px;
+  color: white;
+}
+body .description {
+  width: 40%;
+  border-radius: 10px;
+}
+body .fas:hover {
+  cursor: pointer;
+  color: red;
+}
+body .createEvent {
+  text-align: center;
+  display: none;
+}
+body .createEvent input {
+  border-radius: 10px;
+}
+body .details {
+  color: white;
+  text-align: center;
+  display: none;
+}
+body .details h1 {
+  color: red;
+}
+body .details p {
+  margin-right: 10px;
+  color: white;
+}
+body .details input {
+  width: 50px;
+  margin-left: 2em;
+  margin-right: 2em;
+  border-radius: 10px;
+}
+body .details button {
+  border-radius: 10px;
+  text-align: center;
+}
+body .details button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+body .start {
+  color: red;
+  text-align: center;
+  text-overflow: auto;
+  width: 70%;
+  margin-left: 15%;
+}
+body .start button {
+  border-radius: 10px;
+}
+body .start button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+body .start p {
+  color: white;
+}
+body .h1 {
+  text-align: center;
+  color: white;
+}
+body .btn {
+  border-radius: 10px;
+}
+body .btn:hover {
+  background-color: crimson;
+  cursor: pointer;
+}
+body .left {
+  background-image: linear-gradient(red, gray);
+  float: left;
+  height: 100%;
+  width: 10%;
+  z-index: 1;
+  position: absolute;
+}
+body .right {
   background-image: linear-gradient(red, gray);
   float: right;
   height: 100%;
