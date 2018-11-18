@@ -77,7 +77,7 @@ module.exports = (knex) => {
         date: date,
         event_id: result[0].id,
         votes: 0,
-      }).returning('id')
+      }).returning('*')
       .then((result) => {
         console.log("This is the result of proposed_dates that was inserted: ", result[0]);
         res.send( {data: result[0]});
