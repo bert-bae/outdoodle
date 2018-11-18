@@ -1,5 +1,8 @@
 
 $(document).ready(function () {
+  var $min = $('#minmax').attr('min');
+    var $max = $('#minmax').attr('max');
+
 var i = 0;
   $('.setslots').on('click', function () {
     $('.setslotsdiv').slideToggle();
@@ -18,7 +21,9 @@ var i = 0;
     var $slotdiv = $('<div></div>');
     var $date = $('<input></input>').attr({
       name: 'slotdate',
-      type: 'date'
+      type: 'date',
+      min: $min,
+      max: $max
     });
     var $hr = $('<input></input>').attr({
       type: 'time',
@@ -30,11 +35,11 @@ var i = 0;
 
 
     var $hr2 = $('<input></input>').attr({
-        type: 'time',
-        name: 'slothr2',
-        value: '12:00',
-        step: '900',
-        min: '0'
+      type: 'time',
+      name: 'slothr2',
+      value: '12:00',
+      step: '900',
+      min: '0'
     });
 
     $.ajax({
@@ -54,7 +59,7 @@ var i = 0;
       class: 'slotform'
     });
     var $slotbtn = $('<button>Submit</button>').attr({id: 'submit'});
-    $($slotdiv).append('From when to when?', $date, $hr, ' - ', $hr2);
+    $($slotdiv).append('<b>From when to when?</b> ', $date, ' ', $hr, ' - ', $hr2);
     $($slotform).append($slotdiv, '<br>', '<br>', $slotbtn);
     $($slotdiv).addClass('slotdiv');
     $('.setslotsdiv').prepend($slotform);
