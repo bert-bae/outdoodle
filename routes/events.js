@@ -50,12 +50,12 @@ module.exports = (knex) => {
         let rows = result.rows;
         let startTime = 'proposed_start_time';
         let endTime = 'proposed_end_time';
-        let sortedByDate = rows.sort((a, b) => {
-          return (a.date.slice(9, 10) - b.date.slice(9, 10));
-        });
-        let secondSortByTime = sortedByDate.sort((a, b) => {
-          return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
-        });
+        // let sortedByDate = rows.sort((a, b) => {
+        //   return (a.date.slice(9, 10) - b.date.slice(9, 10));
+        // });
+        // let secondSortByTime = sortedByDate.sort((a, b) => {
+        //   return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
+        // });
         res.render('event', { data: result.rows } );
       } else {
         knex.raw(`SELECT * FROM events
@@ -173,16 +173,15 @@ module.exports = (knex) => {
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.params.id}'
     `).then((result) => {
-      console.log(result);
       let rows = result.rows;
       let startTime = 'proposed_start_time';
       let endTime = 'proposed_end_time';
-      let sortedByDate = rows.sort((a, b) => {
-        return (a.date.slice(9, 10) - b.date.slice(9, 10));
-      });
-      let secondSortByTime = sortedByDate.sort((a, b) => {
-        return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
-      });
+      // let sortedByDate = rows.sort((a, b) => {
+      //   return (a.date.slice(9, 10) - b.date.slice(9, 10));
+      // });
+      // let secondSortByTime = sortedByDate.sort((a, b) => {
+      //   return (a[startTime].slice(0, 5) - b[endTime].slice(0, 5));
+      // });
       res.render('event_user', { data: result.rows } );
     });
   });
