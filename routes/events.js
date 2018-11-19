@@ -138,9 +138,9 @@ module.exports = (knex) => {
             WHERE id = ${voteId}
           `).then();
         }
-        res.redirect(`/${req.session.temp}`);
+        res.send();
       } else {
-        res.redirect(`/${req.session.temp}`);
+        res.send();
       }
     });
   });
@@ -168,6 +168,7 @@ module.exports = (knex) => {
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.params.id}'
     `).then((result) => {
+      console.log(result);
       let rows = result.rows;
       let startTime = 'proposed_start_time';
       let endTime = 'proposed_end_time';
