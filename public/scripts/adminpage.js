@@ -17,7 +17,7 @@ var $
   $.ajax({
       type: 'POST',
       url: '/:id/confirm',
-      data:
+      data: $(this).serialize(),
       success: function (result) {
 
       }
@@ -81,7 +81,7 @@ var i = 0;
         votes: loopTimeSlots(),
       },
       success: function (result) {
-        window.location = "http://localhost:8080/events/:id/thankyou";
+        window.location = "http://localhost:8080/events/thankyou";
       }
     });
   });
