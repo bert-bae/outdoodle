@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+
   var $min = $('#minmax').attr('min');
   var $max = $('#minmax').attr('max');
 
@@ -15,11 +16,12 @@ var i = 0;
 // deletes the time slot (admin access)
 
   $('form.slotdel').on('click', function (event) {
-alert("damn");
+
     event.preventDefault(event);
     // $(this).closest('div.col-sm').remove();
     $.ajax({
       type: 'POST',
+      //add actual id where :id is currently
       url: '/events/:id/edit/deletetime',
       data: $(this).serialize(),
       success: function (result) {
@@ -103,7 +105,22 @@ alert("damn");
        const $slotdelform = $('<form></form>').attr({
          method: 'POST',
          action: '/events/:id/edit/deletetime'
-       }).addClass('slotdel');
+       }).addClass('slotdel').on('click', function (event) {
+
+    event.preventDefault(event);
+    // $(this).closest('div.col-sm').remove();
+    $.ajax({
+      type: 'POST',
+      //add actual id where :id is currently
+      url: '/events/:id/edit/deletetime',
+      data: $(this).serialize(),
+      success: function (result) {
+        $('div.delete').filter(function(){
+            return $(this).attr('data-votetimeid') === result.voteid.toString();
+        }).remove();
+      }
+    });
+  });
        const $slotdelbtn = $('<button class="timeslot-del">Delete</button>');
        const $date = $(`<p>${result.data.date}</p>`);
        const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
@@ -115,8 +132,6 @@ alert("damn");
        $slotdelform.append($input);
        $slotdelform.append($slotdelbtn);
        $timeslot.append($slotdelform);
-
-
      }
    });
 
