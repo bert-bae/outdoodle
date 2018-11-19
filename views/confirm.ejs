@@ -13,9 +13,11 @@
 </div>
 <div class="body-container">
   <div class='event-details'>
-   <span>Attendees:  <h1><%= data[0].username %> </h1></span>
+    <% for(let key in data) { %>
+   <span>Attendees: <h1><%= data[key].username %> </h1></span>
   </div>
 </div>
+<% } %>
 
 
 

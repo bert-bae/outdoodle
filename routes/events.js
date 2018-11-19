@@ -223,7 +223,7 @@ module.exports = (knex) => {
       WHERE events.main_url = '${req.params.id}'`)
     .then((result) => {
     res.render('confirm', {data: result.rows});
-    console.log(result.rows);
+    console.log(result.rows[0].username);
     });
   });
 
