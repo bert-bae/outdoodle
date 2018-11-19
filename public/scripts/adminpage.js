@@ -31,10 +31,6 @@ var i = 0;
       url: '/events/:id/edit/deletetime',
       data: $(this).serialize(),
       success: function (result) {
-        console.log("TEEEEEEEEEEEEEEST");
-        console.log(result);
-        console.log($(this).attr('data-votetimeid'));
-        console.log(result.voteid.toString());
         $('div.delete').filter(function(){
           return $(this).attr('data-votetimeid') === result.voteid.toString();
         }).remove();
@@ -118,43 +114,32 @@ var i = 0;
          method: 'POST',
          action: '/events/:id/edit/deletetime'
        }).addClass('slotdel').on('click', function (event) {
+          event.preventDefault(event);
 
-    event.preventDefault(event);
+          $.ajax({
+            type: 'POST',
+            url: '/events/:id/edit/deletetime',
+            data: $(this).serialize(),
+            success: function (result) {
+              $('div.delete').filter(function(){
+                  return $(this).attr('data-votetimeid') === result.voteid.toString();
+              }).remove();
+              const $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').attr({
+                'class': `col-sm uslot purpi name${i} vote delete`,
+                'data-votetimeid': result.data.id,
+                'data-votes': 0,
+                'data-triggered': 'false'
+              });
+              const $slotdelform = $('<form></form>').attr({
+                method: 'post',
+                action: '/events/:id/edit/deletetime',
+                class: 'slotdel',
+              });
 
-    $.ajax({
-      type: 'POST',
-      url: '/events/:id/edit/deletetime',
-      data: $(this).serialize(),
-      success: function (result) {
-        const $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').attr({
-          'class': `col-sm uslot purpi name${i} vote delete`,
-          'data-votetimeid': result.data.id,
-          'data-votes': 0,
-          'data-triggered': 'false'
+            }
+          });
         });
-        const $slotdelform = $('<form></form>').attr({
-          method: 'post',
-          action: '/events/:id/edit/deletetime',
-          class: 'slotdel',
-        });
-        const $slotdelbtn = $('<button class="timeslot-del">Delete</button>');
-        const $date = $(`<p>${result.data.date}</p>`);
-        const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
-        const $time = $(`<p>${result.data.proposed_start_time} - ${result.data.proposed_end_time}</p>`);
 
-        $('.row').append($timeslot);
-        $timeslot.append($date);
-        $timeslot.append($time);
-        $slotdelform.append($input);
-        $slotdelform.append($slotdelbtn);
-        $timeslot.append($slotdelform);
-
-        $('div.delete').filter(function(){
-            return $(this).attr('data-votetimeid') === result.voteid.toString();
-        }).remove();
-      }
-    });
-  });
        const $slotdelbtn = $('<button class="timeslot-del">Delete</button>');
        const $date = $(`<p>${result.data.date}</p>`);
        const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
