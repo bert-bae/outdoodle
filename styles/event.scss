@@ -154,12 +154,6 @@ body {
     opacity: 0.8;
   }
 
-  div.clicked {
-    background-color: green !important;
-    color: black;
-    border: 2px dotted green;
-  }
-
  .purpi {
     background-color: #E8E8E8;
     height: 20%;
@@ -321,5 +315,11 @@ body {
   .btn:hover {
     background-color: crimson;
     cursor: pointer;
+  }
+
+  .uslot.purpi.clicked {
+    background-color: green !important;
+    color: black;
+    border: 2px dotted green;
   }
   }
