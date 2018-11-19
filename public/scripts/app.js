@@ -1,4 +1,4 @@
-7// $(() => {
+// $(() => {
 //   $.ajax({
 //     method: "GET",
 //     url: "/api/users"
