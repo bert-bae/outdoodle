@@ -12,7 +12,7 @@ $(document).ready(function () {
 $('.confirm-form').on('submit', function (event) {
     alert('hey yo im working');
   event.preventDefault(event);
-  var $confirm = $('.confirm-form');
+  var $confirm = $(this);
   $.ajax({
       type: 'POST',
       url: '/:id/confirm',
