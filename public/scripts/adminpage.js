@@ -8,6 +8,27 @@ const loopTimeSlots = () => {
 };
 
 $(document).ready(function () {
+//make handler for confirm
+$('.confirm-form').on('submit', function (event) {
+    alert('hey yo im working');
+  event.preventDefault(event);
+var $
+
+  $.ajax({
+      type: 'POST',
+      url: '/:id/confirm',
+      data:
+      success: function (result) {
+
+      }
+    });
+
+});
+
+
+
+
+
 
   var $min = $('#minmax').attr('min');
   var $max = $('#minmax').attr('max');
@@ -60,7 +81,7 @@ var i = 0;
         votes: loopTimeSlots(),
       },
       success: function (result) {
-        console.log(result);
+        window.location = "http://localhost:8080/events/:id/thankyou";
       }
     });
   });
