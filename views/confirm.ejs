@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <title></title>
 </head>
 <body>
   <% include ./partials/_header.ejs %>
     <% include ./partials/_mainheader.ejs %>
+
 
 <div class="body-container">
  <% include ./partials/_eventdetails.ejs %>
@@ -28,6 +28,7 @@
       <textarea class="email_body" name="body">
       You are invited to <%= data[0].eventname %> at <%= data[0].location %>!
       </textarea><br>
+      <button>Notify your attendees!</button>
     </form>
 
   </div>
@@ -36,6 +37,8 @@
 <span>Event Name:  <h1><%= data[0].name %> </h1></span>
   <span>Location:  <p class="eventloc"><%= data[0].location %></p></span>
   <span>Event Details:  <p class="describer"><%= data[0].detail %></p></span>
+  <% include ./partials/_scripts.ejs %>
+
 </body>
 </html>
 

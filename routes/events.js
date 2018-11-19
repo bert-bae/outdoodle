@@ -222,7 +222,7 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/:id/confirm", (req, res) => {
-   res.send( { redirect: req.session.temp } );
+    res.send( { redirect: req.session.temp } );
   });
 
   eventRoutes.get("/:id/confirm", (req, res) => {
@@ -232,7 +232,6 @@ module.exports = (knex) => {
       WHERE events.main_url = '${req.params.id}'`)
     .then((result) => {
       res.render('confirm', {data: result.rows});
-      console.log(result.rows[0].username);
     });
   });
   return eventRoutes;
