@@ -60,8 +60,8 @@ app.get('/events', (req, res) => {
 
 //send an email
 app.post('/events/:id/send', function (req, res) {
-  var uMails = req.body.emails;
-  console.log(uMails);
+  console.log('tesssst yo!');
+  console.log(req.body);
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -86,8 +86,8 @@ app.post('/events/:id/send', function (req, res) {
       console.log('Email sent: ' + info.response);
     }
   });
+  res.send();
 
-  res.redirect('/');
 });
 
 
