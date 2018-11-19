@@ -44,6 +44,7 @@ module.exports = (knex) => {
     knex.raw(`SELECT *, proposed_dates.id AS time_id FROM proposed_dates
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.session.temp}'
+      ORDER BY proposed_dates.date, proposed_dates.proposed_start_time
     `)
     .then((result) => {
       if (result.rows.length > 0) {
@@ -172,6 +173,7 @@ module.exports = (knex) => {
     knex.raw(`SELECT *, proposed_dates.id AS time_id FROM proposed_dates
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.params.id}'
+      ORDER BY proposed_dates.date, proposed_dates.proposed_start_time
     `).then((result) => {
       let rows = result.rows;
       let startTime = 'proposed_start_time';
