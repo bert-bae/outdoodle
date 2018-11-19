@@ -9,20 +9,18 @@ const loopTimeSlots = () => {
 
 $(document).ready(function () {
 //make handler for confirm
-$('.confirm-form').on('submit', function (event) {
-    alert('hey yo im working');
-  event.preventDefault(event);
-  var $confirm = $(this);
-  $.ajax({
+  $('.confirm-form').on('submit', function (event) {
+    event.preventDefault(event);
+    var $confirm = $(this);
+    $.ajax({
       type: 'POST',
-      url: '/:id/confirm',
+      url: '/events/:id/confirm',
       data: $confirm.serialize(),
       success: function (result) {
-        window.location = 'http://localhost:8080/events/:id/confirm';
+        window.location = `http://localhost:8080/events/${result.redirect}/confirm`;
       }
     });
-
-});
+  });
 
 
   var $min = $('#minmax').attr('min');

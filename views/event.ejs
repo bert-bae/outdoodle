@@ -43,6 +43,7 @@
                 <form class="confirm-form" method="POST" action="/:id/confirm">
                   <p name="date"><%= data[i].date %></p><br>
                   <p name="times"><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
+                  <p>Votes: <%= data[i].votes %></p>
                   <button>Confirm</button>
                 </form><br>
                 <form method="post" action="/events/:id/edit/deletetime" class="slotdel">

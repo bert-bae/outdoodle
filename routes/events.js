@@ -222,30 +222,18 @@ module.exports = (knex) => {
   });
 
   eventRoutes.post("/:id/confirm", (req, res) => {
-    let date = req.body.date;
-    let times = req.body.times;
-    let confirm = {
-      date: date,
-      times: times
-    }
-    console.log(date, times);
-    res.send(confirm);
-
-  })
+   res.send( { redirect: req.session.temp } );
+  });
 
   eventRoutes.get("/:id/confirm", (req, res) => {
-   knex.raw(`SELECT *, events.name AS eventName, users.name AS userName FROM users
+    knex.raw(`SELECT *, events.name AS eventName, users.name AS userName FROM users
       JOIN events_users ON user_id = users.id
       JOIN events ON events.id = event_id
       WHERE events.main_url = '${req.params.id}'`)
     .then((result) => {
-    res.render('confirm', {data: result.rows});
-    console.log(result.rows[0].username);
+      res.render('confirm', {data: result.rows});
+      console.log(result.rows[0].username);
     });
   });
-
-
-
-
   return eventRoutes;
 };
