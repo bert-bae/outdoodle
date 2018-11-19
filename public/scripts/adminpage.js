@@ -155,8 +155,8 @@ var i = 0;
        const $date = $(`<p>${result.data.date}</p>`);
        const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
        const $time = $(`<p>${result.data.proposed_start_time} - ${result.data.proposed_end_time}</p>`);
-       const $votes = $('<p>Number of votes:  0</p>');
-       const $confirmform = $('<form class="confirm-form" method="POST" action=""><button>Confirm</button></form>');
+       const $votes = $('<p>Votes: 0</p>');
+       const $confirmform = $('<form class="confirm-form" method="POST" action="/events/:id/confirm"><button>Confirm</button></form>');
 
        $('.row').append($timeslot);
        $timeslot.append($date);
@@ -164,8 +164,8 @@ var i = 0;
        $timeslot.append($votes);
        $slotdelform.append($input);
        $slotdelform.append($slotdelbtn);
-       $timeslot.append($slotdelform);
-       $timeslot.append($('<br>')).append($confirmform);
+       $timeslot.append($confirmform);
+       $timeslot.append($('<br>')).append($slotdelform);
      }
    });
 
