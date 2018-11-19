@@ -17,9 +17,17 @@ $(document).ready(function () {
       url: '/events/:id/confirm',
       data: $confirm.serialize(),
       success: function (result) {
+<<<<<<< HEAD
         window.location = `http://localhost:8080/events/${result.redirect}/confirm`;
       }
     });
+=======
+        console.log("This is the redirect: ", result);
+        window.location = `http://localhost:8080/events/${result.redirect}/confirm`;
+      }
+    });
+
+>>>>>>> ffdaa52df51a8f0ff83679d461d9c92094420e3e
   });
 
 
@@ -72,7 +80,7 @@ var i = 0;
         votes: loopTimeSlots(),
       },
       success: function (result) {
-        window.location = "http://localhost:8080/events/thankyou";
+        window.location = `http://localhost:8080/events/${result.redirect}`;
       }
     });
   });
