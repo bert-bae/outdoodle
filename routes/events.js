@@ -143,9 +143,9 @@ module.exports = (knex) => {
             WHERE id = ${voteId}
           `).then();
         }
-        res.redirect(`/${req.session.temp}`);
+        res.send( {redirect: req.session.temp} );
       } else {
-        res.redirect(`/${req.session.temp}`);
+        res.send( {redirect: req.session.temp} );
       }
     });
   });

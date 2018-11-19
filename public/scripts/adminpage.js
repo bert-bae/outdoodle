@@ -74,7 +74,7 @@ var i = 0;
         votes: loopTimeSlots(),
       },
       success: function (result) {
-        window.location = "http://localhost:8080/events/thankyou";
+        window.location = `http://localhost:8080/events/${result.redirect}`;
       }
     });
   });
