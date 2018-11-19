@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/events', (req, res) => {
-  res.send('hellloo');
+  res.redirect('/');
 });
 
 
