@@ -5,12 +5,17 @@
 </head>
 <body>
   <% include ./partials/_header.ejs %>
+  <br>
     <% include ./partials/_mainheader.ejs %>
-      <% include ./partials/_eventdetails.ejs %>
 
+<div>
+  <h2></h2>
+</div>
 
-<h1>HELLLLLOOOOO <%=data[0].name%></h1>
-
+<div>
+<h2>Attendees:</h2>
+<span><%=data[0].name%></span>
+</div>
 </body>
 </html>
 
