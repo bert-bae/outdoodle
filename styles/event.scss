@@ -62,10 +62,11 @@ body {
   div .event-details {
     display: flex;
     padding: 0 50px 0 50px;
+    margin: 0 10%;
     justify-content: space-around;
     align-content: center;
     flex-direction: row;
-    background-color: #eee;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     // background-image: url('http://bestanimations.com/Holidays/Fireworks/fireworks/amazing-electrc-feel-fireworks-gif.gif');
   }
@@ -118,8 +119,10 @@ body {
   .setslots {
     border-radius: 10px;
     background-image: linear-gradient(red, gray);
-    width: 100%;
+    width: 80%;
     margin-top: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
   .setslots:hover {
@@ -148,12 +151,6 @@ body {
     margin-bottom: 10px;
     border-radius: 5px;
     opacity: 0.8;
-  }
-
-  div.clicked {
-    background-color: green !important;
-    color: black;
-    border: 2px dotted green;
   }
 
  .purpi {
@@ -318,8 +315,16 @@ body {
     background-color: crimson;
     cursor: pointer;
   }
+
 }
 
 div.voteyes {
   background-color: green;
 }
+
+  .uslot.purpi.clicked {
+    background-color: green !important;
+    color: black;
+    border: 2px dotted green;
+  }
+

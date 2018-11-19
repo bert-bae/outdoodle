@@ -1,11 +1,22 @@
 <!doctype html>
 <html>
+<head>
+
+</head>
 
   <% include ./partials/_header.ejs %>
 
   <body>
 
     <% include ./partials/_mainheader.ejs %>
+    <% include ./partials/_mainheader.ejs %>
+    <br>
+  <div>
+    <div class="event-details">
+      <span>Please send out this url to guests: /events/<%= data[0].main_url %> </span>
+    </div>
+  </div>
+<br>
     <div class="body-container">
 
       <% include ./partials/_eventdetails.ejs %>
@@ -21,7 +32,7 @@
           <br><br><button id="submit">Submit</button>
         </form>
       </div>
-
+    </div>
       <div class="slots">
         <div class="container">
           <div class="row">
