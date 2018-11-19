@@ -45,7 +45,7 @@
                   <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
                   <button class="timeslot-del">Delete</button>
                 </form><br>
-                 <form class="confirm-form" method="POST" action=""><button>Confirm</button></form>
+                 <form class="confirm-form" method="POST" action="events/:id/confirm"><button>Confirm</button></form>
               </div>
             <% }; %>
           <% } %>
