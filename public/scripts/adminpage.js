@@ -18,12 +18,9 @@ $(document).ready(function () {
       data: $form1.serialize(),
       success: function (result) {
         window.location = `http://localhost:8080/`;
-
       }
     });
   });
-
-
 
 //make handler for confirm
   $('.confirm-form').on('submit', function (event) {

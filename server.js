@@ -74,12 +74,11 @@ app.post('/events/:id/send', function (req, res) {
   var mailOptions = {
     from: 'Midterm060',
     to: 'anarchonist@protonmail.com',
-    subject: 'Sending Email using Node.js',
-    text: 'That was easy!'
+    subject: 'Gaming Session',
+    text: 'Let\'s play some games! November 21st 2pm - 4pm',
   };
 
   transporter.sendMail(mailOptions, function(error, info) {
-
     if (error) {
       console.log(error);
     } else {
@@ -87,7 +86,6 @@ app.post('/events/:id/send', function (req, res) {
     }
   });
   res.send();
-
 });
 
 
