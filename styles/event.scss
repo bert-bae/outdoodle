@@ -33,7 +33,6 @@ body {
     align-self: flex-start;
   }
   .user-register {
-    display: none;
 
     input {
       border-radius: 10px;
@@ -317,9 +316,15 @@ body {
     cursor: pointer;
   }
 
+}
+
+div.voteyes {
+  background-color: green;
+}
+
   .uslot.purpi.clicked {
     background-color: green;
     color: black;
     border: 2px dotted green;
   }
-  }
+
