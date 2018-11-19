@@ -164,8 +164,8 @@ var i = 0;
        $timeslot.append($votes);
        $slotdelform.append($input);
        $slotdelform.append($slotdelbtn);
-       $timeslot.append($slotdelform);
-       $timeslot.append($('<br>')).append($confirmform);
+       $timeslot.append($confirmform);
+       $timeslot.append($('<br>')).append($slotdelform);
      }
    });
 
