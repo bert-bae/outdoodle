@@ -12,12 +12,11 @@ $(document).ready(function () {
 $('.confirm-form').on('submit', function (event) {
     alert('hey yo im working');
   event.preventDefault(event);
-var $
-
+var $confirm = $('.confirm-form');
   $.ajax({
       type: 'POST',
       url: '/:id/confirm',
-      data: $(this).serialize(),
+      data: $confirm.serialize(),
       success: function (result) {
 
       }
