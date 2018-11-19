@@ -4,14 +4,14 @@ $(document).ready(function () {
   $('.user-register-form').on('submit', function (event) {
     event.preventDefault(event);
 
-  $.ajax({
-        type: 'POST',
-        url: '/events/:id/userinfo',
-        data: $('.user-register-form').serialize(),
-        success: function (result) {
+    $.ajax({
+      type: 'POST',
+      url: '/events/:id/userinfo',
+      data: $('.user-register-form').serialize(),
+      success: function (result) {
 
-        }
-      });
+      }
+    });
 
   });
 

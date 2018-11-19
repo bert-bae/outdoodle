@@ -9,16 +9,6 @@
 
     <% include ./partials/_eventdetails.ejs %>
 
-    <div class="slots">
-      <div class="user-register">
-        <form class="user-register-form" method="POST" action="/events/:id/vote">
-          <input name="uname" type="text" placeholder="enter your name"></input>
-          <input name="uemail" placeholder="enter your email" type="email"></input>
-          <button class="user-register-btn">Submit</button>
-        </form>
-      </div>
-    </div>
-
     <div class="container">
       <div class="row">
 
@@ -29,10 +19,6 @@
 
               <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
               <input type="text" name="votes" value='<%= data[i].votes %>' style="display:none"></input>
-
-              <button>Vote</button>
-              <p>Number of votes:  <%= data[i].votes %></p>
-            </form>
 
           </div>
         <% } %>
@@ -45,5 +31,4 @@
   <% include ./partials/_scripts.ejs %>
 
   </body>
-   <script type="text/javascript" src="/scripts/user.js"></script>
 </html>
