@@ -25,16 +25,10 @@ var $confirm = $('.confirm-form');
 });
 
 
-
-
-
-
   var $min = $('#minmax').attr('min');
   var $max = $('#minmax').attr('max');
 
-
   //confirms chosen timeslot
-
 
 var i = 0;
   $('.setslots').on('click', function () {
@@ -155,7 +149,6 @@ var i = 0;
                 action: '/events/:id/edit/deletetime',
                 class: 'slotdel',
               });
-
             }
           });
         });
@@ -164,11 +157,13 @@ var i = 0;
        const $date = $(`<p>${result.data.date}</p>`);
        const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
        const $time = $(`<p>${result.data.proposed_start_time} - ${result.data.proposed_end_time}</p>`);
+       const $votes = $('<p>Number of votes:  0</p>');
        const $confirmform = $('<form class="confirm-form" method="POST" action=""><button>Confirm</button></form>');
 
        $('.row').append($timeslot);
        $timeslot.append($date);
        $timeslot.append($time);
+       $timeslot.append($votes);
        $slotdelform.append($input);
        $slotdelform.append($slotdelbtn);
        $timeslot.append($slotdelform);
