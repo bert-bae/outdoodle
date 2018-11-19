@@ -10,12 +10,12 @@
 
     <% include ./partials/_mainheader.ejs %>
     <br>
-  <div>
-    <div class="event-details">
-      <span>Please send out this url to guests: /events/<%= data[0].main_url %> </span>
+    <div>
+      <div class="event-details">
+        <label>Share your event URL: <input name="url" type="text" value="http://localhost:8080/events/<%= data[0].main_url %>"></input></label>
+      </div>
     </div>
-  </div>
-<br>
+    <br>
     <div class="body-container">
 
       <% include ./partials/_eventdetails.ejs %>
@@ -39,11 +39,12 @@
           <% if (data.length > 1) { %>
             <% for (let i = 0; i < data.length; i++) { %>
               <div class="col-sm uslot purpi vote<%= i %> delete" data-votetimeid='<%= data[i].time_id %>' data-votes='<%= data[i].votes %>'   data-triggered= 'false'>
-                 <form class="confirm-form" method="POST" action="/:id/confirm">
-                <p><%= data[i].date %></p><br>
-                <p><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
-                <p>Number of votes:  <%= data[i].votes %></p>
-                <button>Confirm</button></form><br>
+
+                <form class="confirm-form" method="POST" action="/:id/confirm">
+                  <p name="date"><%= data[i].date %></p><br>
+                  <p name="times"><%= data[i].proposed_start_time %> - <%= data[i].proposed_end_time %></p>
+                  <button>Confirm</button>
+                </form><br>
                 <form method="post" action="/events/:id/edit/deletetime" class="slotdel">
                   <input type="text" name="voteid" value='<%= data[i].time_id %>' style="display:none"></input>
                   <button class="timeslot-del">Delete</button>

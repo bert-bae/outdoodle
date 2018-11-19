@@ -8,6 +8,7 @@ const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const session     = require('cookie-session');
+var nodemailer = require('nodemailer');
 const app         = express();
 
 const knexConfig  = require("./knexfile");
@@ -52,8 +53,45 @@ app.get("/", (req, res) => {
 });
 
 app.get('/events', (req, res) => {
-  res.send('hellloo')
-})
+  res.send('hellloo');
+});
+
+
+
+//send an email
+app.post('/events/:id/send', function (req, res) {
+  var uMails = req.body.emails;
+  console.log(uMails);
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'Midterm060',
+      pass: 'Jimmynerdtron2'
+    }
+  });
+
+  var mailOptions = {
+    from: 'Midterm060',
+    to: 'anarchonist@protonmail.com',
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info) {
+
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+  res.redirect('/');
+});
+
+
+
 
 
 app.listen(PORT, () => {
