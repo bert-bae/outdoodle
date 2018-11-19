@@ -33,6 +33,11 @@ module.exports = (knex) => {
     });
   });
 
+//thank you page
+  eventRoutes.get("/thankyou", (req, res) => {
+    res.render('thankyou');
+  });
+
 // event edit page (add times for voting)
   eventRoutes.get("/:id/edit", (req, res) => {
     req.session.temp = req.params.id;
