@@ -194,7 +194,7 @@ module.exports = (knex) => {
   });
 
   eventRoutes.get("/:id/confirm", (req, res) => {
-   knex.raw(`SELECT users.name FROM users
+   knex.raw(`SELECT *, events.name AS eventName, users.name AS userName FROM users
       JOIN events_users ON user_id = users.id
       JOIN events ON events.id = event_id
       WHERE events.main_url = '${req.params.id}'`)

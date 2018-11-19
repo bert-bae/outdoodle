@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title></title>
 </head>
 <body>
   <% include ./partials/_header.ejs %>
-  <br>
     <% include ./partials/_mainheader.ejs %>
 
-<div>
-  <h2></h2>
+<div class="body-container">
+ <% include ./partials/_eventdetails.ejs %>
+</div>
+<div class="body-container">
+  <div class='event-details'>
+   <span>Attendees:  <h1><%= data[0].username %> </h1></span>
+  </div>
 </div>
 
 
-<div>
-<h2>Attendees:</h2>
-<span><%=data[0].name%></span>
-</div>
-
-<h1><%=data[0].name%></h1>
 
 
 </body>
