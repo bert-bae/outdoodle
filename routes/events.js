@@ -138,9 +138,9 @@ module.exports = (knex) => {
             WHERE id = ${voteId}
           `).then();
         }
-        res.send();
+        res.redirect(`/${req.session.temp}`);
       } else {
-        res.send();
+        res.redirect(`/${req.session.temp}`);
       }
     });
   });
@@ -168,7 +168,6 @@ module.exports = (knex) => {
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.params.id}'
     `).then((result) => {
-      console.log(result);
       let rows = result.rows;
       let startTime = 'proposed_start_time';
       let endTime = 'proposed_end_time';
@@ -217,6 +216,18 @@ module.exports = (knex) => {
     });
   });
 
+  eventRoutes.post("/:id/confirm", (req, res) => {
+    let date = req.body.date;
+    let times = req.body.times;
+    let confirm = {
+      date: date,
+      times: times
+    }
+    console.log(date, times);
+    res.send(confirm);
+
+  })
+
   eventRoutes.get("/:id/confirm", (req, res) => {
    knex.raw(`SELECT *, events.name AS eventName, users.name AS userName FROM users
       JOIN events_users ON user_id = users.id
@@ -227,6 +238,8 @@ module.exports = (knex) => {
     console.log(result.rows[0].username);
     });
   });
+
+
 
 
   return eventRoutes;
