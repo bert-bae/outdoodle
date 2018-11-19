@@ -1,3 +1,11 @@
+const loopTimeSlots = () => {
+  let votes = $('.voteyes').toArray();
+  let parsed = [];
+  for (let i = 0; i < votes.length; i++) {
+    parsed.push({voteid: votes[i].dataset.votetimeid, votecount: votes[i].dataset.votes});
+  }
+  return parsed;
+};
 
 $(document).ready(function () {
   var $min = $('#minmax').attr('min');
@@ -9,9 +17,7 @@ var i = 0;
   });
 
 // deletes the time slot (admin access)
-
   $('form.slotdel').on('click', function (event) {
-
     event.preventDefault(event);
     $(this).parent('.purpi').remove();
     $.ajax({
@@ -19,20 +25,38 @@ var i = 0;
       url: '/events/:id/edit/deletetime',
       data: $(this).serialize(),
       success: function (result) {
+        console.log("TEEEEEEEEEEEEEEST");
+        console.log(result);
+        console.log($(this).attr('data-votetimeid'));
+        console.log(result.voteid.toString());
         $('div.delete').filter(function(){
-            return $(this).attr('data-votetimeid') === result.voteid.toString();
+          return $(this).attr('data-votetimeid') === result.voteid.toString();
         }).remove();
       }
     });
   });
 
-// increments the vote
-  $('.vote').on('click', function (event) {
+// trigger the voted yes class and data-triggered attribute on the dom element
+  $('div.vote').on('click', function (event) {
     event.preventDefault(event);
-    $.ajax({
+    let match = 'true';
+    if ($(this).attr('data-triggered') === "true") {
+      match = "false";
+    }
+    $(this).toggleClass('voteyes');
+    $(this).attr('data-triggered', match);
+  });
+
+
+  $('.user-register-form').on('submit', function (event) {
+    event.preventDefault(event);
+     $.ajax({
       type: 'POST',
       url: '/events/:id/vote',
-      data: $(this).serialize(),
+      data: {
+        userdata: $(this).serializeArray(),
+        votes: loopTimeSlots(),
+      },
       success: function (result) {
         console.log(result);
       }
@@ -76,7 +100,6 @@ var i = 0;
       url: '/events/:id/edit',
       data: $slotdata.serialize(),
       success: function (result) {
-        console.log("This is the result on the ajax end: ", result.data);
         const $timeslot = $('<div></div>').addClass('col-sm').addClass('purpi').attr({
           'class': `col-sm uslot purpi name${i} vote delete`,
           'data-votetimeid': result.data.id,
@@ -84,9 +107,10 @@ var i = 0;
           'data-triggered': 'false'
         });
         const $slotdelform = $('<form></form>').attr({
-          method: 'POST',
-          action: '/events/:id/edit/deletetime'
-        }).addClass('slotdel');
+          method: 'post',
+          action: '/events/:id/edit/deletetime',
+          class: 'slotdel',
+        });
         const $slotdelbtn = $('<button class="timeslot-del">Delete</button>');
         const $date = $(`<p>${result.data.date}</p>`);
         const $input = $(`<input type="text" name="voteid" value="${result.data.id}" style="display:none">`);
@@ -95,7 +119,7 @@ var i = 0;
         $('.row').append($timeslot);
         $timeslot.append($date);
         $timeslot.append($time);
-        $timeslot.append($input);
+        $slotdelform.append($input);
         $slotdelform.append($slotdelbtn);
         $timeslot.append($slotdelform);
 

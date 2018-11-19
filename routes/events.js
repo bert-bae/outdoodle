@@ -79,15 +79,39 @@ module.exports = (knex) => {
         votes: 0,
       }).returning('*')
       .then((result) => {
-        console.log("This is the result of proposed_dates that was inserted: ", result[0]);
         res.send( {data: result[0]});
       });
     });
   });
 
   eventRoutes.post("/:id/vote", (req, res) => {
-    console.log("This is from the vote: ", req.body);
-    res.send( {result: "This works!"} );
+    let votes = req.body.votes;
+    let votesdata = {};
+    let name = req.body.userdata[0].value;
+    knex.raw(`SELECT email FROM users WHERE email = '${req.body.userdata[1].value}'`)
+    .then((result) => {
+      if(!result.length) {
+        return knex('users').insert({
+          name: req.body.userdata[0].value,
+          email: req.body.userdata[1].value,
+          rank_id: 1
+        });
+      }
+    })
+    .then(() => {
+      if (votes.length) {
+        for (let data of votes) {
+          let voteAdd = (Number(data.votecount) + 1);
+          let voteId = Number(data.voteid);
+          knex.raw(`UPDATE proposed_dates SET votes = ${voteAdd}
+            WHERE id = ${voteId}
+          `).then();
+        }
+        res.send( {result: "This works!"} );
+      } else {
+        res.send("No vote was cast");
+      }
+    });
   });
 
 // deletes time slot from proposed_dates based on voteid of the element clicked
@@ -95,7 +119,6 @@ module.exports = (knex) => {
     let voteid = req.body.voteid;
     knex.raw(`DELETE FROM proposed_dates WHERE id = ${voteid}`)
     .then(() => {
-      console.log(voteid);
       res.send( {voteid: voteid} );
     });
   });
@@ -108,14 +131,14 @@ module.exports = (knex) => {
     });
   });
 
-  eventRoutes.post("/events/:id/userinfo", (req, res) => {
-     console.log('HELLLLOOOOO');
-     knex('users').insert({
-      email: req.body.uemail,
-      name: req.body.uname,
-      rank: 2
-     })
-  });
+  // eventRoutes.post("/events/:id/userinfo", (req, res) => {
+  //    console.log('HELLLLOOOOO');
+  //    knex('users').insert({
+  //     email: req.body.uemail,
+  //     name: req.body.uname,
+  //     rank: 2
+  //    })
+  // });
 
   eventRoutes.get("/:id", (req, res) => {
     knex.raw(`SELECT *, proposed_dates.id AS time_id FROM proposed_dates

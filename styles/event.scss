@@ -33,7 +33,6 @@ body {
     align-self: flex-start;
   }
   .user-register {
-    display: none;
 
     input {
       border-radius: 10px;
@@ -319,4 +318,8 @@ body {
     background-color: crimson;
     cursor: pointer;
   }
-  }
+}
+
+div.voteyes {
+  background-color: green;
+}
