@@ -60,7 +60,7 @@ var i = 0;
         votes: loopTimeSlots(),
       },
       success: function (result) {
-        console.log(result);
+        res.send();
       }
     });
   });
