@@ -13,16 +13,29 @@
 </div>
 <div class="body-container">
   <div class='event-details'>
-    <span>Attendees:
-      <% for(let key in data) { %>
-      <h1>
-        <%= data[key].username %>
-      </h1>
-      <% } %>
-    </span>
+    <form class="email_form" name="/events/:id/send" method="POST">
+      <textarea class="subject_line" name="subject">
+        <%= data[0].eventname %>
+      </textarea>
+
+
+      <textarea class="emails" name="emails">
+        <% for(let key in data) { %>
+        <%=data[key].email %>,
+        <% } %>
+      </textarea>
+
+      <textarea class="email_body" name="body">
+      You are invited to <%= data[0].eventname %> at <%= data[0].location %>!
+      </textarea>
+    </form>
+
   </div>
 </div>
 
+<span>Event Name:  <h1><%= data[0].name %> </h1></span>
+  <span>Location:  <p class="eventloc"><%= data[0].location %></p></span>
+  <span>Event Details:  <p class="describer"><%= data[0].detail %></p></span>
 
 
 
