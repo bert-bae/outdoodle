@@ -84,6 +84,7 @@ module.exports = (knex) => {
     });
   });
 
+
   eventRoutes.post("/:id/vote", (req, res) => {
     let votes = req.body.votes;
     let votesdata = {};
@@ -94,7 +95,37 @@ module.exports = (knex) => {
         return knex('users').insert({
           name: req.body.userdata[0].value,
           email: req.body.userdata[1].value,
-          rank_id: 1
+          rank_id: 2
+        })
+        .then(() => {
+          return Promise.all([
+            knex('events').select('id').where('main_url', req.session.temp),
+            knex('users').select('id').where('email', req.body.userdata[1].value),
+          ]);
+        }).then((multiresult) => {
+          let event_id = multiresult[0][0].id;
+          let user_id = multiresult[1][0].id;
+          let userUrl = randomURL();
+          return knex('events_users').insert({
+            event_id: event_id,
+            user_id: user_id,
+            short_url: userUrl,
+          });
+        });
+      } else {
+        return Promise.all([
+          knex('events').select('id').where('main_url', req.session.temp),
+          knex('users').select('id').where('email', req.body.userdata[1].value),
+        ])
+        .then((multiresult) => {
+          let event_id = multiresult[0][0].id;
+          let user_id = multiresult[1][0].id;
+          let userUrl = randomURL();
+          return knex('events_users').insert({
+            event_id: event_id,
+            user_id: user_id,
+            short_url: userUrl,
+          });
         });
       }
     })
@@ -107,9 +138,9 @@ module.exports = (knex) => {
             WHERE id = ${voteId}
           `).then();
         }
-        res.send( {result: "This works!"} );
+        res.redirect(`/${req.session.temp}`);
       } else {
-        res.send("No vote was cast");
+        res.redirect(`/${req.session.temp}`);
       }
     });
   });
@@ -131,16 +162,8 @@ module.exports = (knex) => {
     });
   });
 
-  // eventRoutes.post("/events/:id/userinfo", (req, res) => {
-  //    console.log('HELLLLOOOOO');
-  //    knex('users').insert({
-  //     email: req.body.uemail,
-  //     name: req.body.uname,
-  //     rank: 2
-  //    })
-  // });
-
   eventRoutes.get("/:id", (req, res) => {
+    req.session.temp = req.params.id;
     knex.raw(`SELECT *, proposed_dates.id AS time_id FROM proposed_dates
       JOIN events ON events.id = proposed_dates.event_id
       WHERE events.main_url = '${req.params.id}'

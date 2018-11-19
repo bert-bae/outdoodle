@@ -1,0 +1,75 @@
+ id | start_date |  end_date  | img_src |                             detail                             |                     name                     | categories_id | main_url |   location   
+----+------------+------------+---------+----------------------------------------------------------------+----------------------------------------------+---------------+----------+--------------
+  1 | 2018-11-16 | 2018-11-16 | image   | Have fun                                                       | Name One                                     |             1 | abcdef   | Vancouver
+  2 | 2018-11-16 | 2018-11-16 | image   | Have fun                                                       | Name Two                                     |             2 | ghijkl   | Abbotsford
+  3 | 2018-11-16 | 2018-11-16 | image   | Have fun                                                       | Name Three                                   |             3 | mnopqrs  | Surrey
+ 26 | 2018-11-01 | 2018-11-22 |         | test                                                           | t                                            |             3 | 6zbnf0dx | 
+ 27 | 2018-11-01 | 2018-11-22 |         | test                                                           | t                                            |             3 | uf3z6fr2 | 
+ 28 | 2018-11-01 | 2018-11-22 |         | test                                                           | t                                            |             3 | nzxunmis | 
+ 29 | 2018-11-16 | 2018-11-22 |         | test                                                           | t                                            |             3 | omjwqkx6 | 
+ 30 | 2018-11-16 | 2018-11-23 |         | test                                                           | test                                         |             1 | 9vszbs5v | 
+ 31 | 2018-11-16 | 2018-11-30 |         | test                                                           | test event                                   |             3 | 47llxymu | Vancouver
+ 32 | 2018-11-16 | 2018-11-22 |         | test                                                           | t                                            |             1 | 5a23vs8q | 
+ 33 | 2018-11-16 | 2018-11-23 |         | teas                                                           | t                                            |             1 | pp75ondj | 
+ 34 | 2018-11-16 | 2018-11-22 |         | test with cookie                                               | test cookie                                  |             3 | 5tkxpukc | 
+ 35 | 2018-11-16 | 2018-11-22 |         | test                                                           | test cookie                                  |             3 | ol3g2hp1 | 
+ 36 | 2018-11-17 | 2018-11-20 |         | test                                                           | t                                            |             1 | 4q67avft | 
+ 37 | 2018-11-22 | 2018-11-22 |         | test                                                           | t                                            |             1 | kewld7xq | 
+ 38 | 2018-11-15 | 2018-11-30 |         | test                                                           | t                                            |             1 | orv6df13 | 
+ 39 | 2018-11-23 | 2018-11-29 |         | test                                                           | test cookie                                  |             1 | xailj9tr | 
+ 40 | 2018-11-01 | 2018-11-22 |         | new@gmail.com                                                  | new event                                    |             3 | m6rq19dw | 
+ 41 | 2018-11-16 | 2018-11-21 |         | test                                                           | test                                         |             1 | mfdi2rb1 | 
+ 42 | 2018-11-22 | 2018-11-29 |         | test                                                           | t                                            |             1 | bx0yxbz5 | 
+ 43 | 2018-11-17 | 2018-11-21 |         | test                                                           | New Event Two                                |             3 | 9dgsftyp | 
+ 44 | 2018-11-17 | 2018-11-21 |         | fasdfasdfsa                                                    | tesatasdfas                                  |             1 | 293jslr0 | 
+ 45 | 2018-11-16 | 2018-11-22 |         | Details                                                        | Test evetn                                   |             3 | q9q95c3r | City
+ 46 | 2018-11-16 | 2018-11-22 |         | details                                                        | t                                            |             2 | zpy4zci5 | city
+ 47 | 2018-11-16 | 2018-11-22 |         | details                                                        | t                                            |             2 | 80uji4g7 | city
+ 48 | 2018-11-16 | 2018-11-23 |         | asdfas                                                         | t                                            |             1 | bymx92pr | tteasfda
+ 49 | 2018-11-16 | 2018-11-23 |         | asdfas                                                         | t                                            |             1 | 37wovpxh | tteasfda
+ 50 | 2018-11-23 | 2018-11-30 |         | asdfasdf                                                       | asdfasdf                                     |             1 | wn60oaz8 | asdfasdf
+ 51 | 2018-11-17 | 2018-11-22 |         | gaming                                                         | event 1                                      |             3 | 5qvuf634 | test
+ 52 | 2018-11-17 | 2018-11-21 |         | asdfasfdsadf                                                   | fasdfas                                      |             2 | yt6q2jkr | sadfasdf
+ 53 | 2018-11-23 | 2018-11-30 |         | asasdasdf                                                      | testblah                                     |             2 | 72mgibbu | teasdasd
+ 54 | 2018-11-23 | 2018-11-29 |         | HGFHGFJHFJFJ                                                   | HGFHGFHGF                                    |             3 | hmx0tjqz | HGFHGFHGF
+ 55 | 2018-11-16 | 2018-11-22 |         | test                                                           | t                                            |             1 | hkuzppza | test
+ 56 | 2018-11-08 | 2018-11-29 |         | asdfasdfasdf                                                   | t                                            |             3 | wvh6cq11 | teasdas
+ 57 | 2018-11-17 | 2018-11-21 |         | Stuff                                                          | Event                                        |             2 | 7uc215we | Location
+ 58 | 2018-11-18 | 2018-11-23 |         | test                                                           | t                                            |             2 | j4v2tvkl | t
+ 59 | 2018-11-18 | 2018-11-22 |         | asdfasdfasf                                                    | teat                                         |             2 | whec7q59 | asdasf
+ 60 | 2018-11-17 | 2018-11-23 |         | test                                                           | test                                         |             2 | 2vs3jwmt | test
+ 61 | 2018-11-18 | 2018-11-22 |         | test one two three                                             | test event                                   |             2 | 1x0tzw6g | location
+ 62 | 2018-11-22 | 2018-11-28 |         | Testing on Nov 17                                              | That's weird                                 |             3 | war0j9oe | 
+ 63 | 2018-11-18 | 2018-11-22 |         | Describing                                                     | Location needs to be entered                 |             1 | 0tuyqkqd | 
+ 64 | 2018-11-18 | 2018-11-23 |         | easfasdfasdf                                                   | ttetasetasdfas                               |             1 | ooz4kxq0 | 
+ 65 | 2018-11-17 | 2018-11-22 |         | asdfasdfqsadcscvs                                              | testasdfasdf                                 |             1 | ipr4r1l9 | 
+ 66 | 2018-11-18 | 2018-11-22 |         | asdfasdfasdf                                                   | fasdfadsfasf                                 |             1 | yf44g5e5 | 
+ 67 | 2018-11-18 | 2018-11-21 |         | fsdfasfwd                                                      | tasdfadfaw                                   |             1 | kfc8ory2 | 
+ 68 | 2018-11-24 | 2018-11-30 |         | fsadfqCSCZ                                                     | fawefawdcad                                  |             1 | nv828p2g | 
+ 69 | 2018-11-24 | 2018-11-29 |         | asdfasdfasfd                                                   | asfasdf                                      |             1 | nji11tz2 | 
+ 70 | 2018-11-18 | 2018-11-23 |         | asdfasdf                                                       | te                                           |             1 | g0jpln0w | 
+ 71 | 2018-11-18 | 2018-11-21 |         | dasdasdasdsad                                                  | t                                            |             1 | upu7eebz | 
+ 72 | 2018-11-18 | 2018-11-21 |         | online gaming                                                  | Testing                                      |             2 | 5g9lvufm | 
+ 73 | 2018-11-17 | 2018-11-20 |         | Business Meeting                                               | Testing                                      |             3 | s26e0om4 | 
+ 74 | 2018-11-17 | 2018-11-30 |         | Online Gaming                                                  | Gaming                                       |             2 | 6l581hqd | 
+ 75 | 2018-11-24 | 2018-11-30 |         | asdfasdfasdfas                                                 | asdfasdf                                     |             2 | 9gq9cfsd | 
+ 76 | 2018-11-17 | 2018-11-21 |         | fasdfsadfsadfsad                                               | t                                            |             2 | 07hnjy9r | 
+ 77 | 2018-11-24 | 2018-11-28 |         | asdfasdfsaf                                                    | rasdfads                                     |             2 | t8qc42hf | 
+ 78 | 2018-11-18 | 2018-11-20 |         | adfasdfsa                                                      | test                                         |             1 | xbzjx1s0 | 
+ 79 | 2018-11-18 | 2018-11-18 |         | It's going to be a blast                                       | t                                            |             1 | 40erhl14 | 
+ 80 | 2018-11-17 | 2018-11-23 |         | To celebrate this long weekend of hard work, let's game it up. | Melee Smash Night                            |             1 | o4il3icw | Vancouver
+ 81 | 2018-11-18 | 2018-11-24 |         | VANCOUVER                                                      | t                                            |             3 | wxwvyac1 | 11111
+ 82 | 2018-11-18 | 2018-11-21 |         | fasdafd                                                        | t                                            |             3 | s1clfr16 | 111
+ 83 | 2018-11-15 | 2018-11-28 |         | Testing this event, changed event.ejs                          | Testing                                      |             3 | dhyayptu | Testing
+ 84 | 2018-11-18 | 2018-11-22 |         | Business                                                       | Name                                         |             2 | yr63bcoj | Van
+ 85 | 2018-11-18 | 2018-11-23 |         | test                                                           | t                                            |             1 | ftbup1s0 | van
+ 86 | 2018-11-18 | 2018-11-29 |         | Online or in person                                            | Gaming Event                                 |             2 | dn7pgeto | Vancouver
+ 87 | 2018-11-18 | 2018-11-18 |         | Business                                                       | Testing                                      |             3 | 5ue9r01b | Vancouver
+ 88 | 2018-11-18 | 2018-11-23 |         | Game cube                                                      | Test                                         |             2 | a0obfe1l | Vancouver
+ 89 | 2018-11-19 | 2018-11-29 |         | Bring your blankets                                            | Gaming for life, or just sleeping, who knows |             2 | n5yr2ona | Vancouver
+ 90 | 2018-11-19 | 2018-11-19 |         | asdfasdfasdfasdf                                               | fasdfasdf                                    |             2 | 5yqw9a8u | asdfasdfasdf
+ 91 | 2018-11-20 | 2018-11-22 |         | Event                                                          | Gaming?                                      |             1 | j2p54o92 | Toronto
+ 92 | 2018-11-19 | 2018-11-28 |         | asdfasdfasd                                                    | fasdfasdf                                    |             3 | fqbxbmia | asdfasdfasdf
+ 93 | 2018-11-20 | 2018-11-21 |         | Stuff                                                          | fun                                          |             2 | f0lytc1j | places
+(71 rows)
+
