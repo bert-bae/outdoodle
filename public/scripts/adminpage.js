@@ -12,13 +12,13 @@ $(document).ready(function () {
 $('.confirm-form').on('submit', function (event) {
     alert('hey yo im working');
   event.preventDefault(event);
-var $confirm = $('.confirm-form');
+  var $confirm = $('.confirm-form');
   $.ajax({
       type: 'POST',
       url: '/:id/confirm',
       data: $confirm.serialize(),
       success: function (result) {
-
+        window.location = 'http://localhost:8080/events/:id/confirm';
       }
     });
 
