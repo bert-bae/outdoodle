@@ -84,7 +84,7 @@ module.exports = (knex) => {
     });
   });
 
-
+// increment votes based on vote after determining whether votee needs to be entered into the database or not
   eventRoutes.post("/:id/vote", (req, res) => {
     let votes = req.body.votes;
     let votesdata = {};
