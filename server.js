@@ -71,9 +71,10 @@ app.post('/events/:id/send', function (req, res) {
     }
   });
 
+  // value is hard coded for now... TODO: finalize event confirmation email section
   var mailOptions = {
     from: 'Midterm060',
-    to: 'anarchonist@protonmail.com',
+    to: 'test@gmail.com',
     subject: 'Gaming Session',
     text: 'Let\'s play some games! November 21st 2pm - 4pm',
   };

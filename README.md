@@ -1,3 +1,64 @@
+# RedSquare (Lighthouse Labs Mid-term group project)
+
+## Collaborators/Group members (Anarchonist7, mBarlescu, bert-bae)
+
+## How to get started
+
+- Fork and clone this repo.
+- Go to the folder and install the dependencies
+
+```js
+npm i
+```
+
+- Go to the folder and start the server
+
+```js
+npm run local
+```
+
+- go to http://localhost:8080
+
+## What is it?
+
+RedSquare is one of the most popular squares in the world (according to Google, but take it with a grain of salt :p ). Doodle helps you plan events by creating a polling system for you and your friends, co-workers, etc. RedSquare applies the same logic using the SQL database to track event time slot votes for the event planner to go back and confirm the event time once voting ends to send a customizable event-confirmation e-mail to everyone.
+
+This was a very interesting project as it was our first one together working as a group which came with a lot of interesting and unexpected challenges, great learning moments, and successes (git was the best).
+
+## Images
+
+!["Main page"]
+!["Enter event creator Info"]
+!["Enter event details"]
+!["Create time slots"]
+!["Share URL to friends to vote"]
+!["Enter votes"]
+!["Confirm event"]
+!["SQL Database at work"]
+
+## Dependencies (Project skeleton instructions below via Lighthouse Labs instructions)
+  "body-parser": "^1.15.2",
+  "cookie-session": "^2.0.0-beta.3",
+  "dotenv": "^2.0.0",
+  "ejs": "^2.4.1",
+  "express": "^4.13.4",
+  "knex": "^0.11.7",
+  "knex-logger": "^0.1.0",
+  "morgan": "^1.7.0",
+  "node-sass-middleware": "^0.11.0",
+  "nodemailer": "^4.6.8",
+  "pg": "^6.0.2"
+
+## Main Tech Stack used
+  -JavaScript
+  -jQuery
+  -EJS
+  -PostgreSQL
+  -Knex
+  -SASS
+  -HTML/CSS
+  -NodeJS
+
 # Node Skeleton
 
 ## Project Setup
