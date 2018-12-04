@@ -37,17 +37,17 @@ This was a very interesting project as it was our first one together working as 
 !["SQL Database at work"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img8.png?raw=true)
 
 ## Dependencies (Project skeleton instructions below via Lighthouse Labs instructions)
-  "body-parser": "^1.15.2",
-  "cookie-session": "^2.0.0-beta.3",
-  "dotenv": "^2.0.0",
-  "ejs": "^2.4.1",
-  "express": "^4.13.4",
-  "knex": "^0.11.7",
-  "knex-logger": "^0.1.0",
-  "morgan": "^1.7.0",
-  "node-sass-middleware": "^0.11.0",
-  "nodemailer": "^4.6.8",
-  "pg": "^6.0.2"
+  -"body-parser": "^1.15.2",
+  -"cookie-session": "^2.0.0-beta.3",
+  -"dotenv": "^2.0.0",
+  -"ejs": "^2.4.1",
+  -"express": "^4.13.4",
+  -"knex": "^0.11.7",
+  -"knex-logger": "^0.1.0",
+  -"morgan": "^1.7.0",
+  -"node-sass-middleware": "^0.11.0",
+  -"nodemailer": "^4.6.8",
+  -"pg": "^6.0.2"
 
 ## Main Tech Stack used
   -JavaScript
@@ -58,6 +58,7 @@ This was a very interesting project as it was our first one together working as 
   -SASS
   -HTML/CSS
   -NodeJS
+  -Express
 
 # Node Skeleton
 
