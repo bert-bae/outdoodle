@@ -27,14 +27,14 @@ This was a very interesting project as it was our first one together working as 
 
 ## Images
 
-!["Main page"]
-!["Enter event creator Info"]
-!["Enter event details"]
-!["Create time slots"]
-!["Share URL to friends to vote"]
-!["Enter votes"]
-!["Confirm event"]
-!["SQL Database at work"]
+!["Main page"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img1.png)
+!["Enter event creator Info"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img2.png?raw=true)
+!["Enter event details"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img3.png?raw=true)
+!["Create time slots"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img4.png?raw=true)
+!["Share URL to friends to vote"](https://github.com/bert-bae/outdoodle/blob/master/public/img/url.png?raw=true)
+!["Enter votes"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img5.png?raw=true)
+!["Confirm event"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img7.png?raw=true)
+!["SQL Database at work"](https://github.com/bert-bae/outdoodle/blob/master/public/img/img8.png?raw=true)
 
 ## Dependencies (Project skeleton instructions below via Lighthouse Labs instructions)
   "body-parser": "^1.15.2",
