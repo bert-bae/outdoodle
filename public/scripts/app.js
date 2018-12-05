@@ -13,7 +13,6 @@ $(document).ready(function () {
 
   var $stdt = $('#stdt');
   $('#stdt').change(function () {
-    console.log($stdt.val().toISOString.subString(0, 10));
     $('#enddt').attr('min', $stdt.val().toISOString.subString(0, 10));
   });
 
@@ -29,17 +28,14 @@ $(document).ready(function () {
     const $email = $('input.email');
 
     if($name.val() === "" || $email.val() === "") {
-      console.log('eroooorrrr');
       $('#error').slideDown();
     } else {
       $('#error').slideUp();
-      // alert($form.serialize());
       $.ajax({
         type: 'POST',
         url: '/events',
         data: $form.serialize(),
         success: function () {
-          console.log('form.serialize', $form.serialize());
           $form.slideUp();
           $('.details').slideDown();
         }
@@ -59,7 +55,6 @@ $(document).ready(function () {
     resetIconsColor();
     $(this).css('color', 'red');
     $('input.category').val("3");
-    console.log($('input.category').val());
   });
 
   $('.fa-user-friends').on('click', function () {
@@ -72,7 +67,6 @@ $(document).ready(function () {
     resetIconsColor();
     $(this).css('color', 'red');
     $('input.category').val("2");
-    console.log($('input.category').val());
   });
 
   $('.dtform').on('submit', function (event) {
@@ -85,22 +79,18 @@ $(document).ready(function () {
     const $errorx4 = $('#enddt');
     const $errorx5 = $('input.category');
     if ($errorx1.val() === "" || $errorx2.val() === "" || $errorx3.val() === "" || $errorx6.val() === "" || $errorx4.val() === "" || $errorx5.val() === "" ) {
-      console.log('category needs an input');
       $('.error2').slideDown();
-      console.log($('input.end_date').val());
     } else {
       $('.error2').slideUp();
-    $.ajax({
-      type: 'POST',
-      url: '/events/create',
-      data: $form.serialize(),
-      success: function (result) {
-        window.location = "http://localhost:8080/events/" + result.eventUrl + '/edit';
-      }
-    });
+      $.ajax({
+        type: 'POST',
+        url: '/events/create',
+        data: $form.serialize(),
+        success: function (result) {
+          window.location = "http://localhost:8080/events/" + result.eventUrl + '/edit';
+        }
+      });
     }
   });
-
-
 });
 

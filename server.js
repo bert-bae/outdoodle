@@ -56,14 +56,12 @@ app.get('/events', (req, res) => {
   res.redirect('/');
 });
 
-
-
 //send an email
 app.post('/events/:id/send', function (req, res) {
   console.log('tesssst yo!');
   console.log(req.body);
 
-  var transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'Midterm060',
@@ -72,7 +70,7 @@ app.post('/events/:id/send', function (req, res) {
   });
 
   // value is hard coded for now... TODO: finalize event confirmation email section
-  var mailOptions = {
+  const mailOptions = {
     from: 'Midterm060',
     to: 'test@gmail.com',
     subject: 'Gaming Session',

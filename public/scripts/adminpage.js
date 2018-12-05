@@ -36,13 +36,12 @@ $(document).ready(function () {
     });
   });
 
-
-  var $min = $('#minmax').attr('min');
-  var $max = $('#minmax').attr('max');
+  const $min = $('#minmax').attr('min');
+  const $max = $('#minmax').attr('max');
 
   //confirms chosen timeslot
 
-var i = 0;
+  let i = 0;
   $('.setslots').on('click', function () {
     $('.setslotsdiv').slideToggle();
   });

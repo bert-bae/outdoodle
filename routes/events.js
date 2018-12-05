@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const session     = require('cookie-session');
 
 
+
 eventRoutes.use(session({
   name: 'session',
   keys: ["TEST1", "TEST2"],
@@ -15,6 +16,15 @@ eventRoutes.use(session({
 
 module.exports = (knex) => {
 
+  // refactored
+  function verifyUser(access, req) {
+    return knex('users').insert({
+      name: req.body.name,
+      email: req.body.email,
+      rank_id: access
+    })
+  }
+    
   eventRoutes.post("/", (req, res) => {
     req.session.temp = req.body.email;
     knex.raw(`SELECT email FROM users WHERE email = '${req.session.temp}'`)
@@ -22,11 +32,7 @@ module.exports = (knex) => {
       if(result.length) {
         res.send();
       } else {
-        knex('users').insert({
-          name: req.body.name,
-          email: req.body.email,
-          rank_id: 1
-        }).then(() => {
+        verifyUser(1, req).then(() => {
           res.send();
         });
       }
@@ -92,11 +98,7 @@ module.exports = (knex) => {
     knex.raw(`SELECT email FROM users WHERE email = '${req.body.userdata[1].value}'`)
     .then((result) => {
       if(!result.length) {
-        return knex('users').insert({
-          name: req.body.userdata[0].value,
-          email: req.body.userdata[1].value,
-          rank_id: 2
-        })
+        verifyUser(2, req)
         .then(() => {
           return Promise.all([
             knex('events').select('id').where('main_url', req.session.temp),
