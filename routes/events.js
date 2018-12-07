@@ -24,6 +24,17 @@ module.exports = (knex) => {
       rank_id: access
     })
   }
+
+  function addVotes(req) {
+    
+  }
+
+  function getEventAndUser(req) {
+    return Promise.all([
+      knex('events').select('id').where('main_url', req.session.temp),
+      knex('users').select('id').where('email', req.body.userdata[1].value),
+    ]);
+  }
     
   eventRoutes.post("/", (req, res) => {
     req.session.temp = req.body.email;
@@ -95,10 +106,7 @@ module.exports = (knex) => {
       if(!result.length) {
         verifyUser(2, req)
         .then(() => {
-          return Promise.all([
-            knex('events').select('id').where('main_url', req.session.temp),
-            knex('users').select('id').where('email', req.body.userdata[1].value),
-          ]);
+          return getEventAndUser(req)
         }).then((multiresult) => {
           let event_id = multiresult[0][0].id;
           let user_id = multiresult[1][0].id;
@@ -110,10 +118,7 @@ module.exports = (knex) => {
           });
         });
       } else {
-        return Promise.all([
-          knex('events').select('id').where('main_url', req.session.temp),
-          knex('users').select('id').where('email', req.body.userdata[1].value),
-        ])
+        return getEventAndUser(req)
         .then((multiresult) => {
           let event_id = multiresult[0][0].id;
           let user_id = multiresult[1][0].id;
