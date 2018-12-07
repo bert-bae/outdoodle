@@ -108,36 +108,42 @@ module.exports = (knex) => {
 // increment votes based on vote after determining whether votee needs to be entered into the database or not
   eventRoutes.post("/:id/vote", (req, res) => {
     let votes = req.body.votes;
-    knex.raw(`SELECT email FROM users WHERE email = '${req.body.userdata[1].value}'`)
-    .then((result) => {
-      if(!result.length) {
-        verifyUser(2, req)
-        .then(() => {
+    let name = req.body.userdata[0].value;
+    let email = req.body.userdata[1].value;
+    if(name && email) {
+      knex.raw(`SELECT email FROM users WHERE email = '${email}'`)
+      .then((result) => {
+        if(!result.length) {
+          verifyUser(2, req)
+          .then(() => {
+            return getEventAndUser(req)
+          }).then((multiresult) => {
+            return addVotes(multiresult)
+          });
+        } else {
           return getEventAndUser(req)
-        }).then((multiresult) => {
-          return addVotes(multiresult)
-        });
-      } else {
-        return getEventAndUser(req)
-        .then((multiresult) => {
-          return addVotes(multiresult)
-        });
-      }
-    })
-    .then(() => {
-      if (votes) {
-        for (let data of votes) {
-          let voteAdd = (Number(data.votecount) + 1);
-          let voteId = Number(data.voteid);
-          knex.raw(`UPDATE proposed_dates SET votes = ${voteAdd}
-            WHERE id = ${voteId}
-          `).then();
+          .then((multiresult) => {
+            return addVotes(multiresult)
+          });
         }
-        res.send( {redirect: req.session.temp} );
-      } else {
-        res.send( {redirect: req.session.temp} );
-      }
-    });
+      })
+      .then(() => {
+        if (votes) {
+          for (let data of votes) {
+            let voteAdd = (Number(data.votecount) + 1);
+            let voteId = Number(data.voteid);
+            knex.raw(`UPDATE proposed_dates SET votes = ${voteAdd}
+              WHERE id = ${voteId}
+            `).then();
+          }
+          res.send( {redirect: req.session.temp} );
+        } else {
+          res.send( {redirect: req.session.temp} );
+        }
+      });
+    } else {
+      res.send( {redirect: req.session.temp} );
+    }
   });
 
 // deletes time slot from proposed_dates based on voteid of the element clicked
