@@ -25,8 +25,15 @@ module.exports = (knex) => {
     })
   }
 
-  function addVotes(req) {
-    
+  function addVotes(multiresult) {
+    let event_id = multiresult[0][0].id;
+    let user_id = multiresult[1][0].id;
+    let userUrl = randomURL();
+    return knex('events_users').insert({
+      event_id: event_id,
+      user_id: user_id,
+      short_url: userUrl,
+    });
   }
 
   function getEventAndUser(req) {
@@ -108,31 +115,17 @@ module.exports = (knex) => {
         .then(() => {
           return getEventAndUser(req)
         }).then((multiresult) => {
-          let event_id = multiresult[0][0].id;
-          let user_id = multiresult[1][0].id;
-          let userUrl = randomURL();
-          return knex('events_users').insert({
-            event_id: event_id,
-            user_id: user_id,
-            short_url: userUrl,
-          });
+          return addVotes(multiresult)
         });
       } else {
         return getEventAndUser(req)
         .then((multiresult) => {
-          let event_id = multiresult[0][0].id;
-          let user_id = multiresult[1][0].id;
-          let userUrl = randomURL();
-          return knex('events_users').insert({
-            event_id: event_id,
-            user_id: user_id,
-            short_url: userUrl,
-          });
+          return addVotes(multiresult)
         });
       }
     })
     .then(() => {
-      if (votes.length) {
+      if (votes) {
         for (let data of votes) {
           let voteAdd = (Number(data.votecount) + 1);
           let voteId = Number(data.voteid);
