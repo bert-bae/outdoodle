@@ -54,9 +54,6 @@ module.exports = (knex) => {
     `)
     .then((result) => {
       if (result.rows.length > 0) {
-        let rows = result.rows;
-        let startTime = 'proposed_start_time';
-        let endTime = 'proposed_end_time';
         res.render('event', { data: result.rows } );
       } else {
         knex.raw(`SELECT * FROM events
@@ -93,8 +90,6 @@ module.exports = (knex) => {
 // increment votes based on vote after determining whether votee needs to be entered into the database or not
   eventRoutes.post("/:id/vote", (req, res) => {
     let votes = req.body.votes;
-    let votesdata = {};
-    let name = req.body.userdata[0].value;
     knex.raw(`SELECT email FROM users WHERE email = '${req.body.userdata[1].value}'`)
     .then((result) => {
       if(!result.length) {
