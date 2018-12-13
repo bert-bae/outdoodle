@@ -25,7 +25,7 @@ module.exports = (knex) => {
     })
   }
 
-  function addVotes(multiresult) {
+  function createEventUserRelation(multiresult) {
     let event_id = multiresult[0][0].id;
     let user_id = multiresult[1][0].id;
     let userUrl = randomURL();
@@ -118,12 +118,12 @@ module.exports = (knex) => {
           .then(() => {
             return getEventAndUser(req)
           }).then((multiresult) => {
-            return addVotes(multiresult)
+            return createEventUserRelation(multiresult)
           });
         } else {
           return getEventAndUser(req)
           .then((multiresult) => {
-            return addVotes(multiresult)
+            return createEventUserRelation(multiresult)
           });
         }
       })
