@@ -2,6 +2,8 @@
 
 ## Collaborators/Group members (Anarchonist7, mBarlescu, bert-bae)
 
+We were provided 5 days to complete a MVD (minimum viable demo) application (copy of doodle) as a part of Lighthouse Lab's curriculum in a group. As such, the code is a bit rushed and refactoring and redesign is definitely a possibility!
+
 ## How to get started
 
 - Fork and clone this repo.
